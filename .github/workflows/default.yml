@@ -1,0 +1,92 @@
+name: Default
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - run: ./gradlew clean test
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: test-results
+          path: |
+            build/test-results
+            build/reports
+      - run: |
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock
+          rm -f ~/.gradle/caches/modules-2/gc.properties
+  db-test:
+    name: DB test
+    runs-on: ubuntu-20.04
+    services:
+      localstack:
+        image: localstack/localstack
+        env:
+          SERVICES: dynamodb
+        ports:
+          - 4566:4566
+    env:
+      AWS_EC2_METADATA_DISABLED: true
+      DYNAMODB_URL: http://localhost:4566
+      AWS_DEFAULT_REGION: us-east-2
+      AWS_ACCESS_KEY_ID: accessKey
+      AWS_SECRET_ACCESS_KEY: secretKey
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - run: votes/dynamodb/src/test/resources/seed.sh
+      - run: ./gradlew clean dbTest
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: test-results
+          path: |
+            build/test-results
+            build/reports
+      - run: |
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock
+          rm -f ~/.gradle/caches/modules-2/gc.properties
+  test-publish:
+    name: Publish test results
+    runs-on: ubuntu-20.04
+    needs:
+      - test
+      - db-test
+    if: always()
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: test-results
+      - run: ls -laR
+      - uses: mikepenz/action-junit-report@v2
+        with:
+          report_paths: 'test-results/**/TEST-*.xml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
