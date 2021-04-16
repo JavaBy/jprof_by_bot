@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 20
+    MemorySize: 512
+
+Resources:
+  Handler:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: build/libs/lambda-all.jar
+      Handler: by.jprof.telegram.bot.runners.lambda.JProf
+      Runtime: java11
+      Events:
+        Invoke:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get

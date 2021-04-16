@@ -1,0 +1,27 @@
+[versions]
+aws-lambda-java-events = "3.8.0"
+aws-lambda-java-core = "1.2.1"
+aws-lambda-java-log4j2 = "1.2.0"
+
+jackson = "2.12.3"
+
+tgbotapi = "0.33.3"
+
+log4j = "2.14.1"
+
+[libraries]
+aws-lambda-java-events = { group = "com.amazonaws", name = "aws-lambda-java-events", version.ref = "aws-lambda-java-events" }
+aws-lambda-java-core = { group = "com.amazonaws", name = "aws-lambda-java-core", version.ref = "aws-lambda-java-core" }
+aws-lambda-java-log4j2 = { group = "com.amazonaws", name = "aws-lambda-java-log4j2", version.ref = "aws-lambda-java-log4j2" }
+
+jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jackson" }
+
+tgbotapi-core = { group = "dev.inmo", name = "tgbotapi.core", version.ref = "tgbotapi" }
+
+log4j-core = { group = "org.apache.logging.log4j", name = "log4j-core", version.ref = "log4j" }
+log4j-slf4j-impl = { group = "org.apache.logging.log4j", name = "log4j-slf4j-impl", version.ref = "log4j" }
+
+[bundles]
+tgbotapi = ["tgbotapi-core"]
+log4j = ["log4j-core", "log4j-slf4j-impl"]
+aws-lambda = ["aws-lambda-java-events", "aws-lambda-java-core", "aws-lambda-java-log4j2", "jackson-databind"]
