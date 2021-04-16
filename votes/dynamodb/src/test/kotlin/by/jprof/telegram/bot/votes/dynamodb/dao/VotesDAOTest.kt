@@ -57,15 +57,15 @@ internal class VotesDAOTest {
         }
 
         override fun region(): String {
-            return System.getenv("DYNAMODB_REGION")
+            return System.getenv("AWS_DEFAULT_REGION")
         }
 
         override fun accessKey(): String {
-            return System.getenv("DYNAMODB_ACCESS_KEY")
+            return System.getenv("AWS_ACCESS_KEY_ID")
         }
 
         override fun secretKey(): String {
-            return System.getenv("DYNAMODB_SECRET_KEY")
+            return System.getenv("AWS_SECRET_ACCESS_KEY")
         }
     }
 }
