@@ -2,6 +2,7 @@ package by.jprof.telegram.bot.runners.lambda
 
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.runners.lambda.config.envModule
+import by.jprof.telegram.bot.runners.lambda.config.jsonModule
 import by.jprof.telegram.bot.runners.lambda.config.pipelineModule
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
@@ -30,7 +31,7 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
 
     init {
         startKoin {
-            modules(envModule, pipelineModule)
+            modules(envModule, jsonModule, pipelineModule)
         }
     }
 
