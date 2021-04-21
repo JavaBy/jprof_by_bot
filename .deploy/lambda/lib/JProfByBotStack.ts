@@ -35,5 +35,9 @@ export class JProfByBotStack extends cdk.Stack {
     api.root
       .addResource(props.telegramToken.replace(':', '_'))
       .addMethod('POST', new apigateway.LambdaIntegration(lambdaWebhook));
+
+    new cdk.CfnOutput(this, 'URL', {
+      value: api.deploymentStage.urlForPath()
+    });
   }
 }
