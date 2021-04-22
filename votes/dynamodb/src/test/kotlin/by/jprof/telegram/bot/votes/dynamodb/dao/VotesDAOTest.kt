@@ -9,11 +9,13 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.extension.ExtendWith
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 
 @Tag("db")
 @ExtendWith(DynamoDB::class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class VotesDAOTest {
     @AWSClient(endpoint = Endpoint::class)
     private lateinit var dynamoDB: DynamoDbAsyncClient
@@ -55,15 +57,15 @@ internal class VotesDAOTest {
         }
 
         override fun region(): String {
-            return System.getenv("DYNAMODB_REGION")
+            return System.getenv("AWS_DEFAULT_REGION")
         }
 
         override fun accessKey(): String {
-            return System.getenv("DYNAMODB_ACCESS_KEY")
+            return System.getenv("AWS_ACCESS_KEY_ID")
         }
 
         override fun secretKey(): String {
-            return System.getenv("DYNAMODB_SECRET_KEY")
+            return System.getenv("AWS_SECRET_ACCESS_KEY")
         }
     }
 }

@@ -10,7 +10,7 @@ Resources:
   Handler:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: build/libs/lambda-all.jar
+      CodeUri: build/libs/jprof_by_bot-runners-lambda-all.jar
       Handler: by.jprof.telegram.bot.runners.lambda.JProf
       Runtime: java11
       Events:

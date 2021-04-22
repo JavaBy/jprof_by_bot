@@ -11,28 +11,23 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
           java-version: 11
-      - uses: actions/cache@v2
+          distribution: adopt
+      - uses: burrunan/gradle-cache-action@v1
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          job-id: test
+          read-only: ${{ github.ref != 'refs/heads/master' }}
       - run: ./gradlew clean test
       - uses: actions/upload-artifact@v2
         if: always()
         with:
           name: test-results
           path: |
-            build/test-results
-            build/reports
-      - run: |
-          rm -f ~/.gradle/caches/modules-2/modules-2.lock
-          rm -f ~/.gradle/caches/modules-2/gc.properties
+            **/build/test-results
+            **/build/reports
+
   db-test:
     name: DB test
     runs-on: ubuntu-20.04
@@ -51,17 +46,14 @@ jobs:
       AWS_SECRET_ACCESS_KEY: secretKey
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
           java-version: 11
-      - uses: actions/cache@v2
+          distribution: adopt
+      - uses: burrunan/gradle-cache-action@v1
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          job-id: db-test
+          read-only: ${{ github.ref != 'refs/heads/master' }}
       - run: votes/dynamodb/src/test/resources/seed.sh
       - run: ./gradlew clean dbTest
       - uses: actions/upload-artifact@v2
@@ -69,11 +61,9 @@ jobs:
         with:
           name: test-results
           path: |
-            build/test-results
-            build/reports
-      - run: |
-          rm -f ~/.gradle/caches/modules-2/modules-2.lock
-          rm -f ~/.gradle/caches/modules-2/gc.properties
+            **/build/test-results
+            **/build/reports
+
   test-publish:
     name: Publish test results
     runs-on: ubuntu-20.04

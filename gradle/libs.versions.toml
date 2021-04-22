@@ -6,6 +6,8 @@ aws-lambda-java-core = "1.2.1"
 aws-lambda-java-log4j2 = "1.2.0"
 awssdk = "2.16.43"
 
+koin = "3.0.1"
+
 jackson = "2.12.3"
 
 tgbotapi = "0.33.3"
@@ -23,10 +25,13 @@ aws-lambda-java-core = { group = "com.amazonaws", name = "aws-lambda-java-core",
 aws-lambda-java-log4j2 = { group = "com.amazonaws", name = "aws-lambda-java-log4j2", version.ref = "aws-lambda-java-log4j2" }
 dynamodb = { group = "software.amazon.awssdk", name = "dynamodb", version.ref = "awssdk" }
 
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+
 jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jackson" }
 
 tgbotapi-core = { group = "dev.inmo", name = "tgbotapi.core", version.ref = "tgbotapi" }
 
+log4j-api = { group = "org.apache.logging.log4j", name = "log4j-api", version.ref = "log4j" }
 log4j-core = { group = "org.apache.logging.log4j", name = "log4j-core", version.ref = "log4j" }
 log4j-slf4j-impl = { group = "org.apache.logging.log4j", name = "log4j-slf4j-impl", version.ref = "log4j" }
 
