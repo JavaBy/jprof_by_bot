@@ -35,8 +35,8 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
-      - run: npx cdk deploy -O cdk.out/outputs.json
+          aws-region: us-east-1
+      - run: npx cdk deploy --outputs-file=cdk.out/outputs.json --require-approval=never
         working-directory: .deploy/lambda
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

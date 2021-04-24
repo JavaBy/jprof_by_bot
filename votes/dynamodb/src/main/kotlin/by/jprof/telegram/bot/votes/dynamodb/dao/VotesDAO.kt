@@ -11,8 +11,8 @@ import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 
 @Suppress("unused")
 class VotesDAO(
-        private val dynamoDb: DynamoDbAsyncClient,
-        private val table: String
+    private val dynamoDb: DynamoDbAsyncClient,
+    private val table: String
 ) : VotesDAO {
     override suspend fun save(votes: Votes) {
         withContext(Dispatchers.IO) {
@@ -34,17 +34,17 @@ class VotesDAO(
 }
 
 fun Votes.toAttributes(): Map<String, AttributeValue> = mapOf(
-        "id" to this.id.toAttributeValue(),
-        "options" to this.options.map { it.toAttributeValue() }.toAttributeValue(),
-        "votes" to this.votes.mapValues { (_, value) -> value.toAttributeValue() }.toAttributeValue()
+    "id" to this.id.toAttributeValue(),
+    "options" to this.options.map { it.toAttributeValue() }.toAttributeValue(),
+    "votes" to this.votes.mapValues { (_, value) -> value.toAttributeValue() }.toAttributeValue()
 )
 
 fun Map<String, AttributeValue>.toVotes(): Votes = Votes(
-        id = this["id"]?.s() ?: throw IllegalStateException("Missing id property"),
-        options = this["options"]?.l()
-                ?.mapNotNull { it.s() }
-                ?: emptyList(),
-        votes = this["votes"]?.m()
-                ?.mapValues { (_, value) -> value.s() ?: "" }
-                ?: emptyMap()
+    id = this["id"]?.s() ?: throw IllegalStateException("Missing id property"),
+    options = this["options"]?.l()
+        ?.mapNotNull { it.s() }
+        ?: emptyList(),
+    votes = this["votes"]?.m()
+        ?.mapValues { (_, value) -> value.s() ?: "" }
+        ?: emptyMap()
 )

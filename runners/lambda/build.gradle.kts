@@ -9,4 +9,6 @@ dependencies {
     implementation(libs.bundles.tgbotapi)
     implementation(libs.bundles.log4j)
     implementation(project(":core"))
+    implementation(project(":votes:dynamodb"))
+    implementation(project(":jep"))
 }
