@@ -25,14 +25,10 @@ jobs:
           job-id: deploy
           read-only: ${{ github.ref != 'refs/heads/master' }}
       - run: ./gradlew clean shadowJar
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: test-results
-          path: |
-            **/build/test-results
-            **/build/reports
 
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
       - run: npm install
         working-directory: .deploy/lambda
       - uses: aws-actions/configure-aws-credentials@v1
