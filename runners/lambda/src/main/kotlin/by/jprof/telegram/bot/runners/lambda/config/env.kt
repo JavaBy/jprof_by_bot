@@ -3,8 +3,14 @@ package by.jprof.telegram.bot.runners.lambda.config
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
+const val TELEGRAM_BOT_TOKEN = "TELEGRAM_BOT_TOKEN"
+const val TABLE_VOTES = "TABLE_VOTES"
+
 val envModule = module {
-    emptyList<String>().forEach { variable ->
+    listOf(
+        TELEGRAM_BOT_TOKEN,
+        TABLE_VOTES,
+    ).forEach { variable ->
         single(named(variable)) {
             System.getenv(variable)!!
         }

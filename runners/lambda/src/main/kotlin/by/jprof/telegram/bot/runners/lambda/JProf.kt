@@ -1,9 +1,7 @@
 package by.jprof.telegram.bot.runners.lambda
 
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
-import by.jprof.telegram.bot.runners.lambda.config.envModule
-import by.jprof.telegram.bot.runners.lambda.config.jsonModule
-import by.jprof.telegram.bot.runners.lambda.config.pipelineModule
+import by.jprof.telegram.bot.runners.lambda.config.*
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent
@@ -20,18 +18,26 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
     companion object {
         private val logger = LogManager.getLogger(JProf::class.java)
         private val OK = APIGatewayV2HTTPResponse
-                .builder()
-                .withStatusCode(200)
-                .withHeaders(mapOf(
-                        "Content-Type" to "application/json"
-                ))
-                .withBody("{}")
-                .build()
+            .builder()
+            .withStatusCode(200)
+            .withHeaders(
+                mapOf(
+                    "Content-Type" to "application/json"
+                )
+            )
+            .withBody("{}")
+            .build()
     }
 
     init {
         startKoin {
-            modules(envModule, jsonModule, pipelineModule)
+            modules(
+                envModule,
+                databaseModule,
+                jsonModule,
+                telegramModule,
+                pipelineModule
+            )
         }
     }
 

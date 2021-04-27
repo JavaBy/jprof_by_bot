@@ -14,46 +14,48 @@ internal class VotesTest {
     @Test
     fun toAttributeValuesNoVotes() {
         Assertions.assertEquals(
-                attributes.toMutableMap().apply { this["votes"] = AttributeValue.builder().m(emptyMap()).build() },
-                votes.copy(votes = emptyMap()).toAttributes()
+            attributes.toMutableMap().apply { this["votes"] = AttributeValue.builder().m(emptyMap()).build() },
+            votes.copy(votes = emptyMap()).toAttributes()
         )
     }
 
     @Test
     fun toVotes() {
         Assertions.assertEquals(
-                votes,
-                attributes.toVotes()
+            votes,
+            attributes.toVotes()
         )
     }
 
     @Test
     fun toVotesNoVotes() {
         Assertions.assertEquals(
-                votes.copy(votes = emptyMap()),
-                attributes.toMutableMap().apply { this.remove("votes") }.toVotes(),
+            votes.copy(votes = emptyMap()),
+            attributes.toMutableMap().apply { this.remove("votes") }.toVotes(),
         )
     }
 
     private val votes
         get() = Votes(
-                id = "test",
-                options = listOf("+", "-"),
-                votes = mapOf(
-                        "User1" to "+",
-                        "User2" to "-",
-                )
+            id = "test",
+            options = listOf("+", "-"),
+            votes = mapOf(
+                "User1" to "+",
+                "User2" to "-",
+            )
         )
     private val attributes
         get() = mapOf(
-                "id" to AttributeValue.builder().s("test").build(),
-                "options" to AttributeValue.builder().l(
-                        AttributeValue.builder().s("+").build(),
-                        AttributeValue.builder().s("-").build(),
-                ).build(),
-                "votes" to AttributeValue.builder().m(mapOf(
-                        "User1" to AttributeValue.builder().s("+").build(),
-                        "User2" to AttributeValue.builder().s("-").build(),
-                )).build(),
+            "id" to AttributeValue.builder().s("test").build(),
+            "options" to AttributeValue.builder().l(
+                AttributeValue.builder().s("+").build(),
+                AttributeValue.builder().s("-").build(),
+            ).build(),
+            "votes" to AttributeValue.builder().m(
+                mapOf(
+                    "User1" to AttributeValue.builder().s("+").build(),
+                    "User2" to AttributeValue.builder().s("-").build(),
+                )
+            ).build(),
         )
 }

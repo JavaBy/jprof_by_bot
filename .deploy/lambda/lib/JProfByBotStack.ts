@@ -1,12 +1,20 @@
 import * as cdk from '@aws-cdk/core';
-import { Duration } from '@aws-cdk/core';
+import { Duration, RemovalPolicy } from '@aws-cdk/core';
 import { JProfByBotStackProps } from './JProfByBotStackProps';
-import lambda = require('@aws-cdk/aws-lambda');
-import apigateway = require('@aws-cdk/aws-apigateway');
+import * as dynamodb from '@aws-cdk/aws-dynamodb';
+import * as lambda from '@aws-cdk/aws-lambda';
+import * as apigateway from '@aws-cdk/aws-apigateway';
 
 export class JProfByBotStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: JProfByBotStackProps) {
     super(scope, id, props);
+
+    const votesTable = new dynamodb.Table(this, 'jprof-by-bot-table-votes', {
+      tableName: 'jprof-by-bot-table-votes',
+      partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+      removalPolicy: RemovalPolicy.DESTROY,
+    });
 
     const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
       functionName: 'jprof-by-bot-lambda-webhook',
@@ -17,8 +25,12 @@ export class JProfByBotStack extends cdk.Stack {
       handler: 'by.jprof.telegram.bot.runners.lambda.JProf',
       environment: {
         'LOG_THRESHOLD': 'DEBUG',
+        'TABLE_VOTES': votesTable.tableName,
+        'TELEGRAM_BOT_TOKEN': props.telegramToken,
       },
     });
+
+    votesTable.grantReadWriteData(lambdaWebhook);
 
     const api = new apigateway.RestApi(this, 'jprof-by-bot-api', {
       restApiName: 'jprof-by-bot-api',
