@@ -1,9 +1,9 @@
 package by.jprof.telegram.bot.votes.dynamodb.dao
 
+import by.jprof.telegram.bot.utils.aws_junit5.Endpoint
 import by.jprof.telegram.bot.votes.model.Votes
 import kotlinx.coroutines.runBlocking
 import me.madhead.aws_junit5.common.AWSClient
-import me.madhead.aws_junit5.common.AWSEndpoint
 import me.madhead.aws_junit5.dynamo.v2.DynamoDB
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.extension.ExtendWith
@@ -46,22 +46,4 @@ internal class VotesDAOTest {
                 "User2" to "-",
             )
         )
-
-    class Endpoint : AWSEndpoint {
-        override fun url(): String {
-            return System.getenv("DYNAMODB_URL")
-        }
-
-        override fun region(): String {
-            return System.getenv("AWS_DEFAULT_REGION")
-        }
-
-        override fun accessKey(): String {
-            return System.getenv("AWS_ACCESS_KEY_ID")
-        }
-
-        override fun secretKey(): String {
-            return System.getenv("AWS_SECRET_ACCESS_KEY")
-        }
-    }
 }
