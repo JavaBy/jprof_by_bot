@@ -4,13 +4,10 @@ import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.votes.dao.VotesDAO
 import by.jprof.telegram.bot.votes.model.Votes
 import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
+import by.jprof.telegram.bot.votes.voting_processor.VotingProcessor
 import dev.inmo.tgbotapi.CommonAbstracts.justTextSources
 import dev.inmo.tgbotapi.bot.RequestsExecutor
-import dev.inmo.tgbotapi.extensions.api.answers.answerCallbackQuery
-import dev.inmo.tgbotapi.extensions.api.edit.ReplyMarkup.editMessageReplyMarkup
 import dev.inmo.tgbotapi.extensions.api.send.reply
-import dev.inmo.tgbotapi.types.CallbackQuery.CallbackQuery
-import dev.inmo.tgbotapi.types.CallbackQuery.MessageDataCallbackQuery
 import dev.inmo.tgbotapi.types.MessageEntity.textsources.TextLinkTextSource
 import dev.inmo.tgbotapi.types.MessageEntity.textsources.URLTextSource
 import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
@@ -26,11 +23,18 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 import org.apache.logging.log4j.LogManager
 
+private fun votesConstructor(votesId: String): Votes = Votes(votesId, listOf("\uD83D\uDC4D", "\uD83D\uDC4E"))
+
 class JEPUpdateProcessor(
     private val jepSummary: JEPSummary,
     private val votesDAO: VotesDAO,
     private val bot: RequestsExecutor,
-) : UpdateProcessor {
+) : VotingProcessor(
+    "JEP",
+    votesDAO,
+    ::votesConstructor,
+    bot,
+), UpdateProcessor {
     companion object {
         val logger = LogManager.getLogger(JEPUpdateProcessor::class.java)!!
         val linkRegex = "https?://openjdk\\.java\\.net/jeps/(\\d+)/?".toRegex()
@@ -54,27 +58,6 @@ class JEPUpdateProcessor(
             jeps
                 .map { launch { replyToJEPMention(it, message) } }
                 .joinAll()
-        }
-    }
-
-    private suspend fun processCallbackQuery(callbackQuery: CallbackQuery) {
-        logger.debug("Processing callback query: {}", callbackQuery)
-
-        (callbackQuery as? MessageDataCallbackQuery)?.data?.takeIf { it.startsWith("JEP") }?.let { data ->
-            val (votesId, vote) = data.split(":").takeIf { it.size == 2 } ?: return
-            val fromUserId = callbackQuery.user.id.chatId.toString()
-
-            logger.debug("Tracking {}'s '{}' vote for {}", fromUserId, vote, votesId)
-
-            val votes = votesDAO.get(votesId) ?: votesId.toVotes()
-            val updatedVotes = votes.copy(votes = votes.votes + (fromUserId to vote))
-
-            votesDAO.save(updatedVotes)
-            bot.answerCallbackQuery(callbackQuery)
-            bot.editMessageReplyMarkup(
-                message = callbackQuery.message,
-                replyMarkup = updatedVotes.toInlineKeyboardMarkup()
-            )
         }
     }
 
@@ -107,7 +90,7 @@ class JEPUpdateProcessor(
             "Cast your vote for *JEP $jep* now ⤵️"
         }
         val votesId = jep.toVotesID()
-        val votes = votesDAO.get(votesId) ?: votesId.toVotes()
+        val votes = votesDAO.get(votesId) ?: votesConstructor(votesId)
 
         bot.reply(
             to = message,
@@ -118,6 +101,4 @@ class JEPUpdateProcessor(
     }
 
     private fun String.toVotesID() = "JEP-$this"
-
-    private fun String.toVotes() = Votes(this, listOf("\uD83D\uDC4D", "\uD83D\uDC4E"))
 }
