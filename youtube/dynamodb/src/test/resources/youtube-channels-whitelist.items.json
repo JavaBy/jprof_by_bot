@@ -1,0 +1,13 @@
+{
+  "youtube-channels-whitelist": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {
+            "S": "test"
+          }
+        }
+      }
+    }
+  ]
+}

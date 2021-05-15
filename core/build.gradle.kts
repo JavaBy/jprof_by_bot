@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    api(libs.bundles.tgbotapi)
+    api(libs.tgbotapi.core)
     implementation(libs.log4j.api)
 
     testImplementation(libs.junit.jupiter.api)

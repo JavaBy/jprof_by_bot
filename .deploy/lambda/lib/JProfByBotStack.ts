@@ -15,6 +15,11 @@ export class JProfByBotStack extends cdk.Stack {
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
       removalPolicy: RemovalPolicy.DESTROY,
     });
+    const youtubeChannelsWhitelistTable = new dynamodb.Table(this, 'jprof-by-bot-table-youtube-channels-whitelist', {
+      tableName: 'jprof-by-bot-table-youtube-channels-whitelist',
+      partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+    });
 
     const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
       functionName: 'jprof-by-bot-lambda-webhook',
@@ -26,11 +31,14 @@ export class JProfByBotStack extends cdk.Stack {
       environment: {
         'LOG_THRESHOLD': 'DEBUG',
         'TABLE_VOTES': votesTable.tableName,
-        'TELEGRAM_BOT_TOKEN': props.telegramToken,
+        'TABLE_YOUTUBE_CHANNELS_WHITELIST': youtubeChannelsWhitelistTable.tableName,
+        'TOKEN_TELEGRAM_BOT': props.telegramToken,
+        'TOKEN_YOUTUBE_API': props.youtubeToken,
       },
     });
 
     votesTable.grantReadWriteData(lambdaWebhook);
+    youtubeChannelsWhitelistTable.grantReadData(lambdaWebhook);
 
     const api = new apigateway.RestApi(this, 'jprof-by-bot-api', {
       restApiName: 'jprof-by-bot-api',
