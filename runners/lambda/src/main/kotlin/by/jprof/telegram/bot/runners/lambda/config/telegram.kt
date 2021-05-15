@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 val telegramModule = module {
     single {
-        telegramBot(get<String>(named(TELEGRAM_BOT_TOKEN)))
+        telegramBot(get<String>(named(TOKEN_TELEGRAM_BOT)))
     }
 }

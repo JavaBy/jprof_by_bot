@@ -11,4 +11,5 @@ dependencies {
     implementation(project.projects.core)
     implementation(project.projects.votes.dynamodb)
     implementation(project.projects.jep)
+    implementation(project.projects.youtube.dynamodb)
 }

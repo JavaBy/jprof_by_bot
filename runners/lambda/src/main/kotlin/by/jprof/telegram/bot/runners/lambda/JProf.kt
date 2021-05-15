@@ -36,7 +36,8 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
                 databaseModule,
                 jsonModule,
                 telegramModule,
-                pipelineModule
+                youtubeModule,
+                pipelineModule,
             )
         }
     }

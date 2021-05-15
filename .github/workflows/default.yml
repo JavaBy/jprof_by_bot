@@ -55,6 +55,7 @@ jobs:
           job-id: db-test
           read-only: ${{ github.ref != 'refs/heads/master' }}
       - run: votes/dynamodb/src/test/resources/seed.sh
+      - run: youtube/dynamodb/src/test/resources/seed.sh
       - run: ./gradlew clean dbTest
       - uses: actions/upload-artifact@v2
         if: always()

@@ -39,7 +39,8 @@ jobs:
       - run: npx cdk deploy --outputs-file=cdk.out/outputs.json --require-approval=never
         working-directory: .deploy/lambda
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TOKEN_TELEGRAM_BOT: ${{ secrets.TOKEN_TELEGRAM_BOT }}
+          TOKEN_YOUTUBE_API: ${{ secrets.TOKEN_YOUTUBE_API }}
       - id: URL
         run: echo "::set-output name=URL::$(jq -r '.JProfByBotStack.URL' cdk.out/outputs.json)"
         working-directory: .deploy/lambda
