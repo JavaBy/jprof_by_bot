@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    api(project(":votes"))
+    api(project.projects.votes)
     api(libs.dynamodb)
-    implementation(project(":utils:dynamodb"))
+    implementation(project.projects.utils.dynamodb)
     implementation(libs.kotlinx.coroutines.jdk8)
 
     testImplementation(libs.junit.jupiter.api)

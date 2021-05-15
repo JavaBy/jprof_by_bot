@@ -8,7 +8,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.bundles.tgbotapi)
     implementation(libs.bundles.log4j)
-    implementation(project(":core"))
-    implementation(project(":votes:dynamodb"))
-    implementation(project(":jep"))
+    implementation(project.projects.core)
+    implementation(project.projects.votes.dynamodb)
+    implementation(project.projects.jep)
 }
