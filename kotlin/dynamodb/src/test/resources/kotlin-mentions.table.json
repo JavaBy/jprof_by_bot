@@ -1,0 +1,19 @@
+{
+  "TableName": "kotlin-mentions",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "chat",
+      "AttributeType": "N"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "chat",
+      "KeyType": "HASH"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}

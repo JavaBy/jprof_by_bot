@@ -1,6 +1,7 @@
 package by.jprof.telegram.bot.youtube.dynamodb.dao
 
 import by.jprof.telegram.bot.utils.dynamodb.toAttributeValue
+import by.jprof.telegram.bot.utils.dynamodb.toString
 import by.jprof.telegram.bot.youtube.dao.YouTubeChannelsWhitelistDAO
 import by.jprof.telegram.bot.youtube.model.YouTubeChannel
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +10,6 @@ import kotlinx.coroutines.withContext
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 
-@Suppress("unused")
 class YouTubeChannelsWhitelistDAO(
     private val dynamoDb: DynamoDbAsyncClient,
     private val table: String
@@ -25,5 +25,5 @@ class YouTubeChannelsWhitelistDAO(
 }
 
 fun Map<String, AttributeValue>.toYouTubeChannel(): YouTubeChannel = YouTubeChannel(
-    id = this["id"]?.s() ?: throw IllegalStateException("Missing id property"),
+    id = this["id"].toString("id")
 )

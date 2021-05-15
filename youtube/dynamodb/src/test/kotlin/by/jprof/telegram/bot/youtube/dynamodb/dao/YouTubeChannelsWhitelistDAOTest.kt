@@ -22,7 +22,6 @@ internal class YouTubeChannelsWhitelistDAOTest {
         sut = YouTubeChannelsWhitelistDAO(dynamoDB, "youtube-channels-whitelist")
     }
 
-
     @Test
     fun get() = runBlocking {
         Assertions.assertEquals(youTubeChannel, sut.get("test"))

@@ -10,6 +10,7 @@ plugins {
 subprojects {
     repositories {
         mavenCentral()
+        maven("https://packages.jetbrains.team/maven/p/skija/maven")
     }
 
     tasks {
