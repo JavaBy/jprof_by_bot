@@ -36,8 +36,8 @@ class JEPUpdateProcessor(
     bot,
 ), UpdateProcessor {
     companion object {
-        val logger = LogManager.getLogger(JEPUpdateProcessor::class.java)!!
-        val linkRegex = "https?://openjdk\\.java\\.net/jeps/(\\d+)/?".toRegex()
+        private val logger = LogManager.getLogger(JEPUpdateProcessor::class.java)!!
+        private val linkRegex = "https?://openjdk\\.java\\.net/jeps/(\\d+)/?".toRegex()
     }
 
     override suspend fun process(update: Update) {
@@ -99,6 +99,4 @@ class JEPUpdateProcessor(
             replyMarkup = votes.toInlineKeyboardMarkup()
         )
     }
-
-    private fun String.toVotesID() = "JEP-$this"
 }

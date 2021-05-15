@@ -17,7 +17,7 @@ abstract class VotingProcessor(
     private val bot: RequestsExecutor,
 ) {
     companion object {
-        val logger = LogManager.getLogger(VotingProcessor::class.java)!!
+        private val logger = LogManager.getLogger(VotingProcessor::class.java)!!
     }
 
     suspend fun processCallbackQuery(callbackQuery: CallbackQuery) {
@@ -40,4 +40,6 @@ abstract class VotingProcessor(
             )
         }
     }
+
+    protected fun String.toVotesID() = "$prefix-$this"
 }
