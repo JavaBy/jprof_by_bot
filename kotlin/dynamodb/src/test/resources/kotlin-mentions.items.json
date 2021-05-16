@@ -1,0 +1,40 @@
+{
+  "kotlin-mentions": [
+    {
+      "PutRequest": {
+        "Item": {
+          "chat": {
+            "N": "42"
+          },
+          "lastMention": {
+            "N": "1227376823000"
+          },
+          "usersStatistics": {
+            "M": {
+              "1": {
+                "M": {
+                  "count": {
+                    "N": "2"
+                  },
+                  "lastMention": {
+                    "N": "1227376823000"
+                  }
+                }
+              },
+              "2": {
+                "M": {
+                  "count": {
+                    "N": "1"
+                  },
+                  "lastMention": {
+                    "N": "1214996810000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

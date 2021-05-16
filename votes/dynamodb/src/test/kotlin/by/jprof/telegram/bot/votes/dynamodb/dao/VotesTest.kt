@@ -8,11 +8,14 @@ import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 internal class VotesTest {
     @Test
     fun toAttributes() {
-        Assertions.assertEquals(attributes, votes.toAttributes())
+        Assertions.assertEquals(
+            attributes,
+            votes.toAttributes()
+        )
     }
 
     @Test
-    fun toAttributeValuesNoVotes() {
+    fun toAttributesNoVotes() {
         Assertions.assertEquals(
             attributes.toMutableMap().apply { this["votes"] = AttributeValue.builder().m(emptyMap()).build() },
             votes.copy(votes = emptyMap()).toAttributes()

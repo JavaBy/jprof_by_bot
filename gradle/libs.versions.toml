@@ -14,6 +14,8 @@ tgbotapi = "0.33.3"
 
 jsoup = "1.13.1"
 
+skija = "0.91.4"
+
 google-api-services-youtube = "v3-rev20210410-1.31.0"
 
 log4j = "2.14.1"
@@ -39,6 +41,11 @@ tgbotapi-extensions-api = { group = "dev.inmo", name = "tgbotapi.extensions.api"
 tgbotapi-extensions-utils = { group = "dev.inmo", name = "tgbotapi.extensions.utils", version.ref = "tgbotapi" }
 
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
+
+skija-linux = { group = "org.jetbrains.skija", name = "skija-linux", version.ref = "skija" }
+skija-macos-arm64 = { group = "org.jetbrains.skija", name = "skija-macos-arm64", version.ref = "skija" }
+skija-macos-x64 = { group = "org.jetbrains.skija", name = "skija-macos-x64", version.ref = "skija" }
+skija-windows = { group = "org.jetbrains.skija", name = "skija-windows", version.ref = "skija" }
 
 google-api-services-youtube = { group = "com.google.apis", name = "google-api-services-youtube", version.ref = "google-api-services-youtube" }
 

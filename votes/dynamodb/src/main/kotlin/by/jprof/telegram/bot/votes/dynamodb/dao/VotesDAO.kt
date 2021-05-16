@@ -1,6 +1,7 @@
 package by.jprof.telegram.bot.votes.dynamodb.dao
 
 import by.jprof.telegram.bot.utils.dynamodb.toAttributeValue
+import by.jprof.telegram.bot.utils.dynamodb.toString
 import by.jprof.telegram.bot.votes.dao.VotesDAO
 import by.jprof.telegram.bot.votes.model.Votes
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +10,6 @@ import kotlinx.coroutines.withContext
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 
-@Suppress("unused")
 class VotesDAO(
     private val dynamoDb: DynamoDbAsyncClient,
     private val table: String
@@ -40,7 +40,7 @@ fun Votes.toAttributes(): Map<String, AttributeValue> = mapOf(
 )
 
 fun Map<String, AttributeValue>.toVotes(): Votes = Votes(
-    id = this["id"]?.s() ?: throw IllegalStateException("Missing id property"),
+    id = this["id"].toString("id"),
     options = this["options"]?.l()
         ?.mapNotNull { it.s() }
         ?: emptyList(),

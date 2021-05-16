@@ -12,4 +12,5 @@ dependencies {
     implementation(project.projects.votes.dynamodb)
     implementation(project.projects.jep)
     implementation(project.projects.youtube.dynamodb)
+    implementation(project.projects.kotlin.dynamodb)
 }

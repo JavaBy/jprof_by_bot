@@ -20,10 +20,27 @@ export class JProfByBotStack extends cdk.Stack {
       partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
     });
+    const kotlinMentionsTable = new dynamodb.Table(this, 'jprof-by-bot-table-kotlin-mentions', {
+      tableName: 'jprof-by-bot-table-kotlin-mentions',
+      partitionKey: { name: 'chat', type: dynamodb.AttributeType.NUMBER },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+    });
+    const layerLibGL = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libGL', {
+      code: lambda.Code.fromAsset('layers/libGL.zip'),
+      compatibleRuntimes: [lambda.Runtime.JAVA_11],
+    });
+    const layerLibfontconfig = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libfontconfig', {
+      code: lambda.Code.fromAsset('layers/libfontconfig.zip'),
+      compatibleRuntimes: [lambda.Runtime.JAVA_11],
+    });
 
     const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
       functionName: 'jprof-by-bot-lambda-webhook',
       runtime: lambda.Runtime.JAVA_11,
+      layers: [
+        layerLibGL,
+        layerLibfontconfig,
+      ],
       timeout: Duration.seconds(30),
       memorySize: 1024,
       code: lambda.Code.fromAsset('../../runners/lambda/build/libs/jprof_by_bot-runners-lambda-all.jar'),
@@ -32,6 +49,7 @@ export class JProfByBotStack extends cdk.Stack {
         'LOG_THRESHOLD': 'DEBUG',
         'TABLE_VOTES': votesTable.tableName,
         'TABLE_YOUTUBE_CHANNELS_WHITELIST': youtubeChannelsWhitelistTable.tableName,
+        'TABLE_KOTLIN_MENTIONS': kotlinMentionsTable.tableName,
         'TOKEN_TELEGRAM_BOT': props.telegramToken,
         'TOKEN_YOUTUBE_API': props.youtubeToken,
       },
@@ -39,6 +57,7 @@ export class JProfByBotStack extends cdk.Stack {
 
     votesTable.grantReadWriteData(lambdaWebhook);
     youtubeChannelsWhitelistTable.grantReadData(lambdaWebhook);
+    kotlinMentionsTable.grantReadWriteData(lambdaWebhook);
 
     const api = new apigateway.RestApi(this, 'jprof-by-bot-api', {
       restApiName: 'jprof-by-bot-api',

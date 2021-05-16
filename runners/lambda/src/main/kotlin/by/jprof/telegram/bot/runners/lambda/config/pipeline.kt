@@ -4,6 +4,7 @@ import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
+import by.jprof.telegram.bot.kotlin.KotlinMentionsUpdateProcessor
 import by.jprof.telegram.bot.youtube.YouTubeUpdateProcessor
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -27,6 +28,13 @@ val pipelineModule = module {
             votesDAO = get(),
             youTubeChannelsWhitelistDAO = get(),
             youTube = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("KotlinMentionsUpdateProcessor")) {
+        KotlinMentionsUpdateProcessor(
+            kotlinMentionsDAO = get(),
+            bot = get(),
         )
     }
 }
