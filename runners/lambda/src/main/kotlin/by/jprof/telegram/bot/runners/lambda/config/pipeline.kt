@@ -5,6 +5,7 @@ import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
 import by.jprof.telegram.bot.kotlin.KotlinMentionsUpdateProcessor
+import by.jprof.telegram.bot.quizoji.QuizojiUpdateProcessor
 import by.jprof.telegram.bot.youtube.YouTubeUpdateProcessor
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -34,6 +35,12 @@ val pipelineModule = module {
     single<UpdateProcessor>(named("KotlinMentionsUpdateProcessor")) {
         KotlinMentionsUpdateProcessor(
             kotlinMentionsDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("QuizojiUpdateProcessor")) {
+        QuizojiUpdateProcessor(
             bot = get(),
         )
     }
