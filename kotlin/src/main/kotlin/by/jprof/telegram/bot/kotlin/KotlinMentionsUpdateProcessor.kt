@@ -118,5 +118,7 @@ class KotlinMentionsUpdateProcessor(
             ),
             replyToMessageId = message.messageId,
         )
+
+        logger.info("Kotlin mention reported!")
     }
 }
