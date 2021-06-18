@@ -1,5 +1,6 @@
 package by.jprof.telegram.bot.runners.lambda.config
 
+import by.jprof.telegram.bot.achievements.editor.EditorAchievementUpdateProcessor
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
@@ -34,6 +35,12 @@ val pipelineModule = module {
     single<UpdateProcessor>(named("KotlinMentionsUpdateProcessor")) {
         KotlinMentionsUpdateProcessor(
             kotlinMentionsDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("EditorAchievementUpdateProcessor")) {
+        EditorAchievementUpdateProcessor(
             bot = get(),
         )
     }
