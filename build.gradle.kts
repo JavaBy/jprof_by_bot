@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm").version("1.4.32").apply(false)
+    kotlin("plugin.serialization").version("1.4.32").apply(false)
     id("com.github.johnrengelman.shadow").version("6.1.0").apply(false)
 }
 
