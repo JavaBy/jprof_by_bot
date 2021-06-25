@@ -14,15 +14,15 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(MockKExtension::class)
-internal class QuizojiUpdateProcessorTest {
+internal class QuizojiInlineQueryUpdateProcessorTest {
     @MockK(relaxed = true)
     private lateinit var bot: RequestsExecutor
 
-    lateinit var sut: QuizojiUpdateProcessor
+    lateinit var sut: QuizojiInlineQueryUpdateProcessor
 
     @BeforeEach
     fun setUp() {
-        sut = QuizojiUpdateProcessor(
+        sut = QuizojiInlineQueryUpdateProcessor(
             bot = bot,
         )
     }
@@ -47,7 +47,7 @@ internal class QuizojiUpdateProcessorTest {
             InlineQueryUpdate(
                 updateId = 1L,
                 data = BaseInlineQuery(
-                    id = "1",
+                    id = "QuizojiStartCommandUpdateProcessorTest",
                     from = mockk(),
                     query = "alien",
                     offset = "",
@@ -63,7 +63,7 @@ internal class QuizojiUpdateProcessorTest {
     @Test
     fun processQuizojiInilineQuery() = runBlocking {
         val inlineQuery = BaseInlineQuery(
-            id = "1",
+            id = "QuizojiStartCommandUpdateProcessorTest",
             from = mockk(),
             query = "quizoji",
             offset = "",

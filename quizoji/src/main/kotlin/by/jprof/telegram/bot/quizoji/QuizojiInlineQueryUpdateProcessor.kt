@@ -7,11 +7,11 @@ import dev.inmo.tgbotapi.extensions.utils.asInlineQueryUpdate
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import org.apache.logging.log4j.LogManager
 
-class QuizojiUpdateProcessor(
+class QuizojiInlineQueryUpdateProcessor(
     private val bot: RequestsExecutor,
 ) : UpdateProcessor {
     companion object {
-        private val logger = LogManager.getLogger(QuizojiUpdateProcessor::class.java)!!
+        private val logger = LogManager.getLogger(QuizojiInlineQueryUpdateProcessor::class.java)!!
     }
 
     override suspend fun process(update: Update) {
