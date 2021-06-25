@@ -1,0 +1,19 @@
+{
+  "dialog-states": [
+    {
+      "PutRequest": {
+        "Item": {
+          "userId": {
+            "N": "1"
+          },
+          "chatId": {
+            "N": "1"
+          },
+          "value": {
+            "S": "{\n  \"userId\": 1,\n  \"chatId\": 1,\n  \"type\": \"WaitingForQuestion\"\n}\n"
+          }
+        }
+      }
+    }
+  ]
+}

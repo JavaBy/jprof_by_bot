@@ -1,0 +1,27 @@
+{
+  "TableName": "dialog-states",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "chatId",
+      "AttributeType": "N"
+    },
+    {
+      "AttributeName": "userId",
+      "AttributeType": "N"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "userId",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "chatId",
+      "KeyType": "RANGE"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}

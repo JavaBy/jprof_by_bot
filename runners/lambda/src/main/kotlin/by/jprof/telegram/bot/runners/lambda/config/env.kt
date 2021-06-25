@@ -8,6 +8,7 @@ const val TOKEN_YOUTUBE_API = "TOKEN_YOUTUBE_API"
 const val TABLE_VOTES = "TABLE_VOTES"
 const val TABLE_YOUTUBE_CHANNELS_WHITELIST = "TABLE_YOUTUBE_CHANNELS_WHITELIST"
 const val TABLE_KOTLIN_MENTIONS = "TABLE_KOTLIN_MENTIONS"
+const val TABLE_DIALOG_STATES = "TABLE_DIALOG_STATES"
 
 val envModule = module {
     listOf(
@@ -16,6 +17,7 @@ val envModule = module {
         TABLE_VOTES,
         TABLE_YOUTUBE_CHANNELS_WHITELIST,
         TABLE_KOTLIN_MENTIONS,
+        TABLE_DIALOG_STATES,
     ).forEach { variable ->
         single(named(variable)) {
             System.getenv(variable)!!

@@ -25,6 +25,12 @@ export class JProfByBotStack extends cdk.Stack {
       partitionKey: { name: 'chat', type: dynamodb.AttributeType.NUMBER },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
     });
+    const dialogStatesTable = new dynamodb.Table(this, 'jprof-by-bot-table-dialog-states', {
+      tableName: 'jprof-by-bot-table-dialog-states',
+      partitionKey: { name: 'userId', type: dynamodb.AttributeType.NUMBER },
+      sortKey: { name: 'chatId', type: dynamodb.AttributeType.NUMBER },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+    });
     const layerLibGL = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libGL', {
       code: lambda.Code.fromAsset('layers/libGL.zip'),
       compatibleRuntimes: [lambda.Runtime.JAVA_11],
@@ -50,6 +56,7 @@ export class JProfByBotStack extends cdk.Stack {
         'TABLE_VOTES': votesTable.tableName,
         'TABLE_YOUTUBE_CHANNELS_WHITELIST': youtubeChannelsWhitelistTable.tableName,
         'TABLE_KOTLIN_MENTIONS': kotlinMentionsTable.tableName,
+        'TABLE_DIALOG_STATES': dialogStatesTable.tableName,
         'TOKEN_TELEGRAM_BOT': props.telegramToken,
         'TOKEN_YOUTUBE_API': props.youtubeToken,
       },
@@ -58,6 +65,7 @@ export class JProfByBotStack extends cdk.Stack {
     votesTable.grantReadWriteData(lambdaWebhook);
     youtubeChannelsWhitelistTable.grantReadData(lambdaWebhook);
     kotlinMentionsTable.grantReadWriteData(lambdaWebhook);
+    dialogStatesTable.grantReadWriteData(lambdaWebhook);
 
     const api = new apigateway.RestApi(this, 'jprof-by-bot-api', {
       restApiName: 'jprof-by-bot-api',
