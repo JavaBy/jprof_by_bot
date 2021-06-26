@@ -6,6 +6,7 @@ dependencies {
     api(project.projects.dialogs)
     api(libs.dynamodb)
     implementation(project.projects.utils.dynamodb)
+    implementation(project.projects.utils.tgbotapiSerialization)
     implementation(libs.kotlinx.coroutines.jdk8)
     implementation(libs.kotlinx.serialization.json)
 

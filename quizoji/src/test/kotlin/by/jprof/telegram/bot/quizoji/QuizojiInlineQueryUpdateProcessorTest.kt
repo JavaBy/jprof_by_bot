@@ -51,6 +51,7 @@ internal class QuizojiInlineQueryUpdateProcessorTest {
                     from = mockk(),
                     query = "alien",
                     offset = "",
+                    chatType = null,
                 )
             )
         )
@@ -67,6 +68,7 @@ internal class QuizojiInlineQueryUpdateProcessorTest {
             from = mockk(),
             query = "quizoji",
             offset = "",
+            chatType = null,
         )
 
         sut.process(

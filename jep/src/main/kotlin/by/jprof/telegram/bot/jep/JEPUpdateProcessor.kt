@@ -5,7 +5,6 @@ import by.jprof.telegram.bot.votes.dao.VotesDAO
 import by.jprof.telegram.bot.votes.model.Votes
 import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
 import by.jprof.telegram.bot.votes.voting_processor.VotingProcessor
-import dev.inmo.tgbotapi.CommonAbstracts.justTextSources
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.types.MessageEntity.textsources.TextLinkTextSource
@@ -65,8 +64,7 @@ class JEPUpdateProcessor(
         (message as? ContentMessage<*>)?.let { contentMessage ->
             (contentMessage.content as? TextContent)?.let { content ->
                 content
-                    .textEntities
-                    .justTextSources()
+                    .textSources
                     .mapNotNull {
                         (it as? URLTextSource)?.source ?: (it as? TextLinkTextSource)?.url
                     }

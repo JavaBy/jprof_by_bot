@@ -4,5 +4,6 @@ plugins {
 }
 
 dependencies {
+    api(libs.tgbotapi.core)
     implementation(libs.kotlinx.serialization.core)
 }

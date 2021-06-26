@@ -11,7 +11,7 @@ koin = "3.0.1"
 kotlinx-serialization = "1.2.1"
 jackson = "2.12.3"
 
-tgbotapi = "0.33.3"
+tgbotapi = "0.35.0"
 
 jsoup = "1.13.1"
 

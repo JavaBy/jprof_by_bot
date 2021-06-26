@@ -4,12 +4,14 @@ import by.jprof.telegram.bot.dialogs.dao.DialogStateDAO
 import by.jprof.telegram.bot.dialogs.model.DialogState
 import by.jprof.telegram.bot.utils.dynamodb.toAttributeValue
 import by.jprof.telegram.bot.utils.dynamodb.toString
+import by.jprof.telegram.bot.utils.tgbotapi_serialization.TgBotAPI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.future.await
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.modules.plus
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 
@@ -55,7 +57,7 @@ class DialogStateDAO(
     }
 }
 
-private val json = Json { serializersModule = DialogState.serializers }
+private val json = Json { serializersModule = DialogState.serializers + TgBotAPI.module }
 
 fun Map<String, AttributeValue>.toDialogState(): DialogState = json.decodeFromString(this["value"].toString("value"))
 

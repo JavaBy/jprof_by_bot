@@ -29,11 +29,13 @@ class QuizojiStartCommandUpdateProcessor(
             return
         }
 
+        logger.debug("{} started new Quizoji", chat.id.chatId)
+
         dialogStateDAO.save(WaitingForQuestion(chat.id.chatId, message.user.id.chatId))
 
         bot.sendMessage(
             chat = chat,
-            text = "Let's create a Quizoji! First, send me the message. It can be anything — a text, photo, video, even a sticker."
+            text = "Let's create a Quizoji! First, send me the question."
         )
     }
 }
