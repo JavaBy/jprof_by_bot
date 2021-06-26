@@ -48,6 +48,7 @@ val pipelineModule = module {
 
     single<UpdateProcessor>(named("QuizojiStartCommandUpdateProcessor")) {
         QuizojiStartCommandUpdateProcessor(
+            dialogStateDAO = get(),
             bot = get(),
         )
     }

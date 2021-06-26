@@ -1,6 +1,8 @@
 package by.jprof.telegram.bot.quizoji
 
 import by.jprof.telegram.bot.core.UpdateProcessor
+import by.jprof.telegram.bot.dialogs.dao.DialogStateDAO
+import by.jprof.telegram.bot.dialogs.model.quizoji.WaitingForQuestion
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.sendMessage
 import dev.inmo.tgbotapi.extensions.utils.asMessageUpdate
@@ -11,6 +13,7 @@ import dev.inmo.tgbotapi.types.update.abstracts.Update
 import org.apache.logging.log4j.LogManager
 
 class QuizojiStartCommandUpdateProcessor(
+    private val dialogStateDAO: DialogStateDAO,
     private val bot: RequestsExecutor,
 ) : UpdateProcessor {
     companion object {
@@ -25,6 +28,8 @@ class QuizojiStartCommandUpdateProcessor(
         if (content.text != "/start quizoji") {
             return
         }
+
+        dialogStateDAO.save(WaitingForQuestion(chat.id.chatId, message.user.id.chatId))
 
         bot.sendMessage(
             chat = chat,

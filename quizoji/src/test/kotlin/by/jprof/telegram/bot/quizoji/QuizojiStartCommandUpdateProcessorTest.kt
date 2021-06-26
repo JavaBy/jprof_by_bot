@@ -1,10 +1,13 @@
 package by.jprof.telegram.bot.quizoji
 
+import by.jprof.telegram.bot.dialogs.dao.DialogStateDAO
+import by.jprof.telegram.bot.dialogs.model.quizoji.WaitingForQuestion
 import com.soywiz.klock.DateTime
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.sendMessage
 import dev.inmo.tgbotapi.types.Bot
 import dev.inmo.tgbotapi.types.ChatId
+import dev.inmo.tgbotapi.types.CommonUser
 import dev.inmo.tgbotapi.types.chat.PrivateChatImpl
 import dev.inmo.tgbotapi.types.chat.abstracts.PrivateChat
 import dev.inmo.tgbotapi.types.message.PrivateContentMessageImpl
@@ -26,11 +29,15 @@ internal class QuizojiStartCommandUpdateProcessorTest {
     @MockK(relaxed = true)
     private lateinit var bot: RequestsExecutor
 
+    @MockK(relaxed = true)
+    private lateinit var dialogStateDAO: DialogStateDAO
+
     lateinit var sut: QuizojiStartCommandUpdateProcessor
 
     @BeforeEach
     fun setUp() {
         sut = QuizojiStartCommandUpdateProcessor(
+            dialogStateDAO = dialogStateDAO,
             bot = bot,
         )
     }
@@ -44,7 +51,7 @@ internal class QuizojiStartCommandUpdateProcessorTest {
             )
         )
 
-        verify { listOf(bot) wasNot called }
+        verify { listOf(dialogStateDAO, bot) wasNot called }
 
         clearAllMocks()
     }
@@ -58,7 +65,7 @@ internal class QuizojiStartCommandUpdateProcessorTest {
             )
         )
 
-        verify { listOf(bot) wasNot called }
+        verify { listOf(dialogStateDAO, bot) wasNot called }
 
         clearAllMocks()
     }
@@ -84,7 +91,7 @@ internal class QuizojiStartCommandUpdateProcessorTest {
             )
         )
 
-        verify { listOf(bot) wasNot called }
+        verify { listOf(dialogStateDAO, bot) wasNot called }
 
         clearAllMocks()
     }
@@ -110,7 +117,7 @@ internal class QuizojiStartCommandUpdateProcessorTest {
             )
         )
 
-        verify { listOf(bot) wasNot called }
+        verify { listOf(dialogStateDAO, bot) wasNot called }
 
         clearAllMocks()
     }
@@ -138,7 +145,7 @@ internal class QuizojiStartCommandUpdateProcessorTest {
             )
         )
 
-        verify { listOf(bot) wasNot called }
+        verify { listOf(dialogStateDAO, bot) wasNot called }
 
         clearAllMocks()
     }
@@ -154,7 +161,7 @@ internal class QuizojiStartCommandUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = mockk(),
+                    user = CommonUser(id = ChatId(2), "Test"),
                     chat = chat,
                     content = TextContent(
                         text = "/start quizoji"
@@ -170,6 +177,11 @@ internal class QuizojiStartCommandUpdateProcessorTest {
             )
         )
 
+        coVerify(exactly = 1) {
+            dialogStateDAO.save(
+                WaitingForQuestion(chatId = 1, userId = 2)
+            )
+        }
         coVerify(exactly = 1) {
             bot.sendMessage(
                 chat = chat,
