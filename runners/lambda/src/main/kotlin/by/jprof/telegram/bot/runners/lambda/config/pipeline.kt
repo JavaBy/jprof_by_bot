@@ -6,6 +6,7 @@ import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
 import by.jprof.telegram.bot.kotlin.KotlinMentionsUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiInlineQueryUpdateProcessor
+import by.jprof.telegram.bot.quizoji.QuizojiOptionUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiQuestionUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiStartCommandUpdateProcessor
 import by.jprof.telegram.bot.youtube.YouTubeUpdateProcessor
@@ -56,6 +57,13 @@ val pipelineModule = module {
 
     single<UpdateProcessor>(named("QuizojiQuestionUpdateProcessor")) {
         QuizojiQuestionUpdateProcessor(
+            dialogStateDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("QuizojiOptionUpdateProcessor")) {
+        QuizojiOptionUpdateProcessor(
             dialogStateDAO = get(),
             bot = get(),
         )

@@ -11,4 +11,5 @@ data class WaitingForOptions(
     override val chatId: Long,
     override val userId: Long,
     val question: MessageContent,
+    val options: List<String> = emptyList(),
 ) : DialogState
