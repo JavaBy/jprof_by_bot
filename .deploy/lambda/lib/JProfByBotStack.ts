@@ -31,6 +31,12 @@ export class JProfByBotStack extends cdk.Stack {
       sortKey: { name: 'chatId', type: dynamodb.AttributeType.NUMBER },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
     });
+    const quizojisTable = new dynamodb.Table(this, 'jprof-by-bot-table-quizojis', {
+      tableName: 'jprof-by-bot-table-quizojis',
+      partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+    });
+
     const layerLibGL = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libGL', {
       code: lambda.Code.fromAsset('layers/libGL.zip'),
       compatibleRuntimes: [lambda.Runtime.JAVA_11],
@@ -57,6 +63,7 @@ export class JProfByBotStack extends cdk.Stack {
         'TABLE_YOUTUBE_CHANNELS_WHITELIST': youtubeChannelsWhitelistTable.tableName,
         'TABLE_KOTLIN_MENTIONS': kotlinMentionsTable.tableName,
         'TABLE_DIALOG_STATES': dialogStatesTable.tableName,
+        'TABLE_QUIZOJIS': quizojisTable.tableName,
         'TOKEN_TELEGRAM_BOT': props.telegramToken,
         'TOKEN_YOUTUBE_API': props.youtubeToken,
       },
@@ -66,6 +73,7 @@ export class JProfByBotStack extends cdk.Stack {
     youtubeChannelsWhitelistTable.grantReadData(lambdaWebhook);
     kotlinMentionsTable.grantReadWriteData(lambdaWebhook);
     dialogStatesTable.grantReadWriteData(lambdaWebhook);
+    quizojisTable.grantReadWriteData(lambdaWebhook);
 
     const api = new apigateway.RestApi(this, 'jprof-by-bot-api', {
       restApiName: 'jprof-by-bot-api',
