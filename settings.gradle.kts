@@ -5,6 +5,7 @@ rootProject.name = "jprof_by_bot"
 
 include(":utils:dynamodb")
 include(":utils:aws-junit5")
+include(":utils:tgbotapi-serialization")
 include(":votes")
 include(":votes:dynamodb")
 include(":votes:tgbotapi-extensions")
