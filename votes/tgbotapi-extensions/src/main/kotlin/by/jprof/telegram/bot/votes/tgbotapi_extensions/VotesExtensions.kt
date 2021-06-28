@@ -16,3 +16,19 @@ fun Votes.toInlineKeyboardMarkup() = InlineKeyboardMarkup(
             }
     )
 )
+
+fun Votes.toInlineKeyboardMarkup(size: Int) = InlineKeyboardMarkup(
+    if (this.options.isEmpty()) {
+        listOf(emptyList())
+    } else {
+        this
+            .options
+            .map {
+                CallbackDataInlineKeyboardButton(
+                    text = "${this.count(it)} $it",
+                    callbackData = "${this.id}:$it"
+                )
+            }
+            .chunked(size)
+    }
+)
