@@ -46,6 +46,5 @@ internal class QuizojiDAOTest {
                 text = "Choose the door",
                 textSources = listOf(RegularTextSource("Choose the door")),
             ),
-            options = listOf("1", "2", "3"),
         )
 }

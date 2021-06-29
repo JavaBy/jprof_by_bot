@@ -42,13 +42,9 @@ private val json = Json { serializersModule = TgBotAPI.module }
 fun Quizoji.toAttributes(): Map<String, AttributeValue> = mapOf(
     "id" to this.id.toAttributeValue(),
     "question" to json.encodeToString(this.question).toAttributeValue(),
-    "options" to this.options.map { it.toAttributeValue() }.toAttributeValue(),
 )
 
 fun Map<String, AttributeValue>.toQuizoji(): Quizoji = Quizoji(
     id = this["id"].toString("id"),
     question = json.decodeFromString(this["question"].toString("value")),
-    options = this["options"]?.l()
-        ?.mapNotNull { it.s() }
-        ?: emptyList(),
 )

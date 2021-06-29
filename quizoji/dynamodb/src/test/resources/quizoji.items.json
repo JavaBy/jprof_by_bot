@@ -8,19 +8,6 @@
           },
           "question": {
             "S": "{\"type\":\"TextContent\",\"text\":\"Choose the door\",\"textSources\":[{\"type\":\"regular\",\"value\":{\"source\":\"Choose the door\"}}]}"
-          },
-          "options": {
-            "L": [
-              {
-                "S": "1"
-              },
-              {
-                "S": "2"
-              },
-              {
-                "S": "3"
-              }
-            ]
           }
         }
       }

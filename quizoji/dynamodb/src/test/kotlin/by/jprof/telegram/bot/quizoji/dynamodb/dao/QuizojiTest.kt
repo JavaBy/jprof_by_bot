@@ -31,7 +31,6 @@ internal class QuizojiTest {
                 text = "Choose the door",
                 textSources = listOf(RegularTextSource("Choose the door")),
             ),
-            options = listOf("1", "2", "3"),
         )
     private val attributes
         get() = mapOf(
@@ -39,10 +38,5 @@ internal class QuizojiTest {
             "question" to AttributeValue.builder()
                 .s("{\"type\":\"TextContent\",\"text\":\"Choose the door\",\"textSources\":[{\"type\":\"regular\",\"value\":{\"source\":\"Choose the door\"}}]}")
                 .build(),
-            "options" to AttributeValue.builder().l(
-                AttributeValue.builder().s("1").build(),
-                AttributeValue.builder().s("2").build(),
-                AttributeValue.builder().s("3").build(),
-            ).build(),
         )
 }

@@ -6,6 +6,8 @@ dependencies {
     api(project.projects.core)
     api(libs.tgbotapi.core)
     implementation(project.projects.dialogs)
+    implementation(project.projects.votes)
+    implementation(project.projects.votes.tgbotapiExtensions)
     implementation(libs.log4j.api)
     implementation(libs.tgbotapi.extensions.api)
     implementation(libs.tgbotapi.extensions.utils)
