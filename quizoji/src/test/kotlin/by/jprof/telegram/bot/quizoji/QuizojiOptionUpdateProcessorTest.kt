@@ -8,6 +8,7 @@ import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.sendMessage
 import dev.inmo.tgbotapi.types.ChatId
 import dev.inmo.tgbotapi.types.CommonUser
+import dev.inmo.tgbotapi.types.MessageEntity.textsources.BotCommandTextSource
 import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2
 import dev.inmo.tgbotapi.types.chat.PrivateChatImpl
 import dev.inmo.tgbotapi.types.chat.abstracts.ChannelChat
@@ -171,6 +172,42 @@ internal class QuizojiOptionUpdateProcessorTest {
                 text = "Unsupported option type: Dice"
             )
         }
+
+        clearAllMocks()
+    }
+
+    @Test
+    fun processDoneCommand() = runBlocking {
+        val chat = PrivateChatImpl(
+            id = ChatId(1),
+        )
+
+        coEvery { dialogStateDAO.get(1, 2) }.returns(WaitingForOptions(1, 2, TextContent("Test")))
+
+        sut.process(
+            MessageUpdate(
+                updateId = 1,
+                data = PrivateContentMessageImpl(
+                    messageId = 1,
+                    user = CommonUser(id = ChatId(2), "Test"),
+                    chat = chat,
+                    content = TextContent(
+                        text = "/done",
+                        textSources = listOf(BotCommandTextSource("done"))
+                    ),
+                    date = DateTime.now(),
+                    editDate = null,
+                    forwardInfo = null,
+                    replyTo = null,
+                    replyMarkup = null,
+                    senderBot = null,
+                    paymentInfo = null,
+                )
+            )
+        )
+
+        coVerify(exactly = 1) { dialogStateDAO.get(1, 2) }
+        verify { listOf(bot) wasNot called }
 
         clearAllMocks()
     }

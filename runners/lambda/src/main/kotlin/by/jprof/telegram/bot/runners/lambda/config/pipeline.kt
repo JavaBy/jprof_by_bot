@@ -5,10 +5,7 @@ import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
 import by.jprof.telegram.bot.kotlin.KotlinMentionsUpdateProcessor
-import by.jprof.telegram.bot.quizoji.QuizojiInlineQueryUpdateProcessor
-import by.jprof.telegram.bot.quizoji.QuizojiOptionUpdateProcessor
-import by.jprof.telegram.bot.quizoji.QuizojiQuestionUpdateProcessor
-import by.jprof.telegram.bot.quizoji.QuizojiStartCommandUpdateProcessor
+import by.jprof.telegram.bot.quizoji.*
 import by.jprof.telegram.bot.youtube.YouTubeUpdateProcessor
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -44,6 +41,8 @@ val pipelineModule = module {
 
     single<UpdateProcessor>(named("QuizojiInlineQueryUpdateProcessor")) {
         QuizojiInlineQueryUpdateProcessor(
+            quizojiDAO = get(),
+            votesDAO = get(),
             bot = get(),
         )
     }
@@ -65,6 +64,22 @@ val pipelineModule = module {
     single<UpdateProcessor>(named("QuizojiOptionUpdateProcessor")) {
         QuizojiOptionUpdateProcessor(
             dialogStateDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("QuizojiDoneCommandUpdateProcessor")) {
+        QuizojiDoneCommandUpdateProcessor(
+            dialogStateDAO = get(),
+            quizojiDAO = get(),
+            votesDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("QuizojiVoteUpdateProcessor")) {
+        QuizojiVoteUpdateProcessor(
+            votesDAO = get(),
             bot = get(),
         )
     }
