@@ -41,13 +41,13 @@ abstract class VotingProcessor(
                 is MessageDataCallbackQuery -> {
                     bot.editMessageReplyMarkup(
                         message = callbackQuery.message,
-                        replyMarkup = updatedVotes.toInlineKeyboardMarkup()
+                        replyMarkup = votesToInlineKeyboardMarkup(updatedVotes)
                     )
                 }
                 is InlineMessageIdDataCallbackQuery -> {
                     bot.editMessageReplyMarkup(
                         inlineMessageId = callbackQuery.inlineMessageId,
-                        replyMarkup = updatedVotes.toInlineKeyboardMarkup()
+                        replyMarkup = votesToInlineKeyboardMarkup(updatedVotes)
                     )
                 }
                 else -> {
@@ -56,6 +56,8 @@ abstract class VotingProcessor(
             }
         }
     }
+
+    open fun votesToInlineKeyboardMarkup(votes: Votes) = votes.toInlineKeyboardMarkup()
 
     protected fun String.toVotesID() = "$prefix-$this"
 }

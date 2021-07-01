@@ -2,6 +2,8 @@ package by.jprof.telegram.bot.quizoji
 
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.votes.dao.VotesDAO
+import by.jprof.telegram.bot.votes.model.Votes
+import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
 import by.jprof.telegram.bot.votes.voting_processor.VotingProcessor
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.types.update.CallbackQueryUpdate
@@ -21,4 +23,6 @@ class QuizojiVoteUpdateProcessor(
             is CallbackQueryUpdate -> processCallbackQuery(update.data)
         }
     }
+
+    override fun votesToInlineKeyboardMarkup(votes: Votes) = votes.toInlineKeyboardMarkup(8)
 }
