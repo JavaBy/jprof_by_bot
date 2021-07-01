@@ -13,4 +13,6 @@ dependencies {
     implementation(project.projects.jep)
     implementation(project.projects.youtube.dynamodb)
     implementation(project.projects.kotlin.dynamodb)
+    implementation(project.projects.dialogs.dynamodb)
+    implementation(project.projects.quizoji.dynamodb)
 }

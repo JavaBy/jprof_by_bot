@@ -7,6 +7,8 @@ import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.answerCallbackQuery
 import dev.inmo.tgbotapi.extensions.api.edit.ReplyMarkup.editMessageReplyMarkup
 import dev.inmo.tgbotapi.types.CallbackQuery.CallbackQuery
+import dev.inmo.tgbotapi.types.CallbackQuery.DataCallbackQuery
+import dev.inmo.tgbotapi.types.CallbackQuery.InlineMessageIdDataCallbackQuery
 import dev.inmo.tgbotapi.types.CallbackQuery.MessageDataCallbackQuery
 import org.apache.logging.log4j.LogManager
 
@@ -21,9 +23,9 @@ abstract class VotingProcessor(
     }
 
     suspend fun processCallbackQuery(callbackQuery: CallbackQuery) {
-        logger.debug("Processing callback query: {}", callbackQuery)
+        logger.debug("[{}] Processing callback query: {}", prefix, callbackQuery)
 
-        (callbackQuery as? MessageDataCallbackQuery)?.data?.takeIf { it.startsWith(prefix) }?.let { data ->
+        (callbackQuery as? DataCallbackQuery)?.data?.takeIf { it.startsWith(prefix) }?.let { data ->
             val (votesId, vote) = data.split(":").takeIf { it.size == 2 } ?: return
             val fromUserId = callbackQuery.user.id.chatId.toString()
 
@@ -34,12 +36,28 @@ abstract class VotingProcessor(
 
             votesDAO.save(updatedVotes)
             bot.answerCallbackQuery(callbackQuery)
-            bot.editMessageReplyMarkup(
-                message = callbackQuery.message,
-                replyMarkup = updatedVotes.toInlineKeyboardMarkup()
-            )
+
+            when (callbackQuery) {
+                is MessageDataCallbackQuery -> {
+                    bot.editMessageReplyMarkup(
+                        message = callbackQuery.message,
+                        replyMarkup = votesToInlineKeyboardMarkup(updatedVotes)
+                    )
+                }
+                is InlineMessageIdDataCallbackQuery -> {
+                    bot.editMessageReplyMarkup(
+                        inlineMessageId = callbackQuery.inlineMessageId,
+                        replyMarkup = votesToInlineKeyboardMarkup(updatedVotes)
+                    )
+                }
+                else -> {
+                    logger.error("Unknown callback query type: {}", callbackQuery::class.simpleName)
+                }
+            }
         }
     }
+
+    open fun votesToInlineKeyboardMarkup(votes: Votes) = votes.toInlineKeyboardMarkup()
 
     protected fun String.toVotesID() = "$prefix-$this"
 }

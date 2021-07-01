@@ -7,7 +7,6 @@ import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
 import by.jprof.telegram.bot.votes.voting_processor.VotingProcessor
 import by.jprof.telegram.bot.youtube.dao.YouTubeChannelsWhitelistDAO
 import com.google.api.services.youtube.YouTube
-import dev.inmo.tgbotapi.CommonAbstracts.justTextSources
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.utils.formatting.boldMarkdownV2
@@ -69,8 +68,7 @@ class YouTubeUpdateProcessor(
         (message as? ContentMessage<*>)?.let { contentMessage ->
             (contentMessage.content as? TextContent)?.let { content ->
                 content
-                    .textEntities
-                    .justTextSources()
+                    .textSources
                     .mapNotNull {
                         (it as? URLTextSource)?.source ?: (it as? TextLinkTextSource)?.url
                     }

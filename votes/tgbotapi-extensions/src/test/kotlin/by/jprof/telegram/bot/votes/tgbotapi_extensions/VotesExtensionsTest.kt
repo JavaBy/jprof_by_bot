@@ -19,6 +19,12 @@ internal class VotesExtensionsTest {
         Assertions.assertEquals(keyboard, votes.toInlineKeyboardMarkup())
     }
 
+    @ParameterizedTest
+    @MethodSource
+    fun toInlineKeyboardMarkupChunked(votes: Votes, size: Int, keyboard: InlineKeyboardMarkup) {
+        Assertions.assertEquals(keyboard, votes.toInlineKeyboardMarkup(size))
+    }
+
     private fun toInlineKeyboardMarkup(): Stream<Arguments> = sequence {
         yield(
             Arguments.of(
@@ -65,6 +71,82 @@ internal class VotesExtensionsTest {
                         listOf(
                             CallbackDataInlineKeyboardButton("1 1", "test:1"),
                             CallbackDataInlineKeyboardButton("1 2", "test:2"),
+                            CallbackDataInlineKeyboardButton("0 3", "test:3"),
+                        )
+                    )
+                )
+            )
+        )
+    }.asStream()
+
+    private fun toInlineKeyboardMarkupChunked(): Stream<Arguments> = sequence {
+        yield(
+            Arguments.of(
+                Votes("test"),
+                8,
+                InlineKeyboardMarkup(
+                    listOf(emptyList())
+                )
+            )
+        )
+        yield(
+            Arguments.of(
+                Votes("test", listOf("1")),
+                8,
+                InlineKeyboardMarkup(
+                    listOf(
+                        listOf(
+                            CallbackDataInlineKeyboardButton("0 1", "test:1")
+                        )
+                    )
+                )
+            )
+        )
+        yield(
+            Arguments.of(
+                Votes("test", listOf("1", "2")),
+                8,
+                InlineKeyboardMarkup(
+                    listOf(
+                        listOf(
+                            CallbackDataInlineKeyboardButton("0 1", "test:1"),
+                            CallbackDataInlineKeyboardButton("0 2", "test:2"),
+                        )
+                    )
+                )
+            )
+        )
+        yield(
+            Arguments.of(
+                Votes("test", listOf("1", "2")),
+                1,
+                InlineKeyboardMarkup(
+                    listOf(
+                        listOf(
+                            CallbackDataInlineKeyboardButton("0 1", "test:1"),
+                        ),
+                        listOf(
+                            CallbackDataInlineKeyboardButton("0 2", "test:2"),
+                        )
+                    )
+                )
+            )
+        )
+        yield(
+            Arguments.of(
+                Votes(
+                    "test",
+                    listOf("1", "2", "3"),
+                    mapOf("user1" to "1", "user2" to "2", "user3" to "UNEXISTING_OPTION")
+                ),
+                2,
+                InlineKeyboardMarkup(
+                    listOf(
+                        listOf(
+                            CallbackDataInlineKeyboardButton("1 1", "test:1"),
+                            CallbackDataInlineKeyboardButton("1 2", "test:2"),
+                        ),
+                        listOf(
                             CallbackDataInlineKeyboardButton("0 3", "test:3"),
                         )
                     )

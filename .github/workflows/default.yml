@@ -57,6 +57,8 @@ jobs:
       - run: votes/dynamodb/src/test/resources/seed.sh
       - run: youtube/dynamodb/src/test/resources/seed.sh
       - run: kotlin/dynamodb/src/test/resources/seed.sh
+      - run: dialogs/dynamodb/src/test/resources/seed.sh
+      - run: quizoji/dynamodb/src/test/resources/seed.sh
       - run: ./gradlew clean dbTest
       - uses: actions/upload-artifact@v2
         if: always()

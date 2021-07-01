@@ -3,7 +3,6 @@ package by.jprof.telegram.bot.jep
 import by.jprof.telegram.bot.votes.dao.VotesDAO
 import by.jprof.telegram.bot.votes.model.Votes
 import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
-import dev.inmo.tgbotapi.CommonAbstracts.TextPart
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.answerCallbackQuery
 import dev.inmo.tgbotapi.requests.send.SendTextMessage
@@ -92,8 +91,8 @@ internal class JEPUpdateProcessorTest {
             every { content } returns TextContent(
                 "Hello, world!",
                 listOf(
-                    TextPart(0..2, URLTextSource("https://google.com")),
-                    TextPart(0..2, TextLinkTextSource("google", "https://google.com")),
+                    URLTextSource("https://google.com"),
+                    TextLinkTextSource(" google", "https://google.com")
                 )
             )
         }
@@ -110,8 +109,8 @@ internal class JEPUpdateProcessorTest {
             every { content } returns TextContent(
                 "Hello, world!",
                 listOf(
-                    TextPart(0..2, URLTextSource("https://openjdk.java.net/jeps/1")),
-                    TextPart(0..2, TextLinkTextSource("JEP 2", "https://openjdk.java.net/jeps/2")),
+                    URLTextSource("https://openjdk.java.net/jeps/1"),
+                    TextLinkTextSource("JEP 2", "https://openjdk.java.net/jeps/2"),
                 )
             )
             every { chat } returns mockk {
@@ -155,8 +154,8 @@ internal class JEPUpdateProcessorTest {
             every { content } returns TextContent(
                 "Hello, world!",
                 listOf(
-                    TextPart(0..2, URLTextSource("https://openjdk.java.net/jeps/1")),
-                    TextPart(0..2, TextLinkTextSource("JEP 2", "https://openjdk.java.net/jeps/2")),
+                    URLTextSource("https://openjdk.java.net/jeps/1"),
+                    TextLinkTextSource("JEP 2", "https://openjdk.java.net/jeps/2"),
                 )
             )
             every { chat } returns mockk {
