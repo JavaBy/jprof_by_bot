@@ -204,6 +204,48 @@ internal class QuizojiDoneCommandUpdateProcessorTest {
     }
 
     @Test
+    fun processNoOptions() = runBlocking {
+        val question = TextContent("Question", listOf(RegularTextSource("Question")))
+
+        coEvery { dialogStateDAO.get(1, 2) }.returns(WaitingForOptions(1, 2, question))
+        coEvery { votesDAO.save(any()) } just runs
+        coEvery { quizojiDAO.save(any()) } just runs
+        coEvery { dialogStateDAO.delete(any(), any()) } just runs
+
+        val chat = PrivateChatImpl(ChatId(1))
+
+        sut.process(
+            MessageUpdate(
+                updateId = 1,
+                data = PrivateContentMessageImpl(
+                    messageId = 1,
+                    user = CommonUser(ChatId(2), "Test"),
+                    chat = chat,
+                    content = TextContent("/done"),
+                    date = DateTime.now(),
+                    editDate = null,
+                    forwardInfo = null,
+                    replyTo = null,
+                    replyMarkup = null,
+                    senderBot = null,
+                    paymentInfo = null,
+                )
+            )
+        )
+
+        coVerify(exactly = 1) { dialogStateDAO.get(1, 2) }
+        coVerify(exactly = 1) {
+            bot.sendMessage(
+                chat = chat,
+                text = "Please, provide some options for your quizoji!"
+            )
+        }
+        verify { listOf(quizojiDAO, votesDAO) wasNot called }
+
+        clearAllMocks()
+    }
+
+    @Test
     fun processTextQuestion() = runBlocking {
         val question = TextContent("Question", listOf(RegularTextSource("Question")))
 

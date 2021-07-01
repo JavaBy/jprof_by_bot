@@ -47,6 +47,15 @@ class QuizojiDoneCommandUpdateProcessor(
             return
         }
 
+        if (state.options.isEmpty()) {
+            bot.sendMessage(
+                chat = chat,
+                text = "Please, provide some options for your quizoji!"
+            )
+
+            return
+        }
+
         logger.debug("{} finished his Quizoji", chat.id.chatId)
 
         val quizoji = Quizoji(
