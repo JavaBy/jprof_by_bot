@@ -20,5 +20,11 @@ class EditorAchievementUpdateProcessor(
         val message = (update.data as? FromUserMessage) ?: return
 
         logger.debug("{} edited a message", message.user.id.chatId)
+
+        // Typo hunter
+        // Editor
+        // GLVRD
+        // Золотое перо
+        // Перфекционист
     }
 }
