@@ -15,4 +15,5 @@ dependencies {
     implementation(project.projects.kotlin.dynamodb)
     implementation(project.projects.dialogs.dynamodb)
     implementation(project.projects.quizoji.dynamodb)
+    implementation(project.projects.eval)
 }
