@@ -1,7 +1,7 @@
 package by.jprof.telegram.bot.runners.lambda.config
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
-import com.google.api.client.json.jackson2.JacksonFactory
+import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.youtube.YouTube
 import com.google.api.services.youtube.YouTubeRequestInitializer
 import org.koin.core.qualifier.named
@@ -12,7 +12,7 @@ val youtubeModule = module {
         YouTube
             .Builder(
                 GoogleNetHttpTransport.newTrustedTransport(),
-                JacksonFactory.getDefaultInstance(),
+                GsonFactory.getDefaultInstance(),
                 null
             )
             .setApplicationName("jprof-by-bot")
