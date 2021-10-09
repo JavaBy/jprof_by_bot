@@ -8,12 +8,14 @@ import by.jprof.telegram.bot.utils.tgbotapi_serialization.TgBotAPI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.future.await
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 
+@ExperimentalSerializationApi
 class QuizojiDAO(
     private val dynamoDb: DynamoDbAsyncClient,
     private val table: String
@@ -39,11 +41,13 @@ class QuizojiDAO(
 
 private val json = Json { serializersModule = TgBotAPI.module }
 
+@ExperimentalSerializationApi
 fun Quizoji.toAttributes(): Map<String, AttributeValue> = mapOf(
     "id" to this.id.toAttributeValue(),
     "question" to json.encodeToString(this.question).toAttributeValue(),
 )
 
+@ExperimentalSerializationApi
 fun Map<String, AttributeValue>.toQuizoji(): Quizoji = Quizoji(
     id = this["id"].toString("id"),
     question = json.decodeFromString(this["question"].toString("value")),

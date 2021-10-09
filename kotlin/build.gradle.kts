@@ -8,7 +8,7 @@ dependencies {
     implementation(libs.log4j.api)
     implementation(libs.tgbotapi.extensions.api)
     implementation(libs.tgbotapi.extensions.utils)
-//    implementation(libs.skija.windows)
+    //    implementation(libs.skija.windows)
     implementation(libs.skija.linux)
 
     testImplementation(libs.junit.jupiter.api)

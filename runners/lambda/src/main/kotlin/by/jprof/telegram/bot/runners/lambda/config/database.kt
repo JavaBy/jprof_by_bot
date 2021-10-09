@@ -5,6 +5,7 @@ import by.jprof.telegram.bot.kotlin.dao.KotlinMentionsDAO
 import by.jprof.telegram.bot.quizoji.dao.QuizojiDAO
 import by.jprof.telegram.bot.votes.dao.VotesDAO
 import by.jprof.telegram.bot.youtube.dao.YouTubeChannelsWhitelistDAO
+import kotlinx.serialization.ExperimentalSerializationApi
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
@@ -14,6 +15,7 @@ import by.jprof.telegram.bot.quizoji.dynamodb.dao.QuizojiDAO as DynamoDBQuizojiD
 import by.jprof.telegram.bot.votes.dynamodb.dao.VotesDAO as DynamoDBVotesDAO
 import by.jprof.telegram.bot.youtube.dynamodb.dao.YouTubeChannelsWhitelistDAO as DynamoDBYouTubeChannelsWhitelistDAO
 
+@ExperimentalSerializationApi
 val databaseModule = module {
     single {
         DynamoDbAsyncClient.create()

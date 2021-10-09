@@ -11,8 +11,10 @@ import dev.inmo.tgbotapi.types.InlineQueries.InlineQueryResult.InlineQueryResult
 import dev.inmo.tgbotapi.types.InlineQueries.InputMessageContent.InputTextMessageContent
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.apache.logging.log4j.LogManager
 
+@PreviewFeature
 class QuizojiInlineQueryUpdateProcessor(
     private val quizojiDAO: QuizojiDAO,
     private val votesDAO: VotesDAO,

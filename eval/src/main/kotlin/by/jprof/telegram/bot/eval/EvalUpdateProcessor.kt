@@ -6,8 +6,10 @@ import dev.inmo.tgbotapi.extensions.utils.asContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asPreTextSource
 import dev.inmo.tgbotapi.extensions.utils.asTextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.apache.logging.log4j.LogManager
 
+@PreviewFeature
 class EvalUpdateProcessor : UpdateProcessor {
     companion object {
         private val logger = LogManager.getLogger(EvalUpdateProcessor::class.java)!!

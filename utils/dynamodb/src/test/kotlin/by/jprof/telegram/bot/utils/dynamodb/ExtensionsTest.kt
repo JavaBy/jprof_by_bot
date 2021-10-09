@@ -2,7 +2,6 @@ package by.jprof.telegram.bot.utils.dynamodb
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 import java.time.Instant
 

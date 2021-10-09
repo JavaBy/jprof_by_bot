@@ -13,9 +13,11 @@ import by.jprof.telegram.bot.quizoji.QuizojiQuestionUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiStartCommandUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiVoteUpdateProcessor
 import by.jprof.telegram.bot.youtube.YouTubeUpdateProcessor
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
+@PreviewFeature
 val pipelineModule = module {
     single {
         UpdateProcessingPipeline(getAll())

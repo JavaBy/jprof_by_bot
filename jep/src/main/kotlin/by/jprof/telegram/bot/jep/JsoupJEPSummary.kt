@@ -10,9 +10,9 @@ class JsoupJEPSummary : JEPSummary {
             withContext(Dispatchers.IO) {
                 Jsoup
                     .connect("https://openjdk.java.net/jeps/${jep}")
-                    ?.get()
-                    ?.select("#Summary + p")
-                    ?.first()
+                    .get()
+                    .select("#Summary + p")
+                    .first()
                     ?.text()
             }
         } catch (_: Exception) {

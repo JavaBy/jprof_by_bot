@@ -15,6 +15,9 @@ subprojects {
     }
 
     tasks {
+        withType<JavaCompile> {
+            options.release.set(11)
+        }
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = "11"
         }

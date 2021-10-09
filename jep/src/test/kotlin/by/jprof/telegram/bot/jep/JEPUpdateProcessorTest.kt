@@ -17,9 +17,18 @@ import dev.inmo.tgbotapi.types.message.content.media.PhotoContent
 import dev.inmo.tgbotapi.types.update.CallbackQueryUpdate
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.abstracts.UnknownUpdate
-import io.mockk.*
+import io.mockk.called
+import io.mockk.clearAllMocks
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.confirmVerified
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.runs
+import io.mockk.verify
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.JsonNull
 import org.junit.jupiter.api.BeforeEach
@@ -204,12 +213,12 @@ internal class JEPUpdateProcessorTest {
         sut.process(
             CallbackQueryUpdate(
                 1L, MessageDataCallbackQuery(
-                    id = "",
-                    user = mockk(),
-                    chatInstance = "",
-                    message = mockk(),
-                    data = "YOUTUBE-1:+",
-                )
+                id = "",
+                user = mockk(),
+                chatInstance = "",
+                message = mockk(),
+                data = "YOUTUBE-1:+",
+            )
             )
         )
 
@@ -221,12 +230,12 @@ internal class JEPUpdateProcessorTest {
         sut.process(
             CallbackQueryUpdate(
                 1L, MessageDataCallbackQuery(
-                    id = "",
-                    user = mockk(),
-                    chatInstance = "",
-                    message = mockk(),
-                    data = "JEP-1+",
-                )
+                id = "",
+                user = mockk(),
+                chatInstance = "",
+                message = mockk(),
+                data = "JEP-1+",
+            )
             )
         )
 
