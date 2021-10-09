@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     api(project.projects.core)
+    api(project.projects.eval.dto)
     api(libs.tgbotapi.core)
     implementation(project.projects.votes.tgbotapiExtensions)
     implementation(libs.tgbotapi.extensions.api)
