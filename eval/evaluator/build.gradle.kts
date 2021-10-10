@@ -7,6 +7,7 @@ dependencies {
     api(project.projects.eval.dto)
     implementation(libs.bundles.aws.lambda)
     implementation(libs.koin.core)
+    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.bundles.log4j)
 

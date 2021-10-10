@@ -1,7 +1,5 @@
 FROM amazon/aws-lambda-java:latest
 
-COPY build/libs/jprof_by_bot-eval-evaluator-all.jar ${LAMBDA_TASK_ROOT}/lib/
-
 RUN yum -y install unzip tar gzip xz && \
     yum -y clean all  && \
     rm -rf /var/cache
@@ -34,4 +32,5 @@ RUN curl -L https://golang.org/dl/go1.17.2.linux-amd64.tar.gz --output /tmp/go.t
     tar -xf /tmp/go.tar.gz -C /opt/go --strip-components 1 && \
     rm /tmp/go.tar.gz
 
+COPY build/libs/jprof_by_bot-eval-evaluator-all.jar ${LAMBDA_TASK_ROOT}/lib/
 CMD [ "by.jprof.telegram.bot.eval.evaluator.Evaluator::handleRequest" ]

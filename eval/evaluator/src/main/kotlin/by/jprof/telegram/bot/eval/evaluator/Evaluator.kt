@@ -1,11 +1,12 @@
 package by.jprof.telegram.bot.eval.evaluator
 
 import by.jprof.telegram.bot.eval.dto.EvalEvent
-import by.jprof.telegram.bot.eval.dto.EvalResponse
-import by.jprof.telegram.bot.eval.dto.Language
 import by.jprof.telegram.bot.eval.evaluator.config.jsonModule
+import by.jprof.telegram.bot.eval.evaluator.config.pipelineModule
+import by.jprof.telegram.bot.eval.evaluator.middleware.EvalPipeline
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -27,14 +28,16 @@ class Evaluator : RequestStreamHandler, KoinComponent {
     init {
         startKoin {
             modules(
-                jsonModule
+                jsonModule,
+                pipelineModule,
             )
         }
     }
 
     private val json: Json by inject()
+    private val pipeline: EvalPipeline by inject()
 
-    override fun handleRequest(input: InputStream, output: OutputStream, context: Context) {
+    override fun handleRequest(input: InputStream, output: OutputStream, context: Context) = runBlocking {
         val payload = input.bufferedReader().use { it.readText() }
 
         logger.debug("Payload: {}", payload)
@@ -43,7 +46,7 @@ class Evaluator : RequestStreamHandler, KoinComponent {
 
         logger.debug("Parsed event: {}", evalEvent)
 
-        val evalResponse = EvalResponse(Language.UNKNOWN)
+        val evalResponse = pipeline.process(evalEvent)
 
         output.buffered().use { json.encodeToStream(evalResponse, it) }
     }
