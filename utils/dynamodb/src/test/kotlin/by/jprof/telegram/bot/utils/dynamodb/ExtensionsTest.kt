@@ -15,6 +15,14 @@ internal class ExtensionsTest {
     }
 
     @Test
+    fun intToAttributeValue() {
+        Assertions.assertEquals(
+            AttributeValue.builder().n("42").build(),
+            42.toAttributeValue()
+        )
+    }
+
+    @Test
     fun longToAttributeValue() {
         Assertions.assertEquals(
             AttributeValue.builder().n("42").build(),

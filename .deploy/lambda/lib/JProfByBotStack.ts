@@ -36,6 +36,13 @@ export class JProfByBotStack extends cdk.Stack {
             partitionKey: {name: 'id', type: dynamodb.AttributeType.STRING},
             billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
         });
+        const moniesTable = new dynamodb.Table(this, 'jprof-by-bot-table-monies', {
+            tableName: 'jprof-by-bot-table-monies',
+            partitionKey: {name: 'user', type: dynamodb.AttributeType.NUMBER},
+            sortKey: {name: 'chat', type: dynamodb.AttributeType.NUMBER},
+            billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+            removalPolicy: RemovalPolicy.DESTROY,
+        });
 
         const layerLibGL = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libGL', {
             code: lambda.Code.fromAsset('layers/libGL.zip'),
