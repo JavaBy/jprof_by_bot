@@ -52,7 +52,7 @@ class DialogStateDAO(
                         "chatId" to chatId.toAttributeValue(),
                     )
                 )
-            }
+            }.await()
         }
     }
 }

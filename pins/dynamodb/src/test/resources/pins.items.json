@@ -1,0 +1,49 @@
+{
+  "pins": [
+    {
+      "PutRequest": {
+        "Item": {
+          "messageId": {
+            "N": "1"
+          },
+          "chatId": {
+            "N": "1"
+          },
+          "userId": {
+            "N": "1"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "messageId": {
+            "N": "2"
+          },
+          "chatId": {
+            "N": "1"
+          },
+          "userId": {
+            "N": "2"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "messageId": {
+            "N": "3"
+          },
+          "chatId": {
+            "N": "1"
+          },
+          "userId": {
+            "N": "2"
+          }
+        }
+      }
+    }
+  ]
+}
