@@ -1,0 +1,6 @@
+= Votes
+
+This feature provides support for custom votings:
+
+* link:./src/main/kotlin/by/jprof/telegram/bot/votes/model/Votes.kt[`Votes`], link:./src/main/kotlin/by/jprof/telegram/bot/votes/dao/VotesDAO.kt[`VotesDAO`], and link:./voting-processor[`VotingProcessor`] are the base of the voting framework.
+* link:./tgbotapi-extensions[TelegramBotAPI extensions] help to format `Votes` into Telegram's https://core.telegram.org/bots/api#inlinekeyboardmarkup[Inline Keyboards].

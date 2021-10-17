@@ -1,0 +1,4 @@
+= YouTube
+
+link:./src/main/kotlin/by/jprof/telegram/bot/youtube/YouTubeUpdateProcessor.kt[`YouTubeUpdateProcessor`] tracks YouTube links in the chat.
+If a link to the video from one of the allow-listed channels is posted, the bot replies with a message with an excerpt from video description and voting buttons.

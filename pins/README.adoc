@@ -1,0 +1,13 @@
+= Pins
+
+This feature allows user to temporary pin posts in the chat by replying with a `/pin` command to them.
+
+Posts are pinned for 1 hour by default, but other durations could be provided, like `/pin 2 hours 30 minutes`.
+Check out link:src/main/kotlin/by/jprof/telegram/bot/pins/utils/PinRequestFinder.kt[`PinRequestFinder`] for the full list of the supported temporal units.
+
+Pinning is charged with a special in-chat link:../monies[currency], named "pins".
+1 pin allows to pin a post for one hour.
+Shorter durations are supported, but charged as a full hour.
+Pins are charged upfront when pinning a post.
+
+Pins are not returned when a post is preemptively unpinned by an admin.

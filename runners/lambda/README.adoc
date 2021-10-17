@@ -1,0 +1,9 @@
+= Runners / AWS Lambda
+
+This runner runs the bot as an https://aws.amazon.com/lambda[AWS Lambda] functions accepting incoming updates via a https://core.telegram.org/bots/api#setwebhook[registered] webhook.
+The lambda is deployed via the link:../../.deploy/lambda[accompanying CDK script].
+
+The main class here is link:src/main/kotlin/by/jprof/telegram/bot/runners/lambda/JProf.kt[`JProf`].
+It's a https://docs.aws.amazon.com/lambda/latest/dg/java-handler.html[`RequestHandler`], which means it will accept HTTP requests.
+It's also a https://insert-koin.io/docs/reference/koin-core/koin-component[`KoinComponent`], which means it will construct the object tree based on the provided link:src/main/kotlin/by/jprof/telegram/bot/runners/lambda/config[configuration].
+It doesn't do much, though, except of parsing the requests into https://tgbotapi.inmo.dev/docs/dev.inmo.tgbotapi.types.update.abstracts/-update/index.html[`Updates`] and dispatching them into the link:../../core[processing pipeline].

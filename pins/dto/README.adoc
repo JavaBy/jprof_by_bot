@@ -1,0 +1,6 @@
+= Pins / DTO
+
+An link:dto/src/main/java/by/jprof/telegram/bot/pins/dto/Unpin.java[`Unpin`] https://en.wikipedia.org/wiki/Data_transfer_object[DTO], representing the unpin intent.
+It is passed to the link:../unpin[unpin lambda] when the time is due.
+
+https://aws.amazon.com/lambda[AWS Lambda] https://aws.amazon.com/blogs/compute/kotlin-and-groovy-jvm-languages-with-aws-lambda[does not support] deserialization of Kotlin's data classes, so it is implemented as a POJO.

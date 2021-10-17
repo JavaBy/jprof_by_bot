@@ -1,0 +1,3 @@
+= Dialogs
+
+link:src/main/kotlin/by/jprof/telegram/bot/dialogs/model/DialogState.kt[`DialogState`] is the base for implementing https://en.wikipedia.org/wiki/Finite-state_machine[FSMs] for complex interactions involving server-stored states.

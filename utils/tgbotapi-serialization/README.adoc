@@ -1,0 +1,3 @@
+= Utilities / TelegramBotAPI Serializers
+
+https://github.com/Kotlin/kotlinx.serialization[Kotlin serialization] for some classes from https://github.com/InsanusMokrassar/TelegramBotAPI[TelegramBotAPI]
