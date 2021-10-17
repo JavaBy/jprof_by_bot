@@ -18,8 +18,10 @@ import dev.inmo.tgbotapi.types.buttons.InlineKeyboardButtons.SwitchInlineQueryIn
 import dev.inmo.tgbotapi.types.buttons.InlineKeyboardMarkup
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.apache.logging.log4j.LogManager
 
+@PreviewFeature
 class QuizojiDoneCommandUpdateProcessor(
     private val dialogStateDAO: DialogStateDAO,
     private val quizojiDAO: QuizojiDAO,

@@ -1,18 +1,28 @@
 package by.jprof.telegram.bot.runners.lambda
 
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
-import by.jprof.telegram.bot.runners.lambda.config.*
+import by.jprof.telegram.bot.runners.lambda.config.databaseModule
+import by.jprof.telegram.bot.runners.lambda.config.envModule
+import by.jprof.telegram.bot.runners.lambda.config.jsonModule
+import by.jprof.telegram.bot.runners.lambda.config.pipelineModule
+import by.jprof.telegram.bot.runners.lambda.config.sfnModule
+import by.jprof.telegram.bot.runners.lambda.config.telegramModule
+import by.jprof.telegram.bot.runners.lambda.config.youtubeModule
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse
 import dev.inmo.tgbotapi.types.update.abstracts.UpdateDeserializationStrategy
+import dev.inmo.tgbotapi.utils.PreviewFeature
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import org.apache.logging.log4j.LogManager
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin
 
+@PreviewFeature
+@ExperimentalSerializationApi
 @Suppress("unused")
 class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, KoinComponent {
     companion object {
@@ -38,6 +48,7 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
                 telegramModule,
                 youtubeModule,
                 pipelineModule,
+                sfnModule,
             )
         }
     }

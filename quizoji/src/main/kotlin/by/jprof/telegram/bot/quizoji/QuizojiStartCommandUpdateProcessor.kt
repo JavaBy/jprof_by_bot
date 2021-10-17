@@ -10,8 +10,10 @@ import dev.inmo.tgbotapi.extensions.utils.asPrivateChat
 import dev.inmo.tgbotapi.extensions.utils.asPrivateContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asTextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.apache.logging.log4j.LogManager
 
+@PreviewFeature
 class QuizojiStartCommandUpdateProcessor(
     private val dialogStateDAO: DialogStateDAO,
     private val bot: RequestsExecutor,

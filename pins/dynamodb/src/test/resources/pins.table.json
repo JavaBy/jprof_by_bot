@@ -1,0 +1,65 @@
+{
+  "TableName": "pins",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "messageId",
+      "AttributeType": "N"
+    },
+    {
+      "AttributeName": "chatId",
+      "AttributeType": "N"
+    },
+    {
+      "AttributeName": "userId",
+      "AttributeType": "N"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "messageId",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "chatId",
+      "KeyType": "RANGE"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "userId",
+      "KeySchema": [
+        {
+          "AttributeName": "userId",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+    },
+    {
+      "IndexName": "chatId",
+      "KeySchema": [
+        {
+          "AttributeName": "chatId",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}

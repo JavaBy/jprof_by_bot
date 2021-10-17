@@ -12,8 +12,10 @@ import dev.inmo.tgbotapi.types.MessageEntity.textsources.BotCommandTextSource
 import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.apache.logging.log4j.LogManager
 
+@PreviewFeature
 class QuizojiOptionUpdateProcessor(
     private val dialogStateDAO: DialogStateDAO,
     private val bot: RequestsExecutor,

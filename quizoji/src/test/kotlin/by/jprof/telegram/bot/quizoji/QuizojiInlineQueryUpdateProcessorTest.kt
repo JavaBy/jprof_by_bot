@@ -11,9 +11,14 @@ import dev.inmo.tgbotapi.types.MessageEntity.textsources.RegularTextSource
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.InlineQueryUpdate
 import dev.inmo.tgbotapi.types.update.MessageUpdate
-import io.mockk.*
+import io.mockk.called
+import io.mockk.clearAllMocks
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -195,12 +200,12 @@ internal class QuizojiInlineQueryUpdateProcessorTest {
         coVerify(exactly = 1) {
             votesDAO.get("QUIZOJI-id")
         }
-//        coVerify(exactly = 1) {
-//            bot.answerInlineQuery(
-//                inlineQuery = inlineQuery,
-//                results = any()
-//            )
-//        }
+        //        coVerify(exactly = 1) {
+        //            bot.answerInlineQuery(
+        //                inlineQuery = inlineQuery,
+        //                results = any()
+        //            )
+        //        }
 
         clearAllMocks()
     }

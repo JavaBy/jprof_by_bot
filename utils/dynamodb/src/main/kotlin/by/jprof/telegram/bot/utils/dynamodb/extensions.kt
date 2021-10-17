@@ -5,6 +5,8 @@ import java.time.Instant
 
 fun String.toAttributeValue(): AttributeValue = AttributeValue.builder().s(this).build()
 
+fun Int.toAttributeValue(): AttributeValue = AttributeValue.builder().n(this.toString()).build()
+
 fun Long.toAttributeValue(): AttributeValue = AttributeValue.builder().n(this.toString()).build()
 
 fun Instant.toAttributeValue(): AttributeValue = this.toEpochMilli().toAttributeValue()

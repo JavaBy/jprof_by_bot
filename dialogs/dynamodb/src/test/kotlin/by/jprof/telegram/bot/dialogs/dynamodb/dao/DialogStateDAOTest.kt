@@ -7,7 +7,11 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import me.madhead.aws_junit5.common.AWSClient
 import me.madhead.aws_junit5.dynamo.v2.DynamoDB
-import org.junit.jupiter.api.*
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Tag
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.extension.ExtendWith
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 

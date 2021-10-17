@@ -2,7 +2,6 @@ package by.jprof.telegram.bot.utils.dynamodb
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 import java.time.Instant
 
@@ -12,6 +11,14 @@ internal class ExtensionsTest {
         Assertions.assertEquals(
             AttributeValue.builder().s("test").build(),
             "test".toAttributeValue()
+        )
+    }
+
+    @Test
+    fun intToAttributeValue() {
+        Assertions.assertEquals(
+            AttributeValue.builder().n("42").build(),
+            42.toAttributeValue()
         )
     }
 

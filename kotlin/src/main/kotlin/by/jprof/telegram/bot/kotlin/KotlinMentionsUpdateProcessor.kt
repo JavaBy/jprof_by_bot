@@ -14,14 +14,22 @@ import dev.inmo.tgbotapi.types.message.abstracts.CommonMessage
 import dev.inmo.tgbotapi.types.message.abstracts.FromUserMessage
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
-import dev.inmo.tgbotapi.utils.MimeType
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import dev.inmo.tgbotapi.utils.asStorageFile
 import org.apache.logging.log4j.LogManager
-import org.jetbrains.skija.*
+import org.jetbrains.skija.Data
+import org.jetbrains.skija.EncodedImageFormat
+import org.jetbrains.skija.Font
+import org.jetbrains.skija.Image
+import org.jetbrains.skija.Paint
+import org.jetbrains.skija.Surface
+import org.jetbrains.skija.TextLine
+import org.jetbrains.skija.Typeface
 import java.io.InputStream
 import java.time.Duration
 import java.time.Instant
 
+@PreviewFeature
 class KotlinMentionsUpdateProcessor(
     private val kotlinMentionsDAO: KotlinMentionsDAO,
     private val bot: RequestsExecutor,
@@ -114,7 +122,7 @@ class KotlinMentionsUpdateProcessor(
         bot.sendPhoto(
             chat = chat,
             fileId = MultipartFile(
-                file = data.bytes.asStorageFile("darryl.jpeg", MimeType("image/jpeg"))
+                file = data.bytes.asStorageFile("darryl.jpeg")
             ),
             replyToMessageId = message.messageId,
         )

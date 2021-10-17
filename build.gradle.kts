@@ -3,9 +3,9 @@ import com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCach
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm").version("1.4.32").apply(false)
-    kotlin("plugin.serialization").version("1.4.32").apply(false)
-    id("com.github.johnrengelman.shadow").version("6.1.0").apply(false)
+    kotlin("jvm").version("1.5.31").apply(false)
+    kotlin("plugin.serialization").version("1.5.31").apply(false)
+    id("com.github.johnrengelman.shadow").version("7.1.0").apply(false)
 }
 
 subprojects {
@@ -15,6 +15,9 @@ subprojects {
     }
 
     tasks {
+        withType<JavaCompile> {
+            options.release.set(11)
+        }
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = "11"
         }

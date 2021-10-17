@@ -5,7 +5,6 @@ import by.jprof.telegram.bot.dialogs.model.quizoji.WaitingForQuestion
 import com.soywiz.klock.DateTime
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.sendMessage
-import dev.inmo.tgbotapi.types.Bot
 import dev.inmo.tgbotapi.types.ChatId
 import dev.inmo.tgbotapi.types.CommonUser
 import dev.inmo.tgbotapi.types.chat.PrivateChatImpl
@@ -17,9 +16,13 @@ import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.message.content.media.AudioContent
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.PollUpdate
-import io.mockk.*
+import io.mockk.called
+import io.mockk.clearAllMocks
+import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

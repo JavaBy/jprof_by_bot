@@ -1,0 +1,27 @@
+{
+  "TableName": "monies",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "user",
+      "AttributeType": "N"
+    },
+    {
+      "AttributeName": "chat",
+      "AttributeType": "N"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "user",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "chat",
+      "KeyType": "RANGE"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}

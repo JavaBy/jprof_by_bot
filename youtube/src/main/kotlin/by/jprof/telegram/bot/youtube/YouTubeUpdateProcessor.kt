@@ -20,7 +20,11 @@ import dev.inmo.tgbotapi.types.update.CallbackQueryUpdate
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import dev.inmo.tgbotapi.utils.extensions.escapeMarkdownV2Common
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.joinAll
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
+import kotlinx.coroutines.withContext
 import org.apache.logging.log4j.LogManager
 
 private fun votesConstructor(votesId: String): Votes = Votes(votesId, listOf("\uD83D\uDC4D", "\uD83D\uDC4E"))
@@ -102,8 +106,8 @@ class YouTubeUpdateProcessor(
             }
             val description = rawDescription.escapeMarkdownV2Common()
             val videoText = "Cast your vote for: ${snippet.title}".boldMarkdownV2() +
-                    "\n\n```\n$description\n\n```" +
-                    "Views: $views / Likes: $likes / Dislikes: $dislikes".boldMarkdownV2() //trim indent have strange layout
+                "\n\n```\n$description\n\n```" +
+                "Views: $views / Likes: $likes / Dislikes: $dislikes".boldMarkdownV2() //trim indent have strange layout
             val votesId = video.toVotesID()
             val votes = votesDAO.get(votesId) ?: votesConstructor(votesId)
 
