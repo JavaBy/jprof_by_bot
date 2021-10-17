@@ -2,6 +2,8 @@ package by.jprof.telegram.bot.runners.lambda.config
 
 import by.jprof.telegram.bot.dialogs.dao.DialogStateDAO
 import by.jprof.telegram.bot.kotlin.dao.KotlinMentionsDAO
+import by.jprof.telegram.bot.monies.dao.MoniesDAO
+import by.jprof.telegram.bot.pins.dao.PinDAO
 import by.jprof.telegram.bot.quizoji.dao.QuizojiDAO
 import by.jprof.telegram.bot.votes.dao.VotesDAO
 import by.jprof.telegram.bot.youtube.dao.YouTubeChannelsWhitelistDAO
@@ -11,9 +13,11 @@ import org.koin.dsl.module
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import by.jprof.telegram.bot.dialogs.dynamodb.dao.DialogStateDAO as DynamoDBDialogStateDAO
 import by.jprof.telegram.bot.kotlin.dynamodb.dao.KotlinMentionsDAO as DynamoDBKotlinMentionsDAO
+import by.jprof.telegram.bot.monies.dynamodb.dao.MoniesDAO as DynamoDBMoniesDAO
 import by.jprof.telegram.bot.quizoji.dynamodb.dao.QuizojiDAO as DynamoDBQuizojiDAO
 import by.jprof.telegram.bot.votes.dynamodb.dao.VotesDAO as DynamoDBVotesDAO
 import by.jprof.telegram.bot.youtube.dynamodb.dao.YouTubeChannelsWhitelistDAO as DynamoDBYouTubeChannelsWhitelistDAO
+import by.jprof.telegram.bot.pins.dynamodb.dao.PinDAO as DynamoDBPinDAO
 
 @ExperimentalSerializationApi
 val databaseModule = module {
@@ -53,6 +57,20 @@ val databaseModule = module {
         DynamoDBQuizojiDAO(
             get(),
             get(named(TABLE_QUIZOJIS))
+        )
+    }
+
+    single<MoniesDAO> {
+        DynamoDBMoniesDAO(
+            get(),
+            get(named(TABLE_MONIES))
+        )
+    }
+
+    single<PinDAO> {
+        DynamoDBPinDAO(
+            get(),
+            get(named(TABLE_PINS))
         )
     }
 }

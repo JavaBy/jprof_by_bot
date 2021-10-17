@@ -10,6 +10,9 @@ const val TABLE_YOUTUBE_CHANNELS_WHITELIST = "TABLE_YOUTUBE_CHANNELS_WHITELIST"
 const val TABLE_KOTLIN_MENTIONS = "TABLE_KOTLIN_MENTIONS"
 const val TABLE_DIALOG_STATES = "TABLE_DIALOG_STATES"
 const val TABLE_QUIZOJIS = "TABLE_QUIZOJIS"
+const val TABLE_MONIES = "TABLE_MONIES"
+const val TABLE_PINS = "TABLE_PINS"
+const val STATE_MACHINE_UNPINS = "STATE_MACHINE_UNPINS"
 
 val envModule = module {
     listOf(
@@ -20,6 +23,9 @@ val envModule = module {
         TABLE_KOTLIN_MENTIONS,
         TABLE_DIALOG_STATES,
         TABLE_QUIZOJIS,
+        TABLE_MONIES,
+        TABLE_PINS,
+        STATE_MACHINE_UNPINS,
     ).forEach { variable ->
         single(named(variable)) {
             System.getenv(variable)!!

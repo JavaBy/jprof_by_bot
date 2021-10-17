@@ -5,6 +5,7 @@ import by.jprof.telegram.bot.runners.lambda.config.databaseModule
 import by.jprof.telegram.bot.runners.lambda.config.envModule
 import by.jprof.telegram.bot.runners.lambda.config.jsonModule
 import by.jprof.telegram.bot.runners.lambda.config.pipelineModule
+import by.jprof.telegram.bot.runners.lambda.config.sfnModule
 import by.jprof.telegram.bot.runners.lambda.config.telegramModule
 import by.jprof.telegram.bot.runners.lambda.config.youtubeModule
 import com.amazonaws.services.lambda.runtime.Context
@@ -47,6 +48,7 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
                 telegramModule,
                 youtubeModule,
                 pipelineModule,
+                sfnModule,
             )
         }
     }

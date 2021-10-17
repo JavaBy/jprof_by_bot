@@ -5,4 +5,7 @@ data class Monies(
     val user: Long,
     val chat: Long,
     val monies: Map<Money, Int> = emptyMap(),
-)
+) {
+    val pins: Int?
+        get() = monies[Money.PINS]
+}

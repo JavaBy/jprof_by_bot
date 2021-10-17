@@ -6,6 +6,8 @@ import by.jprof.telegram.bot.eval.EvalUpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
 import by.jprof.telegram.bot.kotlin.KotlinMentionsUpdateProcessor
+import by.jprof.telegram.bot.pins.PinCommandUpdateProcessor
+import by.jprof.telegram.bot.pins.PinReplyUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiDoneCommandUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiInlineQueryUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiOptionUpdateProcessor
@@ -94,5 +96,21 @@ val pipelineModule = module {
 
     single<UpdateProcessor>(named("EvalUpdateProcessor")) {
         EvalUpdateProcessor()
+    }
+
+    single<UpdateProcessor>(named("PinCommandUpdateProcessor")) {
+        PinCommandUpdateProcessor(
+            moniesDAO = get(),
+            pinDAO = get(),
+            unpinScheduler = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("PinReplyUpdateProcessor")) {
+        PinReplyUpdateProcessor(
+            moniesDAO = get(),
+            pinDAO = get(),
+        )
     }
 }
