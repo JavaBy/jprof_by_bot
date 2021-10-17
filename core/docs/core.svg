@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="core.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.42426407"
+     inkscape:cx="573.935"
+     inkscape:cy="703.57125"
+     inkscape:window-width="1920"
+     inkscape:window-height="999"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     showguides="false"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-global="false">
+    <sodipodi:guide
+       position="960,540"
+       orientation="0,1"
+       id="guide8511"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="960,540"
+       orientation="-1,0"
+       id="guide8513"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="960.00001,340"
+       orientation="0,-1"
+       id="guide9447" />
+    <sodipodi:guide
+       position="960,740"
+       orientation="0,1"
+       id="guide9449"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="Arrow2Send"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Send"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.3) rotate(180) translate(-2.3,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path2247" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow2Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(1.1) rotate(180) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path9885" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path9867" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:6.50134;stroke-linecap:round;paint-order:stroke fill markers"
+       id="rect846"
+       width="1920"
+       height="1080"
+       x="0"
+       y="0" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.3333px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, @wght=800';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 800;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000"
+     x="700.00092"
+     y="955.5"
+     id="text1865"><tspan
+       sodipodi:role="line"
+       id="tspan1863"
+       x="700.00092"
+       y="955.5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.3333px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, @wght=800';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 800;fill:#000000">Update processing pipeline</tspan></text>
+  <circle
+     style="fill:#cc0000;stroke:none;stroke-width:2.95273;stroke-linecap:round;paint-order:stroke fill markers"
+     id="path1057"
+     cx="326.77731"
+     cy="815"
+     r="75" />
+  <circle
+     style="fill:#ff9900;stroke:none;stroke-width:2.95273;stroke-linecap:round;paint-order:stroke fill markers"
+     id="circle8213"
+     cx="643.38867"
+     cy="815"
+     r="75" />
+  <circle
+     style="fill:#669900;stroke:none;stroke-width:2.95273;stroke-linecap:round;paint-order:stroke fill markers"
+     id="circle8233"
+     cx="960"
+     cy="815"
+     r="75" />
+  <circle
+     style="fill:#99cc33;stroke:none;stroke-width:2.95273;stroke-linecap:round;paint-order:stroke fill markers"
+     id="circle8253"
+     cx="1276.6113"
+     cy="815"
+     r="75" />
+  <circle
+     style="fill:#3366cc;stroke:none;stroke-width:2.95273;stroke-linecap:round;paint-order:stroke fill markers"
+     id="circle8273"
+     cx="1593.2227"
+     cy="815"
+     r="75" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#ff9900;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8411"
+     width="150"
+     height="150"
+     x="-76.282852"
+     y="190"
+     rx="20"
+     ry="20" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#003399;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8493"
+     width="150"
+     height="150"
+     x="137.33559"
+     y="190"
+     rx="20"
+     ry="20" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#ff9900;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Send);marker-end:url(#Arrow2Lend)"
+     d="M 72.196515,327.68875 586.333,766.32309"
+     id="path11831"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0"
+     inkscape:connection-start="#rect8411"
+     inkscape:connection-end="#circle8213"
+     sodipodi:nodetypes="cc" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#003399;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8495"
+     width="150"
+     height="150"
+     x="350.95404"
+     y="190"
+     rx="20"
+     ry="20" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#669900;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Send);marker-end:url(#Arrow2Lend)"
+     d="M 683.26706,340 922.24538,750.19585"
+     id="path11833"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0"
+     inkscape:connection-start="#rect8497"
+     inkscape:connection-end="#circle8233" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#669900;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8497"
+     width="150"
+     height="150"
+     x="564.57239"
+     y="190"
+     rx="20"
+     ry="20" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#3366cc;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Send);marker-end:url(#Arrow2Lend)"
+     d="M 928.17781,320.73119 1533.0274,770.26222"
+     id="path11835"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0"
+     inkscape:connection-start="#rect8499"
+     inkscape:connection-end="#circle8273"
+     sodipodi:nodetypes="cc" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#3366cc;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8499"
+     width="150"
+     height="150"
+     x="778.1908"
+     y="190"
+     rx="20"
+     ry="20" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#cc0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Send);marker-end:url(#Arrow2Lend)"
+     d="M 991.82219,320.73119 386.97256,770.26222"
+     id="path11837"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0"
+     inkscape:connection-start="#rect8501"
+     inkscape:connection-end="#path1057" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#cc0000;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8501"
+     width="150"
+     height="150"
+     x="991.8092"
+     y="190"
+     rx="20"
+     ry="20" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#669900;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Send);marker-end:url(#Arrow2Lend)"
+     d="M 1236.7329,340 997.75462,750.19585"
+     id="path11839"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0"
+     inkscape:connection-start="#rect8503"
+     inkscape:connection-end="#circle8233" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#669900;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8503"
+     width="150"
+     height="150"
+     x="1205.4276"
+     y="190"
+     rx="20"
+     ry="20" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#cc0000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Send);marker-end:url(#Arrow2Lend)"
+     d="M 1846.2828,290.87009 397.67762,790.54404"
+     id="path11841"
+     inkscape:connector-type="polyline"
+     inkscape:connector-curvature="0"
+     inkscape:connection-start="#rect8509"
+     inkscape:connection-end="#path1057"
+     sodipodi:nodetypes="cc" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#00cc00;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8505"
+     width="150"
+     height="150"
+     x="1419.046"
+     y="190"
+     rx="20"
+     ry="20" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#003399;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8507"
+     width="150"
+     height="150"
+     x="1632.6644"
+     y="190"
+     rx="20"
+     ry="20" />
+  <rect
+     style="font-variation-settings:'wght' 800;fill:#cc0000;stroke:none;stroke-width:3;stroke-linecap:round;paint-order:stroke fill markers"
+     id="rect8509"
+     width="150"
+     height="150"
+     x="1846.2828"
+     y="190"
+     rx="20"
+     ry="20" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.333px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, @wght=800';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 800;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;stroke-width:0.99999"
+     x="831.16827"
+     y="144.00009"
+     id="text8585"><tspan
+       sodipodi:role="line"
+       id="tspan8583"
+       x="831.16827"
+       y="144.00009"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.333px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, @wght=800';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 800;fill:#000000;stroke-width:0.99999">-&gt; Updates -&gt;</tspan></text>
+</svg>

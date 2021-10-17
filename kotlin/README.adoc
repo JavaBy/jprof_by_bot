@@ -1,0 +1,7 @@
+= Kotlin
+
+This features responds with meme when Kotlin is mentioned:
+
+image::src/main/resources/template.png[]
+
+The image is drawn dynamically with https://github.com/JetBrains/skija[Skija] library and true time since last Kotlin mention (except of a cooldown) is drawn inside the black charcoal area.

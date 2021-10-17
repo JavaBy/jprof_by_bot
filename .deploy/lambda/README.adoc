@@ -4,8 +4,8 @@ Official Telegram bot of Java Professionals BY community.
 
 == What is this bot for?
 
-* Tracks http://openjdk.java.net/jeps/0[JEPs] popularity
-* Tracks popularity of YouTube videos from Java-related channels
+* Tracks http://openjdk.java.net/jeps/0[JEPs] popularity 
+* Tracks popularity of YouTube videos from Java-related channels 
 * Warns users when they mention Kotlin
 * Allows users to pin messages
 * Allows users to create polls with reply buttons (just like https://t.me/like[`@like`] bot)

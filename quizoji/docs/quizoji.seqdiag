@@ -1,0 +1,36 @@
+seqdiag {
+  User; QuizojiInlineQueryUpdateProcessor; QuizojiStartCommandUpdateProcessor; QuizojiQuestionUpdateProcessor; QuizojiOptionUpdateProcessor; QuizojiDoneCommandUpdateProcessor; QuizojiVoteUpdateProcessor; Chat; "Other users";
+
+  === New Quizoji ===
+  User -> QuizojiInlineQueryUpdateProcessor [label = "Sends an inline query starting with 'quizoji'"];
+  User <- QuizojiInlineQueryUpdateProcessor [label = "Responds with 'Create new quizoji' button"];
+
+  User -> User [label = "Clicks 'Create new quizoji' button"];
+
+  User -> QuizojiStartCommandUpdateProcessor [label = "The button opens new private chat session with the bot"];
+  User <- QuizojiStartCommandUpdateProcessor [label = "Prompts for the Quizoji question"];
+
+  User -> QuizojiQuestionUpdateProcessor [label = "Sends the question"];
+  User <- QuizojiQuestionUpdateProcessor [label = "Prompts for the options"];
+
+  User -> QuizojiOptionUpdateProcessor [label = "Sends the option"];
+  User <- QuizojiOptionUpdateProcessor [label = "Prompts for the options"];
+  ... Loop until all the options provided ...
+
+  User -> QuizojiDoneCommandUpdateProcessor [label = "Sends '/done'"];
+  User <- QuizojiDoneCommandUpdateProcessor [label = "Replies with the created Quizoji"];
+
+  === Existing Quizoji ===
+  User -> QuizojiInlineQueryUpdateProcessor [label = "Sends an inline query starting with 'quizoji' containing an existing Quizoji ID"];
+  User <- QuizojiInlineQueryUpdateProcessor [label = "Replies with the existing Quizoji"];
+  
+  === Sharing Quizojis ===
+  User -> Chat [label = "Shares Quizoji to a chat"];
+  User <-- Chat;
+
+  "Other users" -> QuizojiVoteUpdateProcessor [label = "Clicks the button below the post"];
+  "Other users" <-- QuizojiVoteUpdateProcessor
+
+  QuizojiVoteUpdateProcessor -> Chat [label = "Updates the votes"];
+  QuizojiVoteUpdateProcessor <-- Chat;
+}

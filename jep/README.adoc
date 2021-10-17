@@ -1,0 +1,3 @@
+= JEP
+
+This feature tracks links to http://openjdk.java.net/jeps/0[JEPs] in the chat and responds with their descriptions and link:../votes[voting] buttons.

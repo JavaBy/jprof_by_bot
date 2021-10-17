@@ -1,0 +1,3 @@
+= Utilities / aws-junit5
+
+https://madhead.gitlab.io/aws-junit5/javadoc/index.html?me/madhead/aws_junit5/common/AWSEndpoint.html[`AWSEndpoint`] (from https://madhead.gitlab.io/aws-junit5/asciidoc[aws-junit5 library]) implementation used in mock AWS tests.

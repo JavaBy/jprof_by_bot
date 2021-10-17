@@ -1,0 +1,9 @@
+POST https://api.telegram.org/bot{{TOKEN_TELEGRAM_BOT}}/sendMessage
+Content-Type: application/json
+
+{
+  "chat_id": {{CHAT_LOBBY}},
+  "text": "Hello, world!",
+  "parse_mode": "MarkdownV2",
+  "disable_web_page_preview": true
+}
