@@ -6,6 +6,7 @@ dependencies {
     api(project.projects.core)
     api(libs.tgbotapi.core)
     api(project.projects.monies)
+    implementation(project.projects.pins.dto)
     implementation(libs.tgbotapi.extensions.api)
     implementation(libs.tgbotapi.extensions.utils)
     implementation(libs.log4j.api)
