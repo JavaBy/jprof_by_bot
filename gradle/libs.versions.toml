@@ -19,6 +19,8 @@ skija = "0.93.1"
 
 google-api-services-youtube = "v3-rev20210915-1.32.1"
 
+rome = "1.16.0"
+
 log4j = "2.14.1"
 
 junit5 = "5.8.1"
@@ -52,6 +54,8 @@ skija-macos-x64 = { group = "org.jetbrains.skija", name = "skija-macos-x64", ver
 skija-windows = { group = "org.jetbrains.skija", name = "skija-windows", version.ref = "skija" }
 
 google-api-services-youtube = { group = "com.google.apis", name = "google-api-services-youtube", version.ref = "google-api-services-youtube" }
+
+rome = { group = "com.rometools", name = "rome", version.ref = "rome" }
 
 log4j-api = { group = "org.apache.logging.log4j", name = "log4j-api", version.ref = "log4j" }
 log4j-core = { group = "org.apache.logging.log4j", name = "log4j-core", version.ref = "log4j" }

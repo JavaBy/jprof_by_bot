@@ -10,6 +10,7 @@ import by.jprof.telegram.bot.pins.model.Pin
 import by.jprof.telegram.bot.pins.model.PinDuration
 import by.jprof.telegram.bot.pins.scheduler.UnpinScheduler
 import by.jprof.telegram.bot.pins.utils.PinRequestFinder
+import by.jprof.telegram.bot.pins.utils.alreadyPinned
 import by.jprof.telegram.bot.pins.utils.beggar
 import by.jprof.telegram.bot.pins.utils.help
 import by.jprof.telegram.bot.pins.utils.negativeDuration
@@ -75,8 +76,16 @@ class PinCommandUpdateProcessor(
                 return
             }
 
-            if (pinDAO.findByChatId(pin.chat.id.chatId).size >= 5) {
+            val pinnedMessages = pinDAO.findByChatId(pin.chat.id.chatId)
+
+            if (pinnedMessages.size >= 5) {
                 bot.reply(to = pin.request, text = tooManyPinnedMessages(), parseMode = MarkdownV2)
+
+                return
+            }
+
+            if (pinnedMessages.any { it.messageId == pin.message.messageId }) {
+                bot.reply(to = pin.request, text = alreadyPinned(), parseMode = MarkdownV2)
 
                 return
             }

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+	<link href="https://inside.java/feed.xml" rel="self" type="application/atom+xml"/>
+	<link href="https://inside.java/" rel="alternate" type="text/html"/>
+	<updated>2021-11-30T12:04:52+00:00</updated>
+	<id>https://inside.java/feed.xml</id>
+	<title type="html">insidejava</title>
+	<subtitle>News and views from members of the Java team at Oracle</subtitle>
+	<entry>
+		<title type="html">On Parallelism and Concurrency</title>
+		<link href="https://inside.java/2021/11/30/on-parallelism-and-concurrency/" rel="alternate" type="text/html"
+		      title="On Parallelism and Concurrency"/>
+		<published>2021-11-30T00:00:00+00:00</published>
+		<updated>2021-11-30T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/30/On-Parallelism-and-Concurrency</id>
+		<content type="html" xml:base="https://inside.java/2021/11/30/on-parallelism-and-concurrency/">&lt;p&gt;&lt;img
+			class="webfeedsFeaturedVisual" style="display: none;" src="/images/thumbnail/loom-500.jpg" /&gt;&lt;/p&gt;
+
+			&lt;p&gt;A little over a week ago, we asked the Java user community for feedback on &lt;a
+			href="https://openjdk.java.net/jeps/8277129"&gt;a new construct for structured concurrency&lt;/a&gt; we unveiled as part of
+			Project Loom. It is intended to both make writing correct and efficient concurrent code easier to write, as well as make it
+			easier for tools, like the new new hierarchical thread dump mechanism, to observe a concurrent program.&lt;/p&gt;
+
+			&lt;p&gt;When we design a new construct, we try to start with a well-defined problem, which we describe in the motivation
+			section of the JEP. Pinpointing the problem is the most important, and often the hardest part of the process. Accordingly,
+			useful feedback takes the form of identifying problems with the proposed solution: either the solution doesn’t quite address the
+			original problem, or perhaps it introduces another.&lt;/p&gt;
+
+			&lt;p&gt;But there is another kind of feedback that is helpful, albeit implicitly: people’s responses can indicate that the
+			problem we want to solve is itself not clear. In this case, there might be a fundamental difficulty in understsanding the
+			problem, and it’s not a new one: the confusion between concurrency and parallelism.&lt;/p&gt;
+
+			&lt;h3 id="parallelism-vs-concurrency"&gt;Parallelism vs. Concurrency&lt;/h3&gt;
+
+			&lt;p&gt;The confusion is understandable and certainly isn’t unique to Java. For one, both concurrency and parallelism involve
+			doing multiple things at the same time. For another, threads, which are often employed for both concurrency and parallelism,
+			serve two different roles that are difficult to disentangle, one is more pertinent for parallelism, and the other for
+			concurrency.&lt;/p&gt;
+
+			&lt;p&gt;I will attempt to first define the two concepts and then try to to bring them together, into a single unifying
+			framework that will help, I hope, see why they require different solutions. The definitions we’ll use might not be universal,
+			but they conform to the ACM’s &lt;a href="https://www.acm.org/education/curricula-recommendations"&gt;curriculum guidelines&lt;/a&gt;.&lt;/p&gt;
+
+			&lt;p&gt;&lt;strong&gt;Parallelism&lt;/strong&gt; is the problem of doing a single job — say, inverting a matrix or sorting a
+			list — faster by employing multiple processing units. This is done by breaking up the job into multiple &lt;em&gt;cooperating&lt;/em&gt;
+			subtasks, different subsets of which running on a different core. &lt;strong&gt;Concurrency&lt;/strong&gt;, in contrast, is the
+			problem of scheduling some computational resources to a set of largely independent tasks that &lt;em&gt;compete&lt;/em&gt; over
+			those resources. The main performance measure we care about when we speak of concurrency isn’t the duration (latency) of any
+			single task, but &lt;em&gt;throughput&lt;/em&gt; — the number of tasks we can process per time-unit.&lt;/p&gt;
+
+			&lt;p&gt;Unlike in the case of parallelism, where the cooperating sub-tasks are created by the parallel algorithm itself, the
+			competing tasks in concurrency originate externally, and are part of the problem, not the solution. In other words, the reason
+			we have multiple tasks in parallelism is because we want to do some job faster; the reason we have multiple tasks in concurrency
+			is because handling multiple tasks &lt;em&gt;is&lt;/em&gt; the job. The canonical example of a concurrent program is a server
+			that serves requests arriving over the wire.&lt;/p&gt;
+
+			&lt;p&gt;Once we learn these definitions, and that Loom’s virtual threads are intended for concurrency while parallel streams
+			are for parallelism, we’re done: we use parallel streams when we need to sort a very large list, and we use virtual threads when
+			we write a server.&lt;/p&gt;
+
+			&lt;p&gt;But in this post I’d like to go deeper. These two problem statements are so different — I &lt;a
+			href="https://cr.openjdk.java.net/~rpressler/loom/loom/sol1_part1.html"&gt;once compared&lt;/a&gt; parallelism to a school of
+			piranhas devouring large prey and concurrency to cars traveling the streets of a city — that it’s almost a wonder anyone could
+			confuse them. That we &lt;em&gt;do&lt;/em&gt; confuse them indicates some similarity that, rather than dismiss, we’ll try to
+			embrace.&lt;/p&gt;
+
+			&lt;h3 id="a-common-framework"&gt;A Common Framework&lt;/h3&gt;
+
+			&lt;p&gt;Let’s ignore the origin of the tasks or their purpose, and whether they’re cooperating or competing. If we focus only
+			on the mechanism, we find that in both situations, for whatever reason, we want to work on some number of tasks at the same
+			time. At this point we can allow ourselves some confusion and ask, why would we need different mechanisms for the two problems?
+			To answer that, we will now re-introduce the requirements in both situations, and the means we have at our disposal to meet
+			them.&lt;/p&gt;
+
+			&lt;p&gt;Let’s begin with parallelism: We want to do multiple things at once &lt;em&gt;to finish a job faster&lt;/em&gt;. How is
+			that possible? If the task we need perform could be carried out with a device that can make progress on the task at some
+			constant rate, and we had &lt;em&gt;multiple&lt;/em&gt; such resources, we could split up our work into multiple tasks, and
+			assign different subsets of those tasks to one of the resources. Problems of the kind mentioned before — sorting a large list or
+			inverting a large matrix — can be performed by such resources we have at our disposal: processing cores. The parallel algorithm
+			will split up the work into subtasks (that coordinate with each other in some efficient way) and divide them among our
+			processing cores.&lt;/p&gt;
+
+			&lt;p&gt;While the OS kernel has direct control over CPU cores, it does not expose CPU allocation directly to userspace
+			programs. Instead, it offers a construct to &lt;em&gt;indirectly&lt;/em&gt; — and only approximately — control CPU allocation:
+			threads. Assuming no other processes are running on the same machine, if the number of threads is less than or equal to the
+			number of cores, we expect the OS to assign each to a different core. Because this kind of parallel problem uses threads as a
+			proxy for processing units, the number of threads we need to do the work faster is independent of its size. If we have ten
+			cores, a parallel computation would optimally use ten threads whether the list it needs to sort has a million elements or a
+			billion.&lt;/p&gt;
+
+			&lt;p&gt;Now, with concurrency we have a stream of largely independent tasks arriving from an external source and competing for
+			our resources. If the only kind of resource they require is processing, then, as before, all we’d need to do — all we’d be &lt;em&gt;able&lt;/em&gt;
+			to do — is schedule them to processing cores by assigning them to a relatively &lt;em&gt;small&lt;/em&gt; number of threads. But
+			it is often the case that those tasks cannot be completed by the CPU and require some other resource accessed with I/O like,
+			say, a database or some HTTP service. Indeed, it is often the case where &lt;em&gt;most&lt;/em&gt; of the time required to
+			process such a task is spent in I/O. More threads couldn’t buy us more CPU to accelerate our parallel job, but they certainly
+			don’t buy us more databases and services, either. How would doing multiple things concurrently, presumably using threads, help
+			us at all in this case?&lt;/p&gt;
+
+			&lt;p&gt;Recall that our goal with concurrency isn’t to handle tasks more quickly — i.e. with lower latency — but to complete as
+			many of them as possible per time-unit, achieving high &lt;em&gt;throughput&lt;/em&gt;. Even if each task takes a constant time
+			to process, a constant latency of, say, one second, we could still process one of them per second or a million.&lt;/p&gt;
+
+			&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Little%27s_law"&gt;Little’s law&lt;/a&gt;, which relates throughput and
+			latency in a concurrent system, tells us that we can increase our throughput by increasing our &lt;em&gt;level of concurrency&lt;/em&gt;
+			— the number of tasks we can start and make progress on concurrently. A relatively pleasant way to do that is to employ threads,
+			which allow multiple sequential tasks to make progress independently, meaning all could make progress even if none has finished
+			yet. But how many threads would we need? The answer is quite a lot.&lt;/p&gt;
+
+			&lt;p&gt;If each request comes through some networking server socket and perhaps requires some other client sockets to
+			communicate with other services, then the number of sockets limits the number of requests we can process concurrently, but that
+			limit is high. If in the case of parallelism we needed a relatively small number of threads (equal to the number of CPU cores)
+			regardless of how big the job, in the case of concurrency we want a very &lt;em&gt;large&lt;/em&gt; number of threads regardless
+			of how many cores we have (for a more detailed look on how virtual threads help increase the throughput of a concurrent system
+			see &lt;a href="https://inside.java/2020/08/07/loom-performance/"&gt;this post&lt;/a&gt;).&lt;/p&gt;
+
+			&lt;p&gt;True, each of those threads will consume some limited resource on our machine — some RAM, some networking bandwidth,
+			some CPU — that at some point will become saturated and put a limit on the number of threads we can use effectively. If each
+			thread consumes a significant amount of CPU, then that would become a limiting factor on their number, and so saying that
+			virtual threads help with I/O-bound workloads but not with CPU-bound ones is, indeed correct, although what matters here is
+			simply the number of threads, not their implementation, virtual or OS. But the key insight is that we’re using threads very
+			differently from how we use them for parallelism. We do &lt;em&gt;not&lt;/em&gt; use them as an interface for assigning cores,
+			but for a different function: the ability to make independent progress on multiple operations.&lt;/p&gt;
+
+			&lt;p&gt;&lt;em&gt;Why&lt;/em&gt; do threads perform those two different functions? We can think of them as scheduling
+			processing resources over both time and space. Allocating different CPU cores schedules processing over space, making progress
+			on different cores &lt;em&gt;simultaneously&lt;/em&gt;, while making independent progress on multiple tasks schedules processing
+			over time, but not necessarily simultaneously[&lt;sup id="fnref:1" role="doc-noteref"&gt;&lt;a href="#fn:1" class="footnote"
+			rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;]. We could, therefore think of parallelism as the problem of scheduling resources over
+			space and of concurrency as the problem of scheduling resources over time. I don’t know if that’s helpful, but it sure sounds
+			cool.&lt;/p&gt;
+
+			&lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
+
+			&lt;p&gt;Concurrency and parallelism are two very different problems. But even if we focus only on what they have in common —
+			they perform multiple actions by employing multiple threads — they use threads in different ways.&lt;/p&gt;
+
+			&lt;p&gt;Project Loom’s virtual threads allow us to create many more threads than we could with OS threads. Having more threads
+			helps with concurrency, where the ideal number of threads is a function of the workload, but not with parallelism, where the
+			ideal number is a function of the machine. The interesting difference that requires different mechanisms for tackling them is
+			that problems that exploit threads’ function as proxies for CPU-cores don’t benefit from having more of them, while problems
+			that exploit threads’ function of juggling many sequential operations that make progress independently do benefit from more.
+			Loom’s APIs are intended to address this latter problem of juggling many largely independent tasks.&lt;/p&gt;
+
+			&lt;p&gt;To know whether virtual threads will help your workload, ask yourself: would it benefit from having lots more threads
+			or does it actually need more cores?&lt;/p&gt;
+
+			&lt;center&gt;~&lt;/center&gt;
+
+			&lt;div class="footnotes" role="doc-endnotes"&gt;
+			&lt;ol&gt;
+			&lt;li id="fn:1" role="doc-endnote"&gt;
+			&lt;p&gt;And besides, processing is special. Like the &lt;a
+			href="https://www.haiku-os.org/legacy-docs/bebook/TheKernelKit_SystemInfo.html#is_computer_on"&gt;joke subroutine&lt;/a&gt; for
+			determining whether the computer is on that I saw mentioned on Hacker News the other day, processing is, after all, the only
+			resource you can ask for only if you already have it. It is required to ask for any other resource, too, and so it is,
+			understandably, easier to use when more implicit, sometimes to the point we don’t notice it at all. It is &lt;a
+			href="https://fs.blog/david-foster-wallace-this-is-water/"&gt;the water in which computer programs swim&lt;/a&gt;. &lt;a
+			href="#fnref:1" class="reversefootnote" role="doc-backlink"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+			&lt;/li&gt;
+			&lt;/ol&gt;
+			&lt;/div&gt;
+		</content>
+		<author>
+			<name>["RonPressler"]</name>
+		</author>
+		<category term="Loom"/>
+		<summary type="html">A little over a week ago, we asked the Java user community for feedback on a new construct for structured
+			concurrency we unveiled as part of Project Loom. It is intended to both make writing correct and efficient concurrent code
+			easier to write, as well as make it easier for tools, like the new new hierarchical thread dump mechanism, to observe a
+			concurrent program. When we design a new construct, we try to start with a well-defined problem, which we describe in the
+			motivation section of the JEP. Pinpointing the problem is the most important, and often the hardest part of the process.
+			Accordingly, useful feedback takes the form of identifying problems with the proposed solution: either the solution doesn't
+			quite address the original problem, or perhaps it introduces another…
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">Quality Outreach Heads-up - JDK 18: JEP 416</title>
+		<link href="https://inside.java/2021/11/29/quality-heads-up/" rel="alternate" type="text/html"
+		      title="Quality Outreach Heads-up - JDK 18: JEP 416"/>
+		<published>2021-11-29T00:00:00+00:00</published>
+		<updated>2021-11-29T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/29/Quality-Heads-Up</id>
+		<content type="html" xml:base="https://inside.java/2021/11/29/quality-heads-up/">&lt;p&gt;&lt;img class="webfeedsFeaturedVisual"
+			style="display: none;" src="/images/thumbnail/code.jpg" /&gt;&lt;/p&gt;
+
+			&lt;p&gt;&lt;i&gt;The &lt;a href="https://wiki.openjdk.java.net/display/quality/Quality+Outreach"&gt;OpenJDK Quality Group&lt;/a&gt;
+			is promoting the testing of FOSS projects with OpenJDK builds as a way to improve the overall quality of the release. This
+			heads-up is part of a &lt;a href="https://mail.openjdk.java.net/pipermail/quality-discuss/2021-November/001062.html"&gt;regular
+			communication&lt;/a&gt; sent to the projects involved. To learn more about the program, and how-to join, please check &lt;a
+			href="https://wiki.openjdk.java.net/display/quality/Quality+Outreach"&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
+
+			&lt;h3 id="jep-416---reimplement-core-reflection-with-method-handles"&gt;JEP 416 - Reimplement Core Reflection with Method
+			Handles&lt;/h3&gt;
+
+			&lt;p&gt;&lt;a href="https://openjdk.java.net/jeps/416"&gt;JEP 416&lt;/a&gt; reimplements &lt;code class="language-plaintext
+			highlighter-rouge"&gt;java.lang.reflect.Method&lt;/code&gt;, &lt;code class="language-plaintext highlighter-rouge"&gt;java.lang.reflect.Constructor&lt;/code&gt;,
+			and &lt;code class="language-plaintext highlighter-rouge"&gt;java.lang.reflect.Field&lt;/code&gt; on top of &lt;code
+			class="language-plaintext highlighter-rouge"&gt;java.lang.invoke&lt;/code&gt; method handles. Making method handles the
+			underlying mechanism for reflection will reduce the maintenance and development cost of both the &lt;code
+			class="language-plaintext highlighter-rouge"&gt;java.lang.reflect&lt;/code&gt; and &lt;code class="language-plaintext
+			highlighter-rouge"&gt;java.lang.invoke&lt;/code&gt; APIs.&lt;/p&gt;
+
+			&lt;h3 id="call-to-action"&gt;Call to Action&lt;/h3&gt;
+
+			&lt;p&gt;This is solely an implementation change but we encourage developers to test their codebase using the latest &lt;a
+			href="https://jdk.java.net/18/"&gt;JDK 18 Early-Access build&lt;/a&gt; to identify any behavior or performance regressions.
+			Questions and proper feedback should be sent to the &lt;a href="https://mail.openjdk.java.net/pipermail/core-libs-dev/"&gt;core-libs-dev&lt;/a&gt;
+			mailing list.&lt;/p&gt;
+
+			&lt;center&gt;~&lt;/center&gt;
+		</content>
+		<author>
+			<name>["DavidDelabassee"]</name>
+		</author>
+		<category term="JDK 18"/>
+		<category term="Core Libaries"/>
+		<summary type="html">This Heads-Up is part of the regular communication sent to the projects involved. JEP 416 reimplements
+			`java.lang.reflect.Method`, `java.lang.reflect.Constructor`, and `java.lang.reflect.Field` on top of `java.lang.invoke` method
+			handles...
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">Java Value Layout Constants</title>
+		<link href="https://inside.java/2021/11/25/java-value-layout-constants/" rel="alternate" type="text/html"
+		      title="Java Value Layout Constants"/>
+		<published>2021-11-25T00:00:00+00:00</published>
+		<updated>2021-11-25T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/25/Java-value-layout-constants</id>
+		<content type="html" xml:base="https://inside.java/2021/11/25/java-value-layout-constants/">&lt;p&gt;This is a followup of an
+			earlier disccussion. In the new changes slated for Java 18, the set of Java value layout constants are all byte-aligned (e.g.
+			alignment constraints are not set). The motivation for this is mostly historical…&lt;/p&gt;
+
+			&lt;p&gt;&lt;img class="webfeedsFeaturedVisual" style="display: none;" src="/images/thumbnail/code.jpg?582186335" /&gt;&lt;/p&gt;
+		</content>
+		<author>
+			<name>["MaurizioCimadamore"]</name>
+		</author>
+		<category term="Panama"/>
+		<category term="JDK 18"/>
+		<summary type="html">This is a followup of an earlier disccussion. In the new changes slated for Java 18, the set of Java value
+			layout constants are all byte-aligned (e.g. alignment constraints are not set). The motivation for this is mostly historical…
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">GC progress from JDK 8 to JDK 17</title>
+		<link href="https://inside.java/2021/11/24/gc-progress-from-jdk-8-to17/" rel="alternate" type="text/html"
+		      title="GC progress from JDK 8 to JDK 17"/>
+		<published>2021-11-24T00:00:00+00:00</published>
+		<updated>2021-11-24T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/24/GC-progress-from-JDK-8-to17</id>
+		<content type="html" xml:base="https://inside.java/2021/11/24/gc-progress-from-jdk-8-to17/">&lt;p&gt;JDK 17 has been out for a few
+			months and it’s not just packed with new language features. The performance boost compared to older JDK versions is also really
+			significant. It becomes especially clear when compared to the previous LTS releases, JDK 8 and JDK 11. Much of the improved
+			performance comes from new features and optimizations in the JVM and in this post the focus will be on the improvements done in
+			the area of garbage collection…&lt;/p&gt;
+
+			&lt;p&gt;&lt;img class="webfeedsFeaturedVisual" style="display: none;" src="/images/thumbnail/throughput.jpg?575012642" /&gt;&lt;/p&gt;
+		</content>
+		<author>
+			<name>["StefanJohansson"]</name>
+		</author>
+		<category term="GC"/>
+		<category term="Performance"/>
+		<category term="JDK 17"/>
+		<summary type="html">JDK 17 has been out for a few months and it’s not just packed with new language features. The performance boost
+			compared to older JDK versions is also really significant. It becomes especially clear when compared to the previous LTS
+			releases, JDK 8 and JDK 11. Much of the improved performance comes from new features and optimizations in the JVM and in this
+			post the focus will be on the improvements done in the area of garbage collection…
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">Records, Sealed Classes and Pattern Matching</title>
+		<link href="https://inside.java/2021/11/19/video-amber-manchester/" rel="alternate" type="text/html"
+		      title="Records, Sealed Classes and Pattern Matching"/>
+		<published>2021-11-19T00:00:00+00:00</published>
+		<updated>2021-11-19T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/19/Video-Amber-Manchester</id>
+		<content type="html" xml:base="https://inside.java/2021/11/19/video-amber-manchester/">&lt;iframe width="560" height="315"
+			src="https://www.youtube.com/embed/HGjcrheS7BU?start=51" title="YouTube video player" frameborder="0" allow="accelerometer;
+			autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""&gt;&lt;/iframe&gt;
+
+			&lt;p&gt;A Manchester Java Community session.&lt;/p&gt;
+		</content>
+		<author>
+			<name>["JosePaumard"]</name>
+		</author>
+		<category term="Amber"/>
+		<category term="JDK 17"/>
+		<category term="JDK 18"/>
+		<summary type="html">The release of the JDK 17 brings to interesting features in the Java language: sealed types and pattern
+			matching for switch. Along with the introduction of records, the implementation of pattern matching in the Java language begins
+			to take shape. This presentation shows you how records, sealed types and pattern matching can change the way we write Java code,
+			on real patterns. It also shows you what we can expect to see on this topic in the future. It is mostly a live coding
+			presentation, with some slides when the code shown cannot be executed…
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">Factory Methods for Collections - JEP Café #6</title>
+		<link href="https://inside.java/2021/11/18/jepcafe6/" rel="alternate" type="text/html"
+		      title="Factory Methods for Collections - JEP Café #6"/>
+		<published>2021-11-18T00:00:00+00:00</published>
+		<updated>2021-11-18T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/18/JEPCafe6</id>
+		<content type="html" xml:base="https://inside.java/2021/11/18/jepcafe6/">&lt;iframe width="560" height="315"
+			src="https://www.youtube.com/embed/rRtirh1nC5A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+			clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""&gt;&lt;/iframe&gt;
+
+			&lt;p&gt;Make sure to check the &lt;a href="https://youtu.be/rRtirh1nC5A"&gt;show-notes&lt;/a&gt;!&lt;/p&gt;
+		</content>
+		<author>
+			<name>["JosePaumard"]</name>
+		</author>
+		<category term="Core Libraries"/>
+		<category term="JDK 17"/>
+		<summary type="html">This JEP Café discusses 'Convenience Factory Methods for Collections' (JEP 269), released with JDK 9. Factory
+			methods allow to create pre-filled collections and maps, that are immutable, that do not accept null values or keys, and that
+			are Serializable. Let us quickly visit them, along with `Arrays.asList()`, `List.copyOf()` and the new `Stream.toList()`
+			methods…
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">JEP proposed to target JDK 18: 419: Foreign Function &amp;amp; Memory API (Second Incubator)</title>
+		<link href="https://inside.java/2021/11/16/jep-419-proposed-to-target-jdk18/" rel="alternate" type="text/html"
+		      title="JEP proposed to target JDK 18: 419: Foreign Function &amp;amp; Memory API (Second Incubator)"/>
+		<published>2021-11-16T00:00:00+00:00</published>
+		<updated>2021-11-16T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/16/JEP-419-proposed-to-target-JDK18</id>
+		<content type="html" xml:base="https://inside.java/2021/11/16/jep-419-proposed-to-target-jdk18/">&lt;p&gt;The following JEP is
+			proposed to target JDK 18: 418: 19: Foreign Function &amp;amp; Memory API (Second Incubator)…&lt;/p&gt;
+
+			&lt;p&gt;&lt;img class="webfeedsFeaturedVisual" style="display: none;" src="/images/thumbnail/jep.jpg?559056612" /&gt;&lt;/p&gt;
+		</content>
+		<author>
+			<name>["MaurizioCimadamore"]</name>
+		</author>
+		<category term="JDK 18"/>
+		<category term="Panama"/>
+		<summary type="html">The following JEP is proposed to target JDK 18: 418: 19: Foreign Function &amp; Memory API (Second
+			Incubator)…
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">JEP proposed to target JDK 18: 420: Pattern Matching for switch (Second Preview)</title>
+		<link href="https://inside.java/2021/11/16/jep-420-proposed-to-target-jdk18/" rel="alternate" type="text/html"
+		      title="JEP proposed to target JDK 18: 420: Pattern Matching for switch (Second Preview)"/>
+		<published>2021-11-16T00:00:00+00:00</published>
+		<updated>2021-11-16T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/16/JEP-420-proposed-to-target-JDK18</id>
+		<content type="html" xml:base="https://inside.java/2021/11/16/jep-420-proposed-to-target-jdk18/">&lt;p&gt;The following JEP is
+			proposed to target JDK 18: 420: Pattern Matching for switch (Second Preview)…&lt;/p&gt;
+
+			&lt;p&gt;&lt;img class="webfeedsFeaturedVisual" style="display: none;" src="/images/thumbnail/jep.jpg?562649390" /&gt;&lt;/p&gt;
+		</content>
+		<author>
+			<name>["GavinBierman"]</name>
+		</author>
+		<category term="JDK 18"/>
+		<category term="Amber"/>
+		<summary type="html">The following JEP is proposed to target JDK 18: 420: Pattern Matching for switch (Second Preview)…</summary>
+	</entry>
+	<entry>
+		<title type="html">A new Loom EA build and a new structured concurrency API</title>
+		<link href="https://inside.java/2021/11/15/a-new-build-and-a-new-structured-concurrency-api/" rel="alternate" type="text/html"
+		      title="A new Loom EA build and a new structured concurrency API"/>
+		<published>2021-11-15T00:00:00+00:00</published>
+		<updated>2021-11-15T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/15/A-new-build-and-a-new-structured-concurrency-API</id>
+		<content type="html" xml:base="https://inside.java/2021/11/15/a-new-build-and-a-new-structured-concurrency-api/">&lt;p&gt;We have
+			just published a new Early Access build of Project Loom. The main new feature in this build is a new API for structured
+			concurrency, called StructuredExecutor. To learn more about its motivation, capabilities, and use, please read this JEP draft
+			and the Javadoc. Pay special attention to the new methods added…&lt;/p&gt;
+
+			&lt;p&gt;&lt;img class="webfeedsFeaturedVisual" style="display: none;" src="/images/thumbnail/code.jpg?551836624" /&gt;&lt;/p&gt;
+		</content>
+		<author>
+			<name>["RonPressler"]</name>
+		</author>
+		<category term="Loom"/>
+		<summary type="html">We have just published a new Early Access build of Project Loom. The main new feature in this build is a new
+			API for structured concurrency, called StructuredExecutor. To learn more about its motivation, capabilities, and use, please
+			read this JEP draft and the Javadoc. Pay special attention to the new methods added…
+		</summary>
+	</entry>
+	<entry>
+		<title type="html">Heap Regions X-Large</title>
+		<link href="https://inside.java/2021/11/15/heap-regions-xl/" rel="alternate" type="text/html" title="Heap Regions X-Large"/>
+		<published>2021-11-15T00:00:00+00:00</published>
+		<updated>2021-11-15T00:00:00+00:00</updated>
+		<id>https://inside.java/2021/11/15/Heap-Regions-XL</id>
+		<content type="html" xml:base="https://inside.java/2021/11/15/heap-regions-xl/">&lt;p&gt;Until now G1 heap region size has been
+			limited to 32MB due to previous limitations in the remembered set data structures. With JDK-8275056 JDK 18 will bump that limit
+			to 512MB…&lt;/p&gt;
+
+			&lt;p&gt;&lt;img class="webfeedsFeaturedVisual" style="display: none;" src="/images/thumbnail/gc.png?555416105" /&gt;&lt;/p&gt;
+		</content>
+		<author>
+			<name>["ThomasSchatzl"]</name>
+		</author>
+		<category term="JDK 18"/>
+		<category term="GC"/>
+		<summary type="html">Until now G1 heap region size has been limited to 32MB due to previous limitations in the remembered set data
+			structures. With JDK-8275056 JDK 18 will bump that limit to 512MB…
+		</summary>
+	</entry>
+</feed>

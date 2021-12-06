@@ -128,3 +128,11 @@ private val tooManyPinnedMessagesMessages = listOf(
 internal fun tooManyPinnedMessages(): String {
     return tooManyPinnedMessagesMessages.random()
 }
+
+private val alreadyPinnedMessages = listOf(
+    "Это сообщение уже закреплено\\!",
+)
+
+internal fun alreadyPinned(): String {
+    return alreadyPinnedMessages.random()
+}

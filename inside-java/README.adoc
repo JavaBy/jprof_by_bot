@@ -1,0 +1,3 @@
+= Inside Java
+
+This feature posts news from https://inside.java in the chat.

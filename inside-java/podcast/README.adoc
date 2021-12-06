@@ -1,0 +1,3 @@
+= Inside Java / Podcast
+
+This module parses https://inside.java/podcast[Inside Java podcast] (https://insidejava.libsyn.com/rss).
