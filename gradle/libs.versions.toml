@@ -19,7 +19,7 @@ skija = "0.93.1"
 
 google-api-services-youtube = "v3-rev20210915-1.32.1"
 
-log4j = "2.14.1"
+log4j = "2.16.0"
 
 junit5 = "5.8.1"
 aws-junit5 = "6.0.1"
