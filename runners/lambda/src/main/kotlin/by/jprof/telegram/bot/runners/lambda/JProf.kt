@@ -1,6 +1,7 @@
 package by.jprof.telegram.bot.runners.lambda
 
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
+import by.jprof.telegram.bot.runners.lambda.config.currenciesModule
 import by.jprof.telegram.bot.runners.lambda.config.databaseModule
 import by.jprof.telegram.bot.runners.lambda.config.envModule
 import by.jprof.telegram.bot.runners.lambda.config.jsonModule
@@ -49,6 +50,7 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
                 youtubeModule,
                 pipelineModule,
                 sfnModule,
+                currenciesModule,
             )
         }
     }

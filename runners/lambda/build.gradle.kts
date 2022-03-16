@@ -19,4 +19,5 @@ dependencies {
     implementation(project.projects.eval)
     implementation(project.projects.pins.dynamodb)
     implementation(project.projects.pins.sfn)
+    implementation(project.projects.currencies)
 }

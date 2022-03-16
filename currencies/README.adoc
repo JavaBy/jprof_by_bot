@@ -1,0 +1,3 @@
+= Currencies
+
+This feature extracts monetary amounts from the messages and converts them to well-known currencies, like EUR or USD.
