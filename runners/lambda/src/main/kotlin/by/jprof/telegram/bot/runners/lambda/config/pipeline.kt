@@ -2,6 +2,8 @@ package by.jprof.telegram.bot.runners.lambda.config
 
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
+import by.jprof.telegram.bot.currencies.CurrenciesUpdateProcessor
+import by.jprof.telegram.bot.currencies.parser.MonetaryAmountParsingPipeline
 import by.jprof.telegram.bot.eval.EvalUpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
@@ -111,6 +113,14 @@ val pipelineModule = module {
         PinReplyUpdateProcessor(
             moniesDAO = get(),
             pinDAO = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("CurrenciesUpdateProcessor")) {
+        CurrenciesUpdateProcessor(
+            monetaryAmountParsingPipeline = get(),
+            exchangeRateClient = get(),
+            bot = get(),
         )
     }
 }
