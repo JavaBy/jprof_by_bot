@@ -1,0 +1,30 @@
+name: Herald
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  debounce:
+    name: Debounce
+    runs-on: ubuntu-latest
+    outputs:
+      debounce: ${{ steps.debounce.outputs.should_skip }}
+    steps:
+      - id: debounce
+        uses: fkirc/skip-duplicate-actions@master
+        with:
+          concurrent_skipping: same_content_newer
+          skip_after_successful_duplicate: false
+
+  render:
+    name: Herald
+    needs: debounce
+    if: ${{ needs.debounce.outputs.debounce != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: posts
+      - uses: docker://ghcr.io/javaby/herald:latest
