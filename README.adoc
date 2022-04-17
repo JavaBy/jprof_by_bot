@@ -1,0 +1,9 @@
+= Posts
+
+Stick to the plan:
+
+* *Monday*: architecture, big tech cases, longreads.
+* *Tuesday*: tools, lifehacks, junk shots.
+* *Wednesday*: short & practical materials.
+* *Thursday*: meat & bones.
+* *Friday*: <reserved for the polls>.
