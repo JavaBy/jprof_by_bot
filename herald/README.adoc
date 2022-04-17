@@ -1,0 +1,3 @@
+= Herald
+
+This feature posts scheduled messages to the chat.
