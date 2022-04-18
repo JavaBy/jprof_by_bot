@@ -1,0 +1,4004 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="25.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9881"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0.5,0.5"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9879"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9874"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="1,0.5"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9872"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9867"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0.67852579,0.86819575"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9865"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9860"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0.71822313,0.2601192"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9858"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9853"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="1.2035646,0.62932418"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9851"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9756"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0.40111486,1.5692581 | 0.44223223,1.0610673 | 1.279052,0.55572414 | 2.5183805,5.3833175 | 3.5231302,0.96589105"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9754"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9749"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="1.535413,0.59482416 | 1.9464663,0.25694301 | 3.4694706,1.144634 | 6.6219081,1.3452817 | 13.30341,5.3833175"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9747"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect9742"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0.98274453,3.0269113 | 6.7536087,5.2587888"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect9740"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.0032025118"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <filter
+       x="-0.077369069"
+       y="-0.076181525"
+       width="1.1547381"
+       height="1.1757521"
+       id="filter43153">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43117" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43119" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43121" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43123" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43125" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43127" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43129" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43131" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43133" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43135" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43137" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43139" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43141" />
+      <feMerge
+         id="feMerge43151">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43143" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43145" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43147" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43149" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.085721214"
+       y="-0.082169103"
+       width="1.1714424"
+       height="1.1895656"
+       id="filter43191">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43155" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43157" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43159" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43161" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43163" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43165" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43167" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43169" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43171" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43173" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43175" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43177" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43179" />
+      <feMerge
+         id="feMerge43189">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43181" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43183" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43185" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43187" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.056332156"
+       y="-0.054995148"
+       width="1.1126643"
+       height="1.1268748"
+       id="filter43247">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43211" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43213" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43215" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43217" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43219" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43221" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43223" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43225" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43227" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43229" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43231" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43233" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43235" />
+      <feMerge
+         id="feMerge43245">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43237" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43239" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43241" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43243" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.066808978"
+       y="-0.060448329"
+       width="1.133618"
+       height="1.1394554"
+       id="filter43285">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43249" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43251" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43253" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43255" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43257" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43259" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43261" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43263" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43265" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43267" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43269" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43271" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43273" />
+      <feMerge
+         id="feMerge43283">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43275" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43277" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43279" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43281" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.036861167"
+       y="-0.043543911"
+       width="1.0737223"
+       height="1.1004566"
+       id="filter43341">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43305" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43307" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43309" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43311" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43313" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43315" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43317" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43319" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43321" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43323" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43325" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43327" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43329" />
+      <feMerge
+         id="feMerge43339">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43331" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43333" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43335" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43337" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.041776919"
+       y="-0.04793909"
+       width="1.0835538"
+       height="1.1105963"
+       id="filter43379">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43343" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43345" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43347" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43349" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43351" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43353" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43355" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43357" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43359" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43361" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43363" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43365" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43367" />
+      <feMerge
+         id="feMerge43377">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43369" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43371" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43373" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43375" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.011875"
+       y="-0.036515831"
+       width="1.02375"
+       height="1.0842427"
+       id="filter43435">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43399" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43401" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43403" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43405" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43407" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43409" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43411" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43413" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43415" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43417" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43419" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43421" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43423" />
+      <feMerge
+         id="feMerge43433">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43425" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43427" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43429" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43431" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.011875"
+       y="-0.031977034"
+       width="1.02375"
+       height="1.0737716"
+       id="filter43491">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43455" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43457" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43459" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43461" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43463" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43465" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43467" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43469" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43471" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43473" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43475" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43477" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43479" />
+      <feMerge
+         id="feMerge43489">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43481" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43483" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43485" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43487" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.011875"
+       y="-0.029075476"
+       width="1.02375"
+       height="1.0670776"
+       id="filter43547">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43511" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43513" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43515" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43517" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43519" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43521" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43523" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43525" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43527" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43529" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43531" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43533" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43535" />
+      <feMerge
+         id="feMerge43545">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43537" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43539" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43541" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43543" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.011875"
+       y="-0.026950292"
+       width="1.02375"
+       height="1.0621748"
+       id="filter43603">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43567" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43569" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43571" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43573" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43575" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43577" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43579" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43581" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43583" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43585" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43587" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43589" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43591" />
+      <feMerge
+         id="feMerge43601">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43593" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43595" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43597" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43599" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.011875"
+       y="-0.024291509"
+       width="1.02375"
+       height="1.0560409"
+       id="filter43659">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43623" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43625" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43627" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43629" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43631" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43633" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43635" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43637" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43639" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43641" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43643" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43645" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43647" />
+      <feMerge
+         id="feMerge43657">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43649" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43651" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43653" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43655" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.011875"
+       y="-0.021808562"
+       width="1.02375"
+       height="1.0503127"
+       id="filter43715">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43679" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43681" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43683" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43685" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43687" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43689" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43691" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43693" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43695" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43697" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43699" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43701" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43703" />
+      <feMerge
+         id="feMerge43713">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43705" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43707" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43709" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43711" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.011875"
+       y="-0.26546595"
+       width="1.02375"
+       height="1.6124346"
+       id="filter44003">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset43967" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset43969" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset43971" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology43973" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur43975" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur43977" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur43979" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood43981" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood43983" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood43985" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite43987" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite43989" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite43991" />
+      <feMerge
+         id="feMerge44001">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode43993" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode43995" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode43997" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode43999" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.19404176"
+       y="-0.16840881"
+       width="1.3880835"
+       height="1.3885221"
+       id="filter45149">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45113" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45115" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45117" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45119" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45121" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45123" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45125" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45127" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45129" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45131" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45133" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45135" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45137" />
+      <feMerge
+         id="feMerge45147">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45139" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45141" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45143" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45145" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.19334937"
+       y="-0.17358761"
+       width="1.3866987"
+       height="1.4004697"
+       id="filter45187">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45151" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45153" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45155" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45157" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45159" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45161" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45163" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45165" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45167" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45169" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45171" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45173" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45175" />
+      <feMerge
+         id="feMerge45185">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45177" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45179" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45181" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45183" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.018373009"
+       y="-0.017872482"
+       width="1.036746"
+       height="1.0412321"
+       id="filter45243">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45207" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45209" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45211" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45213" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45215" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45217" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45219" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45221" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45223" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45225" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45227" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45229" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45231" />
+      <feMerge
+         id="feMerge45241">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45233" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45235" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45237" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45239" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.55877657"
+       y="-0.80371494"
+       width="2.1175531"
+       height="2.8541845"
+       id="filter45299">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45263" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45265" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45267" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45269" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45271" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45273" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45275" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45277" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45279" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45281" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45283" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45285" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45287" />
+      <feMerge
+         id="feMerge45297">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45289" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45291" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45293" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45295" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.089409688"
+       y="-0.11844395"
+       width="1.1788194"
+       height="1.2732523"
+       id="filter45355">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45319" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45321" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45323" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45325" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45327" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45329" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45331" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45333" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45335" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45337" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45339" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45341" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45343" />
+      <feMerge
+         id="feMerge45353">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45345" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45347" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45349" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45351" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.057595033"
+       y="-0.038087236"
+       width="1.1151901"
+       height="1.0878679"
+       id="filter45411">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45375" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45377" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45379" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45381" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45383" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45385" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45387" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45389" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45391" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45393" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45395" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45397" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45399" />
+      <feMerge
+         id="feMerge45409">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45401" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45403" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45405" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45407" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.12438429"
+       y="-0.16235992"
+       width="1.2487686"
+       height="1.3745672"
+       id="filter45467">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45431" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45433" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45435" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45437" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45439" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45441" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45443" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45445" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45447" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45449" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45451" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45453" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45455" />
+      <feMerge
+         id="feMerge45465">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45457" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45459" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45461" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45463" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.14793807"
+       y="-0.17408032"
+       width="1.2958761"
+       height="1.4016064"
+       id="filter45505">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45469" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45471" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45473" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45475" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45477" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45479" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45481" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45483" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45485" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45487" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45489" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45491" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45493" />
+      <feMerge
+         id="feMerge45503">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45495" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45497" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45499" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45501" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.25324816"
+       y="-0.20797402"
+       width="1.5064963"
+       height="1.4797997"
+       id="filter45663">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45627" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45629" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45631" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45633" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45635" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45637" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45639" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45641" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45643" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45645" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45647" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45649" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45651" />
+      <feMerge
+         id="feMerge45661">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45653" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45655" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45657" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45659" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.24933226"
+       y="-0.19984682"
+       width="1.4986645"
+       height="1.4610501"
+       id="filter45701">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45665" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45667" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45669" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45671" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45673" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45675" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45677" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45679" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45681" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45683" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45685" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45687" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45689" />
+      <feMerge
+         id="feMerge45699">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45691" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45693" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45695" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45697" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.38241461"
+       y="-0.47306096"
+       width="1.7648292"
+       height="2.0913599"
+       id="filter45757">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45721" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45723" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45725" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45727" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45729" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45731" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45733" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45735" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45737" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45739" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45741" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45743" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45745" />
+      <feMerge
+         id="feMerge45755">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45747" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45749" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45751" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45753" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.42305856"
+       y="-0.47114072"
+       width="1.8461171"
+       height="2.0869299"
+       id="filter45795">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset45759" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset45761" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset45763" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology45765" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur45767" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur45769" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur45771" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood45773" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood45775" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood45777" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite45779" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite45781" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite45783" />
+      <feMerge
+         id="feMerge45793">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode45785" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode45787" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode45789" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode45791" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.024235517"
+       y="-0.034328818"
+       width="1.048471"
+       height="1.0791972"
+       id="filter46411">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset46375" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset46377" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset46379" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology46381" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur46383" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur46385" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur46387" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood46389" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood46391" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood46393" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite46395" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite46397" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite46399" />
+      <feMerge
+         id="feMerge46409">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode46401" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode46403" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode46405" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode46407" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.18332545"
+       y="-0.18332545"
+       width="1.3666509"
+       height="1.4129452"
+       id="filter48520">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="6"
+         id="feOffset48484" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset48486" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="3"
+         id="feOffset48488" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology48490" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="5"
+         id="feGaussianBlur48492" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="9"
+         id="feGaussianBlur48494" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2.5"
+         id="feGaussianBlur48496" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood48498" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood48500" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood48502" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite48504" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite48506" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite48508" />
+      <feMerge
+         id="feMerge48518">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode48510" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode48512" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode48514" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode48516" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.031339015"
+       y="-0.20185223"
+       width="1.062678"
+       height="1.4656766"
+       id="filter87421">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset87385" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset87387" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset87389" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology87391" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur87393" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur87395" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur87397" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood87399" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood87401" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood87403" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite87405" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite87407" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite87409" />
+      <feMerge
+         id="feMerge87419">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode87411" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode87413" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode87415" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode87417" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.038720673"
+       y="-0.19293198"
+       width="1.0774413"
+       height="1.4450975"
+       id="filter87459">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset87423" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset87425" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset87427" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology87429" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur87431" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur87433" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur87435" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood87437" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood87439" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood87441" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite87443" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite87445" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite87447" />
+      <feMerge
+         id="feMerge87457">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode87449" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode87451" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode87453" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode87455" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.033189769"
+       y="-0.037406048"
+       width="1.0663795"
+       height="1.0862964"
+       id="filter152361">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset152325" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset152327" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset152329" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology152331" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur152333" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur152335" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur152337" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood152339" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood152341" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood152343" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite152345" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite152347" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite152349" />
+      <feMerge
+         id="feMerge152359">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode152351" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode152353" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode152355" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode152357" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.012881242"
+       y="-0.034053874"
+       width="1.0257625"
+       height="1.0785629"
+       id="filter152399">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset152363" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset152365" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset152367" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology152369" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur152371" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur152373" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur152375" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood152377" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood152379" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood152381" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite152383" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite152385" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite152387" />
+      <feMerge
+         id="feMerge152397">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode152389" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode152391" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode152393" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode152395" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.03834136"
+       y="-0.037406046"
+       width="1.0766827"
+       height="1.0862964"
+       id="filter152437">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset152401" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset152403" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset152405" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology152407" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur152409" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur152411" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur152413" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood152415" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood152417" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood152419" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite152421" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite152423" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite152425" />
+      <feMerge
+         id="feMerge152435">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode152427" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode152429" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode152431" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode152433" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.071948376"
+       y="-0.04657438"
+       width="1.1438968"
+       height="1.1074479"
+       id="filter154384">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset154348" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset154350" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset154352" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology154354" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur154356" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur154358" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur154360" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood154362" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood154364" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood154366" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite154368" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite154370" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite154372" />
+      <feMerge
+         id="feMerge154382">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode154374" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode154376" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode154378" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode154380" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.078081018"
+       y="-0.046574358"
+       width="1.156162"
+       height="1.1074479"
+       id="filter154422">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset154386" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset154388" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset154390" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology154392" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur154394" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur154396" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur154398" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood154400" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood154402" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood154404" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite154406" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite154408" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite154410" />
+      <feMerge
+         id="feMerge154420">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode154412" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode154414" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode154416" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode154418" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.046836596"
+       y="-0.046574336"
+       width="1.0936732"
+       height="1.1074478"
+       id="filter154460">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset154424" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset154426" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset154428" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology154430" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur154432" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur154434" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur154436" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood154438" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood154440" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood154442" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite154444" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite154446" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite154448" />
+      <feMerge
+         id="feMerge154458">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode154450" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode154452" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode154454" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode154456" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.05209377"
+       y="-0.046574336"
+       width="1.1041875"
+       height="1.1074478"
+       id="filter154498">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset154462" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset154464" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset154466" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology154468" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur154470" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur154472" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur154474" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood154476" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood154478" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood154480" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite154482" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite154484" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite154486" />
+      <feMerge
+         id="feMerge154496">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode154488" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode154490" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode154492" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode154494" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.35254661"
+       y="-0.27949558"
+       width="1.7050932"
+       height="1.6448012"
+       id="filter156407">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset156371" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset156373" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset156375" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology156377" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur156379" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur156381" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur156383" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood156385" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood156387" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood156389" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite156391" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite156393" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite156395" />
+      <feMerge
+         id="feMerge156405">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode156397" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode156399" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode156401" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode156403" />
+      </feMerge>
+    </filter>
+    <filter
+       x="-0.35254661"
+       y="-0.27949558"
+       width="1.7050932"
+       height="1.6448012"
+       id="filter156445">
+      <feOffset
+         in="SourceAlpha"
+         result="offA"
+         dy="4"
+         id="feOffset156409" />
+      <feOffset
+         in="SourceAlpha"
+         result="offB"
+         dy="1"
+         id="feOffset156411" />
+      <feOffset
+         in="SourceAlpha"
+         result="offC"
+         dy="2"
+         id="feOffset156413" />
+      <feMorphology
+         in="offC"
+         result="spreadC"
+         operator="erode"
+         radius="1"
+         id="feMorphology156415" />
+      <feGaussianBlur
+         in="offA"
+         result="blurA"
+         stdDeviation="2.5"
+         id="feGaussianBlur156417" />
+      <comment />
+      <feGaussianBlur
+         in="offB"
+         result="blurB"
+         stdDeviation="5"
+         id="feGaussianBlur156419" />
+      <comment />
+      <feGaussianBlur
+         in="spreadC"
+         result="blurC"
+         stdDeviation="2"
+         id="feGaussianBlur156421" />
+      <comment />
+      <feFlood
+         flood-opacity="0.14"
+         result="opA"
+         id="feFlood156423" />
+      <feFlood
+         flood-opacity="0.12"
+         result="opB"
+         id="feFlood156425" />
+      <feFlood
+         flood-opacity="0.40"
+         result="opC"
+         id="feFlood156427" />
+      <feComposite
+         in="opA"
+         in2="blurA"
+         result="shA"
+         operator="in"
+         id="feComposite156429" />
+      <feComposite
+         in="opB"
+         in2="blurB"
+         result="shB"
+         operator="in"
+         id="feComposite156431" />
+      <feComposite
+         in="opC"
+         in2="blurC"
+         result="shC"
+         operator="in"
+         id="feComposite156433" />
+      <feMerge
+         id="feMerge156443">
+        <feMergeNode
+           in="shA"
+           id="feMergeNode156435" />
+        <feMergeNode
+           in="shB"
+           id="feMergeNode156437" />
+        <feMergeNode
+           in="shC"
+           id="feMergeNode156439" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode156441" />
+      </feMerge>
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.0348962"
+     inkscape:cx="1005.211"
+     inkscape:cy="386.99763"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer5"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="999"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="true"
+     borderlayer="false"
+     showborder="false"
+     inkscape:snap-global="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-center="true"
+     inkscape:snap-page="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-14.424983)"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#ffffff;stroke-width:5.65419;paint-order:stroke fill markers;stop-color:#000000"
+       id="rect1130"
+       width="1920"
+       height="1080"
+       x="0"
+       y="14.424983" />
+    <path
+       id="rect42867"
+       style="fill:#5adeff;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43715);stop-color:#000000"
+       d="m 1920,62.201172 c -8.9944,2.011382 -15.8785,3.735334 -26.3984,5.86914 -10.9799,2.227097 -22.62,4.453113 -34.5645,6.541016 -11.9445,2.087903 -24.1936,4.036709 -36.3906,5.707031 -12.197,1.670323 -24.3428,3.062755 -36.0801,4.03711 -11.7373,0.974354 -23.0672,1.53125 -33.6328,1.53125 -5.2828,0 -10.7622,-0.220948 -16.4121,-0.63086 -5.6499,-0.409911 -11.4695,-1.009459 -17.4297,-1.763671 -11.9204,-1.508425 -24.4053,-3.638892 -37.2266,-6.13086 -25.6426,-4.983936 -52.6323,-11.410861 -79.1543,-17.179687 -13.2609,-2.884414 -26.4052,-5.605124 -39.205,-7.898438 -12.7999,-2.293314 -25.256,-4.158603 -37.1407,-5.335937 -5.9423,-0.588668 -11.7407,-1.00554 -17.3691,-1.216797 -5.6284,-0.211257 -11.086,-0.218091 -16.3438,0.01367 -5.2577,0.231763 -10.3161,0.702966 -15.1464,1.443359 -4.8303,0.740393 -9.4332,1.749819 -13.7793,3.064453 -4.3462,1.314634 -8.6948,2.404718 -13.0508,3.291016 -4.356,0.886298 -8.7175,1.5701 -13.0899,2.074219 -8.7447,1.008236 -17.5298,1.298232 -26.3789,1.054687 -8.8491,-0.243545 -17.7622,-1.020407 -26.7675,-2.146484 -9.0054,-1.126078 -18.1029,-2.602827 -27.3165,-4.242188 -18.4271,-3.278721 -37.323,-7.21372 -56.8945,-10.330078 -9.7857,-1.558179 -19.7409,-2.911286 -29.8906,-3.875 -10.1497,-0.963714 -20.493,-1.539063 -31.0586,-1.539063 -10.5656,0 -21.239,0.744396 -31.9922,2.046876 -10.7532,1.302479 -21.5873,3.163662 -32.4746,5.396484 -10.8873,2.232822 -21.8272,4.837879 -32.7949,7.628906 -10.9677,2.791027 -21.9626,5.768998 -32.9571,8.746094 -10.9944,2.977095 -21.9893,5.953113 -32.957,8.74414 -10.9677,2.791028 -21.9076,5.396085 -32.7949,7.628907 -10.8873,2.232821 -21.7214,4.094005 -32.4746,5.396484 -10.7532,1.302479 -21.42663,2.046875 -31.9922,2.046875 -5.28279,0 -10.36653,-0.235157 -15.29492,-0.669922 -4.9284,-0.434765 -9.70006,-1.07041 -14.35938,-1.867187 -9.31863,-1.593555 -18.18523,-3.838272 -26.93945,-6.44336 -17.50846,-5.210176 -34.56994,-11.860817 -53.91602,-17.625 -9.67304,-2.882091 -19.91796,-5.541892 -31.07422,-7.689453 -5.57813,-1.07378 -11.38402,-2.019762 -17.46093,-2.800781 -6.07692,-0.781019 -12.42493,-1.396995 -19.08594,-1.8125 -6.66101,-0.415505 -13.63442,-0.630184 -20.96485,-0.607422 -7.33042,0.02276 -15.01835,0.282625 -23.10351,0.816406 -8.08516,0.533782 -16.56893,1.341431 -25.49414,2.458985 -8.92521,1.117554 -18.292,2.54428 -28.14258,4.318359 -19.70116,3.548158 -37.29875,6.180007 -53.17188,8.109375 -15.87312,1.929368 -30.02153,3.156462 -42.82226,3.896484 -12.80073,0.740023 -24.25429,0.992535 -34.73828,0.972657 -10.48399,-0.01988 -19.99703,-0.311776 -28.91992,-0.66211 -8.9229,-0.350334 -17.25561,-0.75842 -25.37305,-1.009765 -8.11744,-0.251346 -16.02025,-0.345447 -24.08789,-0.06836 -8.06764,0.277087 -16.29878,0.925192 -25.07227,2.160157 -8.77348,1.234964 -18.08924,3.055448 -28.32422,5.677734 -9.58462,2.45566 -19.30931,4.301502 -29.15039,5.611328 -9.84107,1.309826 -19.79828,2.084565 -29.84765,2.402344 C 371.44867,77.659576 361.3072,77.52048 351.09766,77 340.88812,76.47952 330.61062,75.577998 320.28906,74.373047 309.9675,73.168095 299.60223,71.659464 289.2168,69.923828 278.83136,68.188193 268.42461,66.225813 258.02344,64.113281 237.2211,59.888218 216.4358,55.061876 195.85938,50.251953 190.76989,49.062241 185.32578,48.021461 179.5918,47.115234 173.85782,46.209008 167.83412,45.437733 161.58398,44.787109 149.08371,43.485861 135.67958,42.668798 121.88477,42.222656 108.08995,41.776514 93.904394,41.700826 79.841797,41.886719 65.7792,42.072611 51.838766,42.520378 38.535156,43.115234 23.474744,43.788644 12.685002,44.747861 0,45.640625 V 1080 h 1920 z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect42571"
+       style="fill:#d8f2ff;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43659);stop-color:#000000"
+       d="m 1920,152.97656 c -14.3472,-1.06728 -27.9044,-2.20147 -45.8066,-3.00195 -13.3036,-0.59486 -27.2441,-1.04067 -41.3067,-1.22656 -14.0626,-0.1859 -28.2481,-0.11216 -42.0429,0.33398 -13.7949,0.44614 -27.199,1.26321 -39.6993,2.56445 -6.2501,0.65063 -12.2738,1.42386 -18.0078,2.33008 -5.734,0.90623 -11.1781,1.94701 -16.2676,3.13672 -20.5764,4.80992 -41.3617,9.63431 -62.164,13.85938 -10.4012,2.11253 -20.8079,4.07491 -31.1934,5.81054 -10.3854,1.73564 -20.7507,3.24427 -31.0722,4.44922 -10.3216,1.20495 -20.5991,2.10647 -30.8086,2.62696 -10.2096,0.52048 -20.3511,0.65957 -30.4004,0.34179 -10.0494,-0.31778 -20.0066,-1.09252 -29.8477,-2.40234 -9.8411,-1.30983 -19.5658,-3.15372 -29.1504,-5.60938 -10.235,-2.62228 -19.5507,-4.44472 -28.3242,-5.67968 -8.7735,-1.23497 -17.0046,-1.88307 -25.0723,-2.16016 -8.0676,-0.27709 -15.9704,-0.18299 -24.0879,0.0684 -8.1174,0.25134 -16.4501,0.65943 -25.373,1.00976 -8.9229,0.35034 -18.4359,0.64419 -28.9199,0.66407 -10.484,0.0199 -21.9376,-0.23264 -34.7383,-0.97266 -12.8007,-0.74002 -26.9491,-1.96907 -42.8223,-3.89844 -15.8731,-1.92936 -33.4707,-4.55926 -53.1718,-8.10742 -9.8506,-1.77408 -19.2174,-3.20276 -28.1426,-4.32031 -8.9252,-1.11756 -17.409,-1.9252 -25.4942,-2.45899 -8.0851,-0.53378 -15.7731,-0.79364 -23.1035,-0.8164 -7.3304,-0.0228 -14.3038,0.19192 -20.9648,0.60742 -6.661,0.4155 -13.009,1.03148 -19.086,1.8125 -6.0769,0.78102 -11.8828,1.727 -17.4609,2.80078 -11.1563,2.14756 -21.4012,4.80736 -31.0742,7.68945 -19.3461,5.76419 -36.4076,12.41678 -53.91603,17.62696 -8.75423,2.60509 -17.62083,4.8498 -26.93945,6.44336 -4.65932,0.79677 -9.43099,1.43047 -14.35938,1.86523 -4.92839,0.43477 -10.01213,0.66992 -15.29492,0.66992 -10.56557,0 -21.23896,-0.74439 -31.99219,-2.04687 -10.75322,-1.30248 -21.58734,-3.16366 -32.47461,-5.39649 -10.88726,-2.23282 -21.82723,-4.83592 -32.79492,-7.62695 -10.96769,-2.79103 -21.96254,-5.769 -32.95703,-8.74609 -10.9945,-2.9771 -21.98935,-5.95507 -32.95703,-8.7461 -10.96769,-2.79102 -21.90766,-5.39608 -32.79492,-7.6289 -10.88727,-2.23282 -21.72139,-4.09206 -32.47461,-5.39453 -10.75323,-1.30248 -21.42663,-2.04688 -31.99219,-2.04688 -10.56557,0 -20.9089,0.5734 -31.0586,1.53711 -10.14969,0.96371 -20.10487,2.31682 -29.89062,3.875 -19.5715,3.11636 -38.46735,7.05331 -56.89453,10.33203 -9.21359,1.63936 -18.31102,3.11416 -27.31641,4.24024 -9.00538,1.12607 -17.91848,1.90293 -26.76758,2.14648 -8.84909,0.24355 -17.63419,-0.0464 -26.3789,-1.05469 -4.37236,-0.50412 -8.73385,-1.18792 -13.08985,-2.07422 -4.35599,-0.88629 -8.7066,-1.97442 -13.05273,-3.28906 -4.34613,-1.31463 -8.94704,-2.32601 -13.77734,-3.0664 -4.8303,-0.7404 -9.88876,-1.20965 -15.14649,-1.44141 -5.25772,-0.23176 -10.71535,-0.22688 -16.34375,-0.0156 -5.62839,0.21126 -11.42877,0.62813 -17.37109,1.2168 -11.88464,1.17734 -24.33886,3.04458 -37.13867,5.33789 -12.79982,2.29332 -25.9441,5.01207 -39.20508,7.89649 -26.52197,5.76882 -53.51172,12.19575 -79.1543,17.17968 -12.82129,2.49197 -25.30613,4.62244 -37.22656,6.13086 -5.96022,0.75421 -11.77981,1.35376 -17.42969,1.76367 -5.64987,0.40992 -11.12933,0.63086 -16.41211,0.63086 -10.56556,0 -21.89547,-0.55689 -33.63281,-1.53125 -11.73735,-0.97435 -23.88309,-2.36678 -36.080079,-4.03711 C 77.885043,185.50741 65.635903,183.55861 53.691406,181.4707 41.74691,179.3828 30.106822,177.15678 19.126953,174.92969 11.504789,173.38365 6.8665955,172.17721 0,170.67773 V 1080 h 1920 z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect41214"
+       style="fill:#c6e9cd;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43603);stop-color:#000000"
+       d="m 1920,288.12891 c -8.3007,-1.47518 -16.6011,-2.93963 -24.793,-4.79297 -11.2256,-2.5397 -22.3855,-5.38184 -33.58,-8.38282 -11.1946,-3.00097 -22.4234,-6.15945 -33.7872,-9.33398 -11.3637,-3.17453 -22.8624,-6.3654 -34.5957,-9.42578 -11.7332,-3.06038 -23.7007,-5.99188 -36.0039,-8.65039 -12.3031,-2.65851 -24.9423,-5.0428 -38.0156,-7.01172 -13.0733,-1.96892 -26.5812,-3.52205 -40.625,-4.51367 -6.29,-0.444 -12.7198,-0.7628 -19.2598,-0.9668 -13.765,-0.42937 -28.0326,-0.35149 -42.6601,0.125 -14.6275,0.47649 -29.6141,1.3513 -44.8203,2.51563 -15.2063,1.16432 -30.6316,2.6178 -46.1328,4.25195 -15.5013,1.63414 -31.0793,3.45 -46.5918,5.33594 -31.025,3.77187 -61.7888,7.82792 -91.1563,11.29882 -14.6837,1.73546 -29.0176,3.32503 -42.8613,4.65821 -13.8438,1.33317 -27.198,2.41017 -39.918,3.12305 -13.1675,0.73799 -26.0185,0.81426 -38.6191,0.37695 -12.6007,-0.43732 -24.9508,-1.38663 -37.1153,-2.69727 -12.1644,-1.31063 -24.143,-2.98328 -36.0019,-4.86523 -11.8589,-1.88196 -23.5972,-3.97372 -35.2813,-6.125 -23.3681,-4.30256 -46.518,-8.84227 -69.9707,-12.41016 -11.7263,-1.78394 -23.5272,-3.32537 -35.4707,-4.47265 -11.9434,-1.14729 -24.029,-1.90075 -36.3203,-2.10938 -2.29,-0.039 -4.5904,-0.0586 -6.9004,-0.0586 -12.65984,0 -25.1817,0.49437 -37.59958,1.35742 -12.41788,0.86305 -24.73155,2.09665 -36.97656,3.57617 -24.49003,2.95903 -48.70264,6.90424 -72.91602,10.84961 -24.21337,3.94537 -48.42818,7.89058 -72.91796,10.84961 -12.2449,1.47951 -24.55888,2.71117 -36.97657,3.57422 -12.41769,0.86305 -24.93803,1.35742 -37.59765,1.35742 -12.65963,0 -25.62864,-0.48798 -38.83008,-1.33984 -13.20144,-0.85187 -26.63616,-2.06896 -40.22461,-3.5293 -27.17691,-2.92069 -54.97145,-6.81474 -82.76758,-10.70898 -27.79612,-3.89425 -55.59262,-7.7883 -82.76953,-10.70899 -13.58845,-1.46034 -27.02317,-2.67743 -40.22461,-3.5293 -13.20144,-0.85186 -26.17045,-1.33789 -38.83008,-1.33789 -5.267,0 -10.52544,0.0851 -15.77344,0.2461 -11.9575,0.36712 -23.86782,1.12711 -35.74804,2.16601 -11.88023,1.0389 -23.7305,2.35591 -35.56446,3.83789 -23.66791,2.96397 -47.27248,6.5851 -70.9414,9.94922 -11.83446,1.68206 -23.68518,3.30118 -35.56641,4.74024 -11.88123,1.43905 -23.79294,2.69865 -35.75195,3.66601 -11.95901,0.96736 -23.96541,1.64124 -36.0332,1.90821 -12.0678,0.26696 -24.19865,0.12696 -36.406254,-0.53516 C 63.721436,259.01 31.023016,257.71587 0,256.31836 V 1080 h 1920 z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect40590"
+       style="fill:#73baaa;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43547);stop-color:#000000"
+       d="m 1920,336.04492 c -1.4689,-0.056 -3.0188,0.0277 -4.4805,-0.041 -11.5782,-0.54424 -22.9386,-1.47878 -34.1816,-2.67579 -22.4861,-2.394 -44.5053,-5.83435 -66.8672,-9.2871 -11.1809,-1.72638 -22.4463,-3.45561 -33.9004,-5.0586 -11.454,-1.60298 -23.0955,-3.0799 -35.0254,-4.30078 -11.9299,-1.22087 -24.1492,-2.18558 -36.7578,-2.76562 -12.6086,-0.58005 -25.6076,-0.77458 -39.0976,-0.45508 -6.09,0.281 -12.2992,0.67678 -18.6192,1.17578 -13.2612,0.94825 -27.0202,2.39737 -41.1484,4.24219 -14.1283,1.84481 -28.626,4.08409 -43.3633,6.61523 -14.7374,2.53114 -29.7142,5.35411 -44.8027,8.36133 -15.0886,3.00722 -30.2889,6.19959 -45.4707,9.47265 -30.3638,6.54613 -60.6561,13.41369 -89.8457,19.76172 -29.1897,6.34803 -57.2761,12.17653 -83.2286,16.64454 -12.9987,1.70699 -25.7268,2.79583 -38.2461,3.40624 -12.5192,0.61042 -24.8309,0.74179 -36.9941,0.53516 -12.1632,-0.20663 -24.1787,-0.75193 -36.1094,-1.49609 -11.9306,-0.74416 -23.7761,-1.6873 -35.5976,-2.68946 -23.6432,-2.00431 -47.191,-4.24437 -71.1387,-5.60351 -11.9738,-0.67957 -24.048,-1.1393 -36.2832,-1.23828 -12.2352,-0.099 -24.632,0.1627 -37.252,0.92383 -2.34,-0.209 -4.6695,-0.40218 -7.0195,-0.57618 -12.89361,-0.99062 -25.62539,-1.54205 -38.22655,-1.76562 -12.60116,-0.22358 -25.07295,-0.11892 -37.44922,0.19922 -24.75255,0.63626 -49.12242,2.13097 -73.38086,3.58203 -24.25844,1.45106 -48.40406,2.85717 -72.70898,3.32031 -12.15246,0.23157 -24.34589,0.22842 -36.61133,-0.125 -12.26544,-0.35342 -24.60283,-1.05695 -37.04883,-2.2207 -12.62112,-1.4785 -25.49726,-3.41362 -38.55664,-5.6875 -13.05938,-2.27388 -26.30228,-4.88548 -39.66211,-7.71875 -26.71965,-5.66655 -53.90342,-12.21689 -80.99805,-18.70508 -27.09462,-6.48819 -54.09964,-12.91402 -80.46679,-18.33594 -13.18358,-2.71096 -26.2089,-5.1713 -39.00391,-7.26172 -12.795,-2.09041 -25.36028,-3.81104 -37.62891,-5.04492 -5.12299,-0.563 -10.23589,-1.0395 -15.33789,-1.4375 -11.61725,-0.8875 -23.1949,-1.41562 -34.75585,-1.68554 -11.56096,-0.26993 -23.10427,-0.28059 -34.6504,-0.13672 -23.09225,0.28773 -46.19674,1.19778 -69.47851,1.91796 -11.64089,0.3601 -23.3257,0.67341 -35.07617,0.83594 -11.75048,0.16253 -23.56723,0.17437 -35.46875,-0.0645 -11.90153,-0.23882 -23.88837,-0.72831 -35.98243,-1.57227 -12.09405,-0.84395 -24.29499,-2.04243 -36.623042,-3.69531 -25.37413,-2.9905 -55.423169,-5.9643 -86.423828,-8.78711 C 5.9923433,296.33071 3.0536751,296.10767 0,295.83398 V 1080 h 1920 z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect40592"
+       style="fill:#2da7c7;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43491);stop-color:#000000"
+       d="m 1920,415.30273 c -10.0057,1.83574 -19.9271,3.58964 -29.4668,4.99219 -11.7997,1.73481 -23.2843,3.1814 -34.5586,4.43946 -22.5486,2.5161 -44.2534,4.28376 -65.9453,6.12695 -21.6919,1.84319 -43.3704,3.76044 -65.8652,6.57617 -11.2475,1.40787 -22.6997,3.04047 -34.459,5 -11.7594,1.95953 -23.826,4.24602 -36.3047,6.96289 -5.72,1.607 -11.5295,3.30875 -17.4395,5.09375 -12.3425,3.46725 -25.1756,7.42473 -38.3925,11.77148 -13.217,4.34676 -26.8184,9.08304 -40.6993,14.11329 -27.7617,10.0605 -56.6405,21.29165 -85.7949,32.91015 -29.1544,11.6185 -58.5843,23.62588 -87.4472,35.23438 -28.863,11.6085 -57.1594,22.81911 -84.0469,32.84961 -12.6925,3.47862 -25.1965,6.42118 -37.5684,8.94726 -12.3718,2.52609 -24.6117,4.63531 -36.7734,6.44727 -12.1617,1.81196 -24.2465,3.32585 -36.3086,4.66211 -12.0622,1.33625 -24.1007,2.49478 -36.1738,3.59375 -24.1463,2.19793 -48.4259,4.16054 -73.2793,6.83984 -12.4268,1.33965 -24.9963,2.85817 -37.7657,4.67578 -12.7693,1.81762 -25.7384,3.93475 -38.9609,6.46875 -2.41,-0.521 -4.8117,-1.02848 -7.2207,-1.52148 -13.32213,-2.80188 -26.43589,-5.26229 -39.37305,-7.47266 -12.93716,-2.21037 -25.69752,-4.1712 -38.31445,-5.97656 -25.23388,-3.61072 -49.89288,-6.59741 -74.23438,-9.70703 -24.3415,-3.10963 -48.36686,-6.34289 -72.33398,-10.44336 -11.98356,-2.05024 -23.95236,-4.31685 -35.93946,-6.89453 -11.98709,-2.57769 -23.9915,-5.46619 -36.04687,-8.75781 -12.55088,-4.18175 -25.25305,-8.76476 -38.05273,-13.63868 -12.79969,-4.87391 -25.69689,-10.03725 -38.63868,-15.38086 -25.88357,-10.68722 -51.94404,-22.09309 -77.75586,-33.32422 -25.81181,-11.23112 -51.37526,-22.28798 -76.26172,-32.2832 -12.44322,-4.99761 -24.71769,-9.72906 -36.76953,-14.08398 -12.05183,-4.35492 -23.88179,-8.33447 -35.43554,-11.82422 -4.86,-1.592 -9.70602,-3.09463 -14.54102,-4.51563 -10.995,-3.18125 -21.96623,-6.06367 -32.94336,-8.72656 -10.97713,-2.66289 -21.96064,-5.10546 -32.98047,-7.4082 -22.03965,-4.60549 -44.22495,-8.64949 -66.79882,-12.76367 -22.57388,-4.11419 -45.53625,-8.29889 -69.12891,-13.1875 -11.79633,-2.44431 -23.7507,-5.06422 -35.89258,-7.93946 -12.14188,-2.87523 -24.47153,-6.00632 -37.01953,-9.4707 -12.523416,-2.96187 -26.132168,-5.87871 -40.429688,-8.73242 -14.29752,-2.85371 -29.284125,-5.64334 -44.5625,-8.34961 C 14.744025,369.30672 7.4228625,368.24638 0,366.98828 V 1080 h 1920 z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect40594"
+       style="fill:#1e97c4;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43435);stop-color:#000000"
+       d="m 1920,506.87305 c -7.7324,2.50499 -17.1014,5.8007 -24.1406,7.97265 -26.1425,10.144 -50.1007,19.37947 -72.7305,28.25391 -22.6298,8.87444 -43.9315,17.38884 -64.7559,26.08984 -20.8243,8.701 -41.1723,17.58921 -61.8984,27.21289 -20.7261,9.62369 -41.8291,19.9825 -64.1641,31.625 -5.24,3.325 -10.5496,6.71797 -15.9296,10.16797 -22.3025,13.45825 -46.5234,28.80885 -72.0645,45.3418 -25.5411,16.53295 -52.4034,34.24848 -79.9902,52.43555 -27.5869,18.18706 -55.8981,36.84504 -84.3379,55.26562 -28.4399,18.42058 -57.0074,36.60244 -85.1074,53.83594 -12.2963,5.77287 -24.5124,11.11818 -36.6934,16.125 -12.181,5.00682 -24.3286,9.6756 -36.4883,14.10156 -12.1597,4.42596 -24.3322,8.60837 -36.5644,12.63867 -12.2323,4.03031 -24.5232,7.90867 -36.9219,11.72852 -24.7974,7.63969 -50.0222,15.04408 -76.0488,22.95312 -26.0266,7.90905 -52.8544,16.32243 -80.86137,25.98243 -2.495,-0.924 -4.99037,-1.8401 -7.48437,-2.7461 -55.507,-20.5895 -106.73141,-37.72108 -155.62891,-55.75195 -24.44875,-9.01544 -48.3162,-18.25564 -71.8457,-28.26563 -11.76475,-5.00499 -23.44569,-10.20225 -35.07227,-15.66015 -11.62657,-5.45791 -23.19854,-11.17566 -34.74804,-17.22266 -12.46,-7.6825 -24.9389,-15.69462 -37.40235,-23.93555 -12.46344,-8.24092 -24.91202,-16.71028 -37.3125,-25.30468 -24.80095,-17.1888 -49.40998,-34.87902 -73.56054,-52.25196 -24.15057,-17.37293 -47.84172,-34.42828 -70.81055,-50.3457 -11.48441,-7.95871 -22.78955,-15.63448 -33.87891,-22.92187 -11.08935,-7.2874 -21.96392,-14.18654 -32.59179,-20.59766 -4.52,-2.924 -9.02468,-5.75695 -13.51368,-8.50195 -20.37849,-12.3035 -40.73548,-23.72775 -61.4121,-34.66993 -20.67663,-10.94217 -41.67283,-21.4029 -63.33008,-31.77734 -21.65725,-10.37444 -43.97455,-20.66337 -67.29492,-31.26367 -23.32038,-10.6003 -47.6426,-21.51111 -73.3086,-33.13086 -12.3114,-4.86125 -25.600086,-9.62791 -39.558592,-14.27344 C 68.590322,475.3369 53.961614,470.81096 38.970703,466.42773 26.202289,462.69435 13.104502,459.12509 0,455.61328 V 1080 h 1920 z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect40596"
+       style="fill:#0f7ac0;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43341);stop-color:#000000"
+       d="m 618.53711,1080 c -6.50851,-6.7378 -13.08573,-13.4271 -19.50195,-20.2168 -23.51882,-24.8876 -46.4083,-50.0237 -68.5918,-74.66992 -22.1835,-24.64619 -43.66106,-48.80364 -64.35938,-71.73437 -20.69831,-22.93074 -40.61643,-44.63375 -59.67968,-64.375 -4.116,-4.502 -8.21297,-8.91161 -12.29297,-13.22461 -18.47,-19.33875 -37.00788,-38.17133 -56.07031,-56.61719 -9.53122,-9.22293 -19.19368,-18.34886 -29.04493,-27.39258 -9.85124,-9.04372 -19.8899,-18.00459 -30.17578,-26.89844 -10.28587,-8.89384 -20.81918,-17.72083 -31.65429,-26.49414 -10.83512,-8.77331 -21.97369,-17.49366 -33.47266,-26.17578 -11.49897,-8.68212 -23.35734,-17.327 -35.63477,-25.94726 -12.27743,-8.62027 -24.97403,-17.21694 -38.14453,-25.80469 -12.06034,-7.11038 -24.96835,-14.06281 -38.52539,-20.83008 C 87.831632,592.85187 73.627048,586.2713 58.976562,579.90234 44.326077,573.53338 29.229345,567.37638 13.888672,561.46094 9.3119301,559.69612 4.6148728,558.11188 0,556.39062 V 1080 Z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="path40828"
+       style="fill:#0f7ac0;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43379);stop-color:#000000"
+       d="m 1920,604.39648 c -21.5523,10.21182 -43.0454,20.47018 -60.9902,29.73047 -13.71,8.21588 -26.7222,16.39898 -39.1485,24.58008 -12.4262,8.1811 -24.2658,16.35852 -35.6289,24.56055 -11.363,8.20203 -22.2491,16.42837 -32.7695,24.70703 -10.5205,8.27866 -20.6758,16.61048 -30.5742,25.02148 -9.8985,8.411 -19.5401,16.90292 -29.0371,25.50196 -9.497,8.59904 -18.8499,17.30565 -28.1661,26.14843 -18.6323,17.68557 -37.1229,35.91346 -56.3554,54.90821 -4.67,5.359 -9.3709,10.75573 -14.1309,16.17773 -19.48,21.1835 -40.8285,44.18531 -63.7402,68.38281 -22.9117,24.1975 -47.3853,49.59089 -73.1172,75.55665 -25.7319,25.96572 -52.7216,52.50392 -80.6621,78.99222 -0.471,0.4465 -0.964,0.8894 -1.4356,1.3359 H 1920 Z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect40598"
+       style="fill:#0771b8;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43247);stop-color:#000000"
+       d="m 404.74219,1080 c -1.02383,-1.7351 -2.05942,-3.5252 -3.08008,-5.2441 -16.30525,-27.319 -32.77828,-54.5582 -50.00977,-81.51567 -8.61574,-13.47873 -17.42117,-26.88769 -26.49023,-40.20117 -9.06906,-13.31348 -18.40205,-26.53059 -28.07227,-39.6289 C 287.41962,900.31184 277.41336,887.33323 266.99414,874.5 256.57492,861.66677 245.74379,848.97917 234.42773,836.46094 223.11168,823.9427 211.30995,811.59278 198.94922,799.43945 186.58849,787.28613 173.66848,775.32834 160.11523,763.58984 148.33957,753.92834 135.85954,744.49424 122.75781,735.32031 109.65608,726.14638 95.932355,717.23268 81.667969,708.61133 67.403583,699.98998 52.599561,691.66196 37.335938,683.6582 25.232963,677.31179 12.639124,671.33944 0,665.41797 V 1080 Z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="path40725"
+       style="fill:#0771b8;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43285);stop-color:#000000"
+       d="m 1920,702.81836 c -8.8962,5.04268 -17.977,10.03613 -26.4707,15.17383 -13.9762,8.45397 -27.3798,17.01569 -40.127,25.61133 -12.7471,8.59563 -24.8366,17.22681 -36.1816,25.82031 -14.435,11.78175 -28.0023,23.75314 -40.8145,35.89844 -12.8121,12.14529 -24.869,24.46325 -36.2871,36.93554 -11.418,12.4723 -22.1965,25.09857 -32.4492,37.86133 -10.2526,12.76276 -19.9809,25.663 -29.2969,38.67969 -9.3159,13.01669 -18.2201,26.15069 -26.8281,39.38476 -8.6079,13.23408 -16.9182,26.5675 -25.0469,39.98243 -16.2573,26.82988 -31.7855,53.98438 -47.498,81.31838 -0.09,0.172 -0.1813,0.3435 -0.2715,0.5156 H 1920 Z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="rect40600"
+       style="fill:#21508e;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43153);stop-color:#000000"
+       d="m 294.69141,1080 c -6.47287,-11.5692 -12.91348,-23.1543 -19.86524,-34.498 -9.52546,-15.5435 -19.52736,-30.8564 -30.07226,-45.88677 -10.54491,-15.0304 -21.63445,-29.77767 -33.33789,-44.1914 -11.70345,-14.41374 -24.02041,-28.4941 -37.02149,-42.1875 C 161.39345,899.54292 147.7093,886.2366 133.27148,873.36719 118.83367,860.49777 103.64255,848.06677 87.628906,836.125 71.615258,824.18323 54.779359,812.73077 37.050781,801.82031 28.186492,796.36508 19.098399,791.04516 9.7792969,785.86719 6.5997154,784.10052 3.2338838,782.44823 0,780.71484 V 1080 Z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="path40622"
+       style="fill:#21508e;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter43191);stop-color:#000000"
+       d="m 1920,802.52344 c -9.6065,5.66189 -18.9649,11.43621 -28.0469,17.33398 -9.3001,6.03943 -18.3319,12.20038 -27.1035,18.47461 -8.7716,6.27423 -17.2839,12.66187 -25.5488,19.1582 -16.5299,12.99268 -32.0676,26.41771 -46.7012,40.22266 -14.6336,13.80495 -28.3637,27.99018 -41.2754,42.50586 -12.9116,14.51568 -25.0052,29.36145 -36.3691,44.48633 -11.3639,15.12487 -21.9979,30.52962 -31.9883,46.16212 -9.9904,15.6325 -19.3378,31.4926 -28.1289,47.5312 -0.2897,0.5285 -0.5279,1.0727 -0.8164,1.6016 H 1920 Z"
+       transform="translate(0,14.424983)" />
+    <path
+       id="path42869"
+       style="fill:#00bdfe;fill-opacity:1;stroke-width:5.65419;paint-order:stroke fill markers;filter:url(#filter44003);stop-color:#000000"
+       d="m 0,0 v 45.640625 c 12.685002,-0.892764 23.474744,-1.851981 38.535156,-2.525391 13.30361,-0.594856 27.244044,-1.042623 41.306641,-1.228515 14.062597,-0.185893 28.248153,-0.110205 42.042973,0.335937 13.79481,0.446142 27.19894,1.263205 39.69921,2.564453 6.25014,0.650624 12.27384,1.421899 18.00782,2.328125 5.73398,0.906227 11.17809,1.947007 16.26758,3.136719 20.57642,4.809923 41.36172,9.636265 62.16406,13.861328 10.40117,2.112532 20.80792,4.074912 31.19336,5.810547 10.38543,1.735636 20.7507,3.244267 31.07226,4.449219 10.32156,1.204951 20.59906,2.106473 30.8086,2.626953 10.20954,0.52048 20.35101,0.659576 30.40039,0.341797 10.04937,-0.317779 20.00658,-1.092518 29.84765,-2.402344 9.84108,-1.309826 19.56577,-3.155668 29.15039,-5.611328 10.23498,-2.622286 19.55074,-4.44277 28.32422,-5.677734 8.77349,-1.234965 17.00463,-1.88307 25.07227,-2.160157 8.06764,-0.277087 15.97045,-0.182986 24.08789,0.06836 8.11744,0.251345 16.45015,0.659431 25.37305,1.009765 8.92289,0.350334 18.43593,0.642232 28.91992,0.66211 10.48399,0.01988 21.93755,-0.232634 34.73828,-0.972657 12.80073,-0.740022 26.94914,-1.967116 42.82226,-3.896484 15.87313,-1.929368 33.47072,-4.561217 53.17188,-8.109375 9.85058,-1.774079 19.21737,-3.200805 28.14258,-4.318359 8.92521,-1.117554 17.40898,-1.925203 25.49414,-2.458985 8.08516,-0.533781 15.77309,-0.793644 23.10351,-0.816406 7.33043,-0.02276 14.30384,0.191917 20.96485,0.607422 6.66101,0.415505 13.00902,1.031481 19.08594,1.8125 6.07691,0.781019 11.8828,1.727001 17.46093,2.800781 11.15626,2.147561 21.40118,4.807362 31.07422,7.689453 19.34608,5.764183 36.40756,12.414824 53.91602,17.625 8.75422,2.605088 17.62082,4.849805 26.93945,6.44336 4.65932,0.796777 9.43098,1.432422 14.35938,1.867187 4.92839,0.434765 10.01213,0.669922 15.29492,0.669922 10.56557,0 21.239,-0.744396 31.9922,-2.046875 10.7532,-1.302479 21.5873,-3.163663 32.4746,-5.396484 10.8873,-2.232822 21.8272,-4.837879 32.7949,-7.628907 10.9677,-2.791027 21.9626,-5.767045 32.957,-8.74414 10.9945,-2.977096 21.9894,-5.955067 32.9571,-8.746094 10.9677,-2.791027 21.9076,-5.396084 32.7949,-7.628906 10.8873,-2.232822 21.7214,-4.094005 32.4746,-5.396484 10.7532,-1.30248 21.4266,-2.046876 31.9922,-2.046876 10.5656,0 20.9089,0.575349 31.0586,1.539063 10.1497,0.963714 20.1049,2.316821 29.8906,3.875 19.5715,3.116358 38.4674,7.051357 56.8945,10.330078 9.2136,1.639361 18.3111,3.11611 27.3165,4.242188 9.0053,1.126077 17.9184,1.902939 26.7675,2.146484 8.8491,0.243545 17.6342,-0.04645 26.3789,-1.054687 4.3724,-0.504119 8.7339,-1.187921 13.0899,-2.074219 4.356,-0.886298 8.7046,-1.976382 13.0508,-3.291016 4.3461,-1.314634 8.949,-2.32406 13.7793,-3.064453 4.8303,-0.740393 9.8887,-1.211596 15.1464,-1.443359 5.2578,-0.231763 10.7154,-0.224929 16.3438,-0.01367 5.6284,0.211257 11.4268,0.628129 17.3691,1.216797 11.8847,1.177334 24.3408,3.042623 37.1407,5.335937 12.7998,2.293314 25.9441,5.014024 39.205,7.898438 26.522,5.768826 53.5117,12.195751 79.1543,17.179687 12.8213,2.491968 25.3062,4.622435 37.2266,6.13086 5.9602,0.754212 11.7798,1.35376 17.4297,1.763671 5.6499,0.409912 11.1293,0.63086 16.4121,0.63086 10.5656,0 21.8955,-0.556896 33.6328,-1.53125 11.7373,-0.974355 23.8831,-2.366787 36.0801,-4.03711 12.197,-1.670322 24.4461,-3.619128 36.3906,-5.707031 11.9445,-2.087903 23.5846,-4.313919 34.5645,-6.541016 10.5199,-2.133806 17.404,-3.857758 26.3984,-5.86914 V 0 Z"
+       transform="translate(0,14.424983)" />
+    <circle
+       style="fill:#ffd42a;fill-opacity:1;stroke:none;stroke-width:18.8976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers;filter:url(#filter48520);stop-color:#000000"
+       id="path48330"
+       cx="1488.9291"
+       cy="188.90091"
+       r="108.00465" />
+    <path
+       d="m 369.70665,69.465676 c 33.30428,1.348103 91.31194,12.782135 114.36965,30.505299 23.05771,17.723165 35.79623,-0.0977 53.42016,6.215535 17.62393,6.31327 18.42948,18.04553 43.84564,14.64491 25.41616,-3.40062 63.28767,-1.9277 87.04626,16.9881 23.75859,18.9158 -16.94691,30.51525 -41.10786,34.03073 -24.16095,3.51548 -67.68882,-8.97793 -98.22509,-1.76651 -30.53627,7.21142 -61.27508,18.26676 -83.84712,17.1187 -22.57204,-1.14806 -26.72375,-10.37623 -48.62712,-5.48309 -21.90337,4.89314 -41.17623,-10.30592 -79.29244,-5.51165 -38.11621,4.79427 -114.44984,15.81935 -148.42332,3.218 -33.97348,-12.60135 -41.80601,-9.77858 -62.23749,-12.87092 -20.431483,-3.09234 -28.791263,-25.24661 -7.182803,-31.43999 21.608463,-6.19338 36.106393,-1.71467 56.820473,-6.09552 20.71408,-4.38085 48.85103,1.72322 68.61678,-13.7421 19.76575,-15.465325 38.26113,-31.998855 63.26924,-38.345261 25.00811,-6.346406 48.25076,-8.814336 81.55504,-7.466233 z"
+       id="path48542"
+       style="fill:#bfd0d7;fill-opacity:1;stroke:none;stroke-width:0.0290851;filter:url(#filter87459)"
+       sodipodi:nodetypes="zzzzzzzzzzzzzzzzz" />
+    <path
+       d="m 1332.4722,289.44079 c 43.5796,-1.12275 45.4227,-28.90734 75.8827,-22.80022 30.4601,6.10712 51.9336,-17.4372 81.3153,-18.32503 29.3817,-0.88783 65.5487,-2.95287 91.9382,-6.39885 26.3895,-3.44598 52.6925,-22.52295 18.0147,-34.21079 -34.6778,-11.68784 -94.4198,-14.21559 -126.6282,-11.71705 -32.2083,2.49854 -38.0012,3.8913 -59.2365,-6.5044 -21.2354,-10.3957 -48.7043,-17.61485 -75.8853,-6.93105 -27.181,10.6838 -66.9703,24.8119 -97.2676,12.27197 -30.2973,-12.53993 -61.2539,-6.38175 -89.4469,-1.5182 -28.1929,4.86355 -55.4239,19.56607 -82.7716,10.14493 -27.3477,-9.42114 -56.706,-21.79534 -84.56598,-9.70449 -27.85991,12.09085 -62.21101,-2.65691 -87.54591,16.3954 -25.33496,19.05231 18.9516,32.76837 45.20507,31.05139 26.25347,-1.71698 55.17604,8.83539 91.57262,11.90154 36.3966,3.06615 75.2956,4.59225 122.0059,22.27074 46.7102,17.67849 133.834,15.19686 177.4135,14.07411 z"
+       id="path48572"
+       style="fill:#bfd0d7;fill-opacity:1;stroke:none;stroke-width:0.0323123;filter:url(#filter87421)"
+       sodipodi:nodetypes="zzzzzzzzzzzzzzzzz" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="yacht"
+     style="display:inline">
+    <g
+       id="g151168"
+       style="filter:url(#filter156445)">
+      <path
+         style="fill:#da121a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1203.8246,322.34964 30.9163,14.79761 -5.1443,-34.5137 -25.4061,-8.12095 z"
+         id="path99159" />
+      <path
+         style="fill:#072357;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1175.2128,324.75354 28.2651,23.97436 0.3467,-26.37826 -27.1266,-14.31857 z"
+         id="path106448"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#ffffff;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1203.4779,348.7279 36.4072,22.93307 -5.1442,-34.51372 -30.9163,-14.79761 z"
+         id="path128643" />
+      <path
+         style="fill:#ffffff;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1176.698,308.03107 27.1266,14.31857 0.3659,-27.83704 -23.3298,-4.42716 z"
+         id="path128711"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#072357;fill-opacity:1;stroke-width:2.60827"
+         d="m 1191.7856,307.37838 -0.611,-9.30437 -3.5619,7.59994 6.4175,-3.56762 -6.7484,-2.78645 z"
+         id="path136340" />
+      <path
+         style="fill:#da121a;fill-opacity:1;stroke-width:2.49663"
+         d="m 1222.0736,349.41889 -0.2305,-12.27164 -3.6163,10.57764 6.1964,-5.43149 -6.2198,-2.77321 z"
+         id="path138262" />
+    </g>
+    <g
+       id="g156324"
+       transform="matrix(-1,0,0,1,2020.8277,-2e-4)"
+       style="filter:url(#filter156407)">
+      <path
+         style="fill:#da121a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1203.8246,322.34964 30.9163,14.79761 -5.1443,-34.5137 -25.4061,-8.12095 z"
+         id="path156312" />
+      <path
+         style="fill:#072357;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1175.2128,324.75354 28.2651,23.97436 0.3467,-26.37826 -27.1266,-14.31857 z"
+         id="path156314"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#ffffff;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1203.4779,348.7279 36.4072,22.93307 -5.1442,-34.51372 -30.9163,-14.79761 z"
+         id="path156316" />
+      <path
+         style="fill:#ffffff;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1176.698,308.03107 27.1266,14.31857 0.3659,-27.83704 -23.3298,-4.42716 z"
+         id="path156318"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#072357;fill-opacity:1;stroke-width:2.60827"
+         d="m 1191.7856,307.37838 -0.611,-9.30437 -3.5619,7.59994 6.4175,-3.56762 -6.7484,-2.78645 z"
+         id="path156320" />
+      <path
+         style="fill:#da121a;fill-opacity:1;stroke-width:2.49663"
+         d="m 1222.0736,349.41889 -0.2305,-12.27164 -3.6163,10.57764 6.1964,-5.43149 -6.2198,-2.77321 z"
+         id="path156322" />
+    </g>
+    <path
+       id="path93559"
+       style="color:#000000;fill:#e6e6e6;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;fill-opacity:1"
+       d="M 791.50977 300.76367 A 1.889765 1.889765 0 0 0 789.36133 302.35547 L 764.3457 470.19336 A 1.889765 1.889765 0 0 0 764.8457 471.6875 L 79.255859 1080 L 401.51562 1080 L 766.21484 590.46094 L 1254.6133 590.46094 L 1569.5332 1080 L 1849.2715 1080 L 1255.9219 471.81445 A 1.889765 1.889765 0 0 0 1256.4824 470.19336 L 1231.4648 302.35547 A 1.889765 1.889765 0 0 0 1229.3184 300.76367 A 1.889765 1.889765 0 0 0 1227.7266 302.91211 L 1252.3906 468.38281 C 1241.6076 458.56327 1180.2323 410.47266 1010.4141 410.47266 C 840.59581 410.47266 779.22055 458.56327 768.4375 468.38281 L 793.09961 302.91211 A 1.889765 1.889765 0 0 0 791.50977 300.76367 z " />
+    <path
+       style="fill:#8c746e;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;filter:url(#filter154460)"
+       d="M 693.52002,1080 888.31445,590.46094 766.21439,590.46001 401.51562,1080 Z"
+       id="path153899" />
+    <path
+       style="fill:#8c746e;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;filter:url(#filter154498)"
+       d="m 1277.5288,1080 h 292.0044 l -314.9203,-489.53999 -122.752,2.3e-4 z"
+       id="path154037" />
+    <path
+       style="fill:#8c746e;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;filter:url(#filter154384)"
+       d="m 693.52002,1080 h 292.00439 l 24.88949,-489.53953 -122.09945,4.7e-4 z"
+       id="path153967" />
+    <path
+       style="fill:#8c746e;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;filter:url(#filter154422)"
+       d="m 985.52441,1080 h 292.00439 l -145.0151,-489.53976 -122.0998,7e-4 z"
+       id="path154002" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="duke"
+     style="display:inline">
+    <path
+       style="display:inline;fill:#999999;stroke:none;stroke-width:1.81451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter46411)"
+       d="m 1163.0848,621.49441 c 103.9662,-21.86773 263.9157,23.88032 287.8019,197.52206 l -39.1799,22.1518 c -19.7318,-38.35358 -57.3722,-51.32903 -102.576,-37.47374 -39.4772,554.85777 -766.38966,603.33257 -652.5524,-70.70212 -21.37403,31.38523 -27.82614,77.20954 -108.08384,9.25863 C 415.25351,629.44129 661.68228,536.36851 789.39864,573.24755 Z"
+       id="path16840"
+       sodipodi:nodetypes="cccccscc" />
+    <path
+       style="fill:#333333;stroke:none;stroke-width:34.2899;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter45411)"
+       d="m 766.6521,667.70366 c 9.19689,-124.24262 176.42307,-334.22377 332.6826,-486.33285 39.7939,210.11316 66.9656,321.75868 62.7554,513.97886 0,0 -43.4786,101.81138 -243.50106,82.11858 C 796.3174,765.43026 766.6521,667.70366 766.6521,667.70366 Z"
+       id="path2884"
+       sodipodi:nodetypes="cccsc" />
+    <path
+       id="path20381"
+       style="color:#000000;fill:#ffffff;stroke-width:1.81451;-inkscape-stroke:none;paint-order:stroke fill markers;filter:url(#filter45505)"
+       d="m 754.71567,570.79418 c -12.98292,37.60875 8.96178,68.05104 48.96851,81.86177 40.00676,13.81073 85.07511,-1.26858 98.05803,-38.87731 12.9829,-37.60874 -12.4392,-83.20566 -63.45688,-86.61946 -53.69822,-3.59317 -73.83249,15.42846 -83.56966,43.635 z"
+       sodipodi:nodetypes="sssss" />
+    <path
+       id="path20527"
+       style="color:#000000;fill:#ffffff;stroke-width:1.81451;-inkscape-stroke:none;paint-order:stroke fill markers;filter:url(#filter45467)"
+       d="m 958.6583,648.56621 c 5.64672,20.77564 22.43868,35.60402 42.1874,42.96352 19.7487,7.35949 43.1179,8.16894 66.6017,1.78615 38.1129,-10.39053 79.749,-56.22838 71.1664,-93.65994 -5.6466,-20.77566 -21.5361,-41.0795 -76.4515,-42.46263 -56.7462,0.13337 -118.22117,32.22926 -103.504,91.3729 z"
+       sodipodi:nodetypes="cscccc" />
+    <path
+       id="path20554"
+       style="color:#000000;fill:#ff0000;stroke-width:1.81446;-inkscape-stroke:none;paint-order:stroke fill markers;filter:url(#filter45355)"
+       d="m 899.52368,616.61381 c -17.75771,-0.15405 -34.61334,2.58985 -49.67934,8.03063 -26.78397,9.67247 -48.78265,28.90666 -55.43826,55.95569 -6.65563,27.04899 3.82646,54.62799 22.94718,76.09959 19.12072,21.47164 47.16841,38.17174 80.2744,46.68115 33.10601,8.50942 65.54698,7.35829 92.33096,-2.31421 26.78398,-9.67249 48.78618,-28.90317 55.44178,-55.95216 6.6556,-27.04902 -3.8264,-54.63153 -22.9471,-76.10315 -19.1208,-21.47163 -47.17197,-38.17172 -80.27798,-46.68112 -14.48388,-3.72287 -28.84007,-5.59662 -42.65164,-5.71642 z" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40.0169;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers;filter:url(#filter45299);stop-color:#000000"
+       id="path25247"
+       cx="759.47888"
+       cy="791.95007"
+       rx="20.401714"
+       ry="14.184134"
+       transform="matrix(0.98504804,-0.17227991,0.15391288,0.98808442,0,0)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3059"
+       d="m 1046.4855,489.51369 c -62.12154,-5.97373 -49.68244,75.27575 -51.77294,115.16037 -8.28518,61.3305 -19.84736,69.145 -66.56168,72.49147 -73.47081,5.26323 -164.45717,10.28236 -238.61636,59.20915 -50.72722,-20.3508 -64.27326,-83.17484 -101.79019,-120.6178 -66.95125,-32.3362 -67.99354,68.44543 -15.27376,85.98587 32.94768,28.82862 79.53115,84.67084 25.15098,113.64543 -66.82924,74.08219 -108.91862,170.06764 -117.64846,269.49262 -41.86677,17.5376 -88.34403,11.756 -134.05583,2.4309 -53.87138,-13.9164 -70.11601,74.1838 -10.19575,72.0313 48.10235,-3.0215 98.78092,-17.6615 142.02888,4.9963 11.27675,103.0949 54.28832,209.5926 129.11495,286.0572 32.18753,33.816 -25.15999,84.2339 -55.12644,109.9271 -59.44065,25.7337 -10.13302,119.1647 36.88367,65.8195 28.68398,-36.6613 45.04449,-90.1582 90.50653,-105.9045 38.77082,9.4676 86.29872,48.7242 133.65221,57.4378 62.61475,18.8887 129.22666,24.3024 194.08339,15.9344 34.8857,38.95 24.2708,98.061 36.7793,147.491 38.5715,66.5477 98.7891,-23.1514 53.649,-65.5786 -28.7404,-54.6707 -22.4129,-115.7239 47.6504,-122.0653 83.6198,-39.1427 155.0196,-103.7112 202.5373,-182.8551 48.8795,-2.1979 88.3287,36.6083 130.43,60.3142 72.7223,27.404 64.9104,-83.6267 -1.9652,-77.4909 -37.8126,-11.2226 -112.5724,-35.8185 -83.09,-83.5152 31.0803,-98.4282 28.1942,-207.1639 -8.1548,-303.77892 30.9243,-42.5824 90.647,-46.3283 136.7544,-69.26115 54.4756,-46.22457 -35.9317,-93.78941 -68.7774,-42.72381 -33.1893,23.4467 -99.5231,65.35986 -119.0188,13.07356 -57.404,-85.12662 -194.6725,-149.25035 -290.361,-186.63494 -11.7422,-50.95237 15.1114,-98.95316 27.9002,-148.41528 2.0924,-17.07602 -7.505,-37.83032 -24.7126,-42.65667 z m -58.31462,267.81 c -18.5719,60.36422 -35.55355,122.41875 -55.11348,181.73279 -21.64528,48.51294 -64.92725,7.1254 -83.23028,-20.0235 -32.41477,-36.94534 -64.82956,-73.89071 -97.24435,-110.83604 70.01353,-42.54822 154.28526,-60.4475 235.58811,-50.87325 z m 87.92502,20.95421 c 76.3969,28.25268 142.7782,82.43697 186.0275,151.43218 -58.5474,23.2122 -117.2911,47.94874 -175.716,70.21204 -51.4589,13.38368 -45.9377,-46.28134 -36.148,-77.45884 8.6123,-48.06173 17.2245,-96.12354 25.8365,-144.18538 z m -394.61295,85.61437 c 35.76203,52.28211 73.60867,104.38081 108.07466,156.77713 24.33143,47.1441 -34.98867,55.4534 -67.74128,52.8215 -48.70215,2.2923 -97.40431,4.5846 -146.10647,6.877 9.96716,-81.28878 47.76611,-158.65772 105.77309,-216.47563 z m 619.20275,147.64763 c 25.6918,77.5142 25.1838,163.4285 -1.4968,240.6136 -54.8535,-31.5374 -111.6227,-62.0049 -165.2857,-94.2076 -42.4351,-31.9254 7.5472,-64.9253 38.0887,-76.749 42.8912,-23.2174 85.8388,-46.4487 128.6938,-69.657 z m -223.817,245.4565 c 61.2508,23.1764 121.7355,51.2584 182.6953,76.3348 -44.5052,68.8662 -112.4616,122.2177 -190.0252,148.8678 -9.8118,-62.7624 -20.5788,-125.8835 -29.7946,-188.4227 -4.2932,-21.1315 16.032,-41.2127 37.1245,-36.7799 z m -306.97854,-72.3667 c 45.18758,17.0971 13.13373,61.5218 -6.96974,85.1485 -28.5156,39.4158 -57.03117,78.8314 -85.5468,118.2473 -56.6869,-58.5815 -93.37609,-136.1329 -102.31127,-217.1905 64.82242,4.9226 130.56978,7.3264 194.82781,13.7947 z m 135.28453,110.7423 c 35.02157,13.4118 30.51625,58.1522 43.25906,88.2906 10.90133,39.1572 21.80273,78.3146 32.70403,117.4716 -81.1838,7.4241 -164.69837,-12.1555 -233.58789,-55.9062 44.93855,-48.1286 87.80615,-98.6481 134.00955,-145.3098 6.87973,-4.5202 15.55256,-6.1874 23.61525,-4.5462 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#326ce5;fill-opacity:1;stroke:none;stroke-width:0.616451;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;filter:url(#filter45243);enable-background:accumulate"
+       sodipodi:nodetypes="ccscccccsccccscssccsccccccccscccsccccccccccccccscccccscccccccccscsc"
+       inkscape:export-filename="./path3059.png"
+       inkscape:export-xdpi="250.55"
+       inkscape:export-ydpi="250.55" />
+    <path
+       style="fill:#e6e6e6;stroke:none;stroke-width:1.81451px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;filter:url(#filter45149)"
+       d="m 1403.7436,863.04632 c -38.1176,24.28667 -1.6268,90.56686 11.7823,88.25036 11.2671,-1.9465 9.5295,-12.6228 15.4009,-13.4234 6.524,-0.8899 9.4895,8.7438 21.5696,2.7375 6.0329,-2.9996 10.7717,-12.8219 17.8893,-14.2309 8.5573,-1.6938 20.4563,-2.2795 25.2075,-9.3435 16.6621,-24.77219 -1.6733,-77.87483 -15.203,-84.19508 -1.306,-0.61003 -4.1563,-5.91898 -4.5162,-16.84644 -37.0501,-0.76655 -71.948,17.11854 -91.1417,33.82721 2.5278,4.20938 20.1314,12.5106 19.0113,13.22425 z"
+       id="path10073"
+       sodipodi:nodetypes="sssssssccs" />
+    <path
+       style="fill:#e6e6e6;stroke:none;stroke-width:1.81451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter45187)"
+       d="m 595.04692,759.51463 c -8.90638,-7.17017 -2.20577,-15.66125 -6.9507,-19.21096 -5.27234,-3.9443 -12.54056,3.03935 -20.18761,-8.07485 -3.81899,-5.55052 -3.19513,-16.43846 -8.73449,-21.12464 -6.65981,-5.63403 -16.77918,-11.92122 -17.50505,-20.40336 -2.61184,-30.52092 45.66623,-93.42009 96.44017,-42.0499 62.83247,63.57034 -31.71609,119.998 -43.06232,110.86371 z"
+       id="path13574"
+       sodipodi:nodetypes="sssssss" />
+    <path
+       id="path22891"
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.81451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter45663)"
+       d="m 823.40282,526.75298 c -42.66498,0.65443 -59.90623,18.60883 -68.68563,44.04089 -9.16372,26.54537 -0.91353,49.51173 18.79365,65.58819 59.20519,-7.49455 88.83897,-53.92497 49.89198,-109.62908 z" />
+    <path
+       id="path23557"
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.81451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter45701)"
+       d="m 1085.8017,559.26888 c -66.3142,46.86611 -34.7598,109.89977 18.1698,114.08738 23.3876,-19.43924 40.4272,-48.47098 34.6423,-73.70032 -4.7355,-17.42394 -16.6884,-34.50973 -52.8121,-40.38706 z" />
+    <path
+       id="path24131"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.81451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter45757)"
+       d="m 823.0307,526.76362 c -26.97822,0.48024 -43.73458,7.91716 -54.61254,19.7966 18.89741,48.24803 76.85931,30.60418 54.61254,-19.7966 z" />
+    <path
+       id="path25105"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.81451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter45795)"
+       d="m 1086.5069,559.39292 c -20.536,46.16907 26.1325,64.97816 48.7969,31.09123 -6.388,-13.84198 -19.5799,-26.17393 -48.7969,-31.09123 z" />
+  </g>
+</svg>
