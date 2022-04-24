@@ -3,8 +3,8 @@ package by.jprof.telegram.bot.runners.lambda.config
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.currencies.CurrenciesUpdateProcessor
-import by.jprof.telegram.bot.currencies.parser.MonetaryAmountParsingPipeline
 import by.jprof.telegram.bot.eval.EvalUpdateProcessor
+import by.jprof.telegram.bot.herald.processor.HeraldVoteUpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
 import by.jprof.telegram.bot.kotlin.KotlinMentionsUpdateProcessor
@@ -120,6 +120,13 @@ val pipelineModule = module {
         CurrenciesUpdateProcessor(
             monetaryAmountParsingPipeline = get(),
             exchangeRateClient = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("HeraldVoteUpdateProcessor")) {
+        HeraldVoteUpdateProcessor(
+            votesDAO = get(),
             bot = get(),
         )
     }
