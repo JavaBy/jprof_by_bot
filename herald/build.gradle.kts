@@ -11,6 +11,10 @@ application {
 dependencies {
     implementation(libs.kotlinx.serialization.core)
     implementation(libs.kaml)
+    implementation(libs.tgbotapi.extensions.api)
+    implementation(project.projects.votes.dynamodb)
+    implementation(project.projects.votes.tgbotapiExtensions)
+    implementation(project.projects.votes.dynamodb)
 
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)
