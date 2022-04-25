@@ -28,3 +28,7 @@ jobs:
         with:
           ref: posts
       - uses: docker://ghcr.io/javaby/herald:latest
+        env:
+          TOKEN_TELEGRAM_BOT: ${{ secrets.TOKEN_TELEGRAM_BOT }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
