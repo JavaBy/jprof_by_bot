@@ -46,7 +46,7 @@ class CurrenciesUpdateProcessor(
                     .sortedBy { it.query.to }
                     .joinToString(", ") { "%.2f %s".format(it.result, it.query.to).escapeMarkdownV2Common() }
 
-                "**${"%.0f %s".format(amount, from).escapeMarkdownV2Common()}**: %s".format(results)
+                "**${"%.2f %s".format(amount, from).escapeMarkdownV2Common()}**: %s".format(results)
             }
             .joinToString("\n")
 
