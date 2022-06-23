@@ -8,6 +8,7 @@ import by.jprof.telegram.bot.herald.processor.HeraldVoteUpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
 import by.jprof.telegram.bot.kotlin.KotlinMentionsUpdateProcessor
+import by.jprof.telegram.bot.leetcode.LeetCodeUpdateProcessor
 import by.jprof.telegram.bot.pins.PinCommandUpdateProcessor
 import by.jprof.telegram.bot.pins.PinReplyUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiDoneCommandUpdateProcessor
@@ -128,6 +129,11 @@ val pipelineModule = module {
         HeraldVoteUpdateProcessor(
             votesDAO = get(),
             bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("LeetCodeUpdateProcessor")) {
+        LeetCodeUpdateProcessor(
         )
     }
 }

@@ -11,6 +11,7 @@ Official Telegram bot of Java Professionals BY community.
 * Allows users to create polls with reply buttons (just like https://t.me/like[`@like`] bot)
 * Converts some currencies to EUR and USD
 * Posts scheduled messages from this repo's `posts` branch
+* Expand LeetCode links
 
 So, it just brings some fun and interactivity in our chat.
 
