@@ -98,7 +98,6 @@ class YouTubeUpdateProcessor(
 
             val views = videoDetails.statistics.viewCount
             val likes = videoDetails.statistics.likeCount
-            val dislikes = videoDetails.statistics.dislikeCount
             val rawDescription = if (snippet.description.length > ACCEPTED_DISPLAY_LEN) {
                 snippet.description.substring(IntRange(0, ACCEPTED_DISPLAY_LEN)) + "…"
             } else {
@@ -107,7 +106,7 @@ class YouTubeUpdateProcessor(
             val description = rawDescription.escapeMarkdownV2Common()
             val videoText = "Cast your vote for: ${snippet.title}".boldMarkdownV2() +
                 "\n\n```\n$description\n\n```" +
-                "Views: $views / Likes: $likes / Dislikes: $dislikes".boldMarkdownV2() //trim indent have strange layout
+                "Views: $views / Likes: $likes".boldMarkdownV2() //trim indent have strange layout
             val votesId = video.toVotesID()
             val votes = votesDAO.get(votesId) ?: votesConstructor(votesId)
 
