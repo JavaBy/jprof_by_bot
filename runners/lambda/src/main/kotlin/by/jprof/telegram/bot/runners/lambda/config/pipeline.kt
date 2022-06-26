@@ -134,6 +134,7 @@ val pipelineModule = module {
 
     single<UpdateProcessor>(named("LeetCodeUpdateProcessor")) {
         LeetCodeUpdateProcessor(
+            bot = get(),
         )
     }
 }
