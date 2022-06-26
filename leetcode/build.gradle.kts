@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization")
 }
 
 dependencies {
@@ -7,6 +8,8 @@ dependencies {
     api(libs.tgbotapi.core)
     implementation(libs.tgbotapi.extensions.api)
     implementation(libs.log4j.api)
+    implementation(libs.graphql.kotlin.ktor.client)
+    implementation(libs.kotlinx.serialization.core)
 
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)
