@@ -31,6 +31,8 @@ data class Question(
         .replace("&nbsp;", " ")
         .replace("&lt;", "<")
         .replace("&gt;", ">")
+        .replace("&quot;", "\"")
+        .replace("&#39;", "'")
         .replace(Regex("<sup>(?<sup>.+?)</sup>")) {
             "^${it.groups["sup"]!!.value}"
         }
@@ -56,6 +58,8 @@ data class Question(
         .replace("</p\\>", "")
         .replace("<ul\\>", "")
         .replace("</ul\\>", "")
+        .replace("<ol\\>", "")
+        .replace("</ol\\>", "")
 
         .replace("\\n", "\n")
         .replace("\\t", "\t")
