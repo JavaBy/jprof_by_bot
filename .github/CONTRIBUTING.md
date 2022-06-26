@@ -4,7 +4,7 @@
 
 Before you begin:
 
-- This project is powered by [Kotlin](https://kotlinlang.org), [TelegramBotAPI](https://github.com/InsanusMokrassar/TelegramBotAPI), [Koin](https://insert-koin.io), and [Skija](https://github.com/JetBrains/skija) libraries, [AWS](https://aws.amazon.com) services and [CDK](https://aws.amazon.com/cdk) with [TypeScript](https://www.typescriptlang.org), and [GitHub Actions](https://github.com/features/actions).
+- This project is powered by [Kotlin](https://kotlinlang.org), [TelegramBotAPI](https://github.com/InsanusMokrassar/TelegramBotAPI), [Koin](https://insert-koin.io), [Skija](https://github.com/JetBrains/skija), and [GraphQL](https://graphql.org) technologies, [AWS](https://aws.amazon.com) services and [CDK](https://aws.amazon.com/cdk) with [TypeScript](https://www.typescriptlang.org), and [GitHub Actions](https://github.com/features/actions).
 - Have you read the [code of conduct](CODE_OF_CONDUCT.md)?
 - Check out the [existing issues](https://github.com/JavaBy/jprof_by_bot/issues).
 - Discuss your plans in [the chat](https://t.me/jprof_by) or in an issue.

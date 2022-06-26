@@ -1,0 +1,3 @@
+= LeetCode
+
+This feature expands https://leetcode.com[LeetCode] links.
