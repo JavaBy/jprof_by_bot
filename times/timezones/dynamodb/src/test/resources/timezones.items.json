@@ -1,0 +1,34 @@
+{
+    "timezones": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "user": {
+                        "N": "1"
+                    },
+                    "chat": {
+                        "N": "1"
+                    },
+                    "zoneId": {
+                        "S": "UTC"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "user": {
+                        "N": "1"
+                    },
+                    "chat": {
+                        "N": "2"
+                    },
+                    "offset": {
+                        "N": "3600"
+                    }
+                }
+            }
+        }
+    ]
+}

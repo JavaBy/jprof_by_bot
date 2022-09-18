@@ -18,7 +18,7 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 @Tag("db")
 @ExtendWith(DynamoDB::class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-internal class VotesDAOTest {
+internal class MoniesDAOTest {
     @AWSClient(endpoint = Endpoint::class)
     private lateinit var dynamoDB: DynamoDbAsyncClient
     private lateinit var sut: MoniesDAO
