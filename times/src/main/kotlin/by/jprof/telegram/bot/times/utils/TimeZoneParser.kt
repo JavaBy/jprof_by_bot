@@ -34,7 +34,7 @@ interface TimeZoneParser : (Update) -> TimeZoneRequest? {
             )
         }
 
-        private fun parse(argument: String?): TimeZoneValue = if (argument == null) {
+        private fun parse(argument: String?): TimeZoneValue = if (argument.isNullOrBlank()) {
             TimeZoneValue.Empty
         } else {
             val zoneId = try {
