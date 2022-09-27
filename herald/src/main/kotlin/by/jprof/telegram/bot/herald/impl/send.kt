@@ -48,7 +48,7 @@ suspend fun send(post: Post) {
                     text = post.content.forChat(chat),
                     parseMode = MarkdownV2ParseMode,
                     replyMarkup = votes?.toInlineKeyboardMarkup(),
-                    disableWebPagePreview = true,
+                    disableWebPagePreview = post.frontmatter.disableWebPagePreview,
                 )
             }
         }
