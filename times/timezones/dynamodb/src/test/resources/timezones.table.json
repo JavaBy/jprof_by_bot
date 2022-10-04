@@ -6,6 +6,10 @@
             "AttributeType": "N"
         },
         {
+            "AttributeName": "username",
+            "AttributeType": "S"
+        },
+        {
             "AttributeName": "chat",
             "AttributeType": "N"
         }
@@ -18,6 +22,28 @@
         {
             "AttributeName": "chat",
             "KeyType": "RANGE"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "username",
+            "KeySchema": [
+                {
+                    "AttributeName": "username",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "chat",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 1,
+                "WriteCapacityUnits": 1
+            }
         }
     ],
     "ProvisionedThroughput": {

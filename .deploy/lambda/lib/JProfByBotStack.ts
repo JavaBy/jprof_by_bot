@@ -73,6 +73,12 @@ export class JProfByBotStack extends cdk.Stack {
             partitionKey: {name: 'userId', type: dynamodb.AttributeType.NUMBER},
             projectionType: dynamodb.ProjectionType.ALL,
         });
+        timezonesTable.addGlobalSecondaryIndex({
+            indexName: 'username',
+            partitionKey: {name: 'username', type: dynamodb.AttributeType.STRING},
+            sortKey: {name: 'chat', type: dynamodb.AttributeType.NUMBER},
+            projectionType: dynamodb.ProjectionType.ALL,
+        });
 
         const lambdaUnpin = new lambda.Function(this, 'jprof-by-bot-lambda-unpin', {
             functionName: 'jprof-by-bot-lambda-unpin',

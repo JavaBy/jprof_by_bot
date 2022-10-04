@@ -36,11 +36,30 @@ class TimeZoneDAO(
             }.await()?.item()?.takeUnless { it.isEmpty() }?.toTimeZone()
         }
     }
+
+    override suspend fun getByUsername(username: String, chat: Long): TimeZone? {
+        return withContext(Dispatchers.IO) {
+            dynamoDb.query {
+                it.tableName(table)
+                it.indexName("username")
+                it.keyConditionExpression("username = :username AND chat = :chat")
+                it.expressionAttributeValues(
+                    mapOf(
+                        ":username" to username.toAttributeValue(),
+                        ":chat" to chat.toAttributeValue(),
+                    )
+                )
+            }.await()?.items()?.firstOrNull()?.toTimeZone()
+        }
+    }
 }
 
 @OptIn(ExperimentalStdlibApi::class)
 fun TimeZone.toAttributes(): Map<String, AttributeValue> = buildMap {
     put("user", this@toAttributes.user.toAttributeValue())
+    this@toAttributes.username?.let {
+        put("username", it.toAttributeValue())
+    }
     put("chat", this@toAttributes.chat.toAttributeValue())
     this@toAttributes.zoneId?.let {
         put("zoneId", it.toAttributeValue())
@@ -52,6 +71,7 @@ fun TimeZone.toAttributes(): Map<String, AttributeValue> = buildMap {
 
 fun Map<String, AttributeValue>.toTimeZone(): TimeZone = TimeZone(
     user = this["user"].toLong("user"),
+    username = this["username"]?.s(),
     chat = this["chat"].toLong("chat"),
     zoneId = this["zoneId"]?.s(),
     offset = this["offset"]?.n()?.toInt()

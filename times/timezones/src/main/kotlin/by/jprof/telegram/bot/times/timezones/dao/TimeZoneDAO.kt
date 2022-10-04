@@ -6,4 +6,6 @@ interface TimeZoneDAO {
     suspend fun save(timeZone: TimeZone)
 
     suspend fun get(user: Long, chat: Long): TimeZone?
+
+    suspend fun getByUsername(username: String, chat: Long): TimeZone?
 }

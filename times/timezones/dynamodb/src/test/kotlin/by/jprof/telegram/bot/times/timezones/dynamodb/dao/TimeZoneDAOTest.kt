@@ -38,13 +38,20 @@ internal class TimeZoneDAOTest {
     }
 
     @Test
+    fun getByUsername() = runBlocking {
+        assertEquals(timeZone.copy(chat = 3), sut.getByUsername("test", 3))
+    }
+
+    @Test
     fun getUnexisting() = runBlocking {
         assertNull(sut.get(-1, -2))
+        assertNull(sut.getByUsername("unexisting", -2))
     }
 
     private val timeZone
         get() = TimeZone(
             user = 1L,
+            username = "test",
             chat = 1L,
             zoneId = "UTC",
         )

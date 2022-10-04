@@ -15,6 +15,14 @@ internal class TimeZoneTest {
     }
 
     @Test
+    fun toAttributesNoUsername() {
+        Assertions.assertEquals(
+            attributes.toMutableMap().apply { this.remove("username") },
+            timeZone.copy(username = null).toAttributes()
+        )
+    }
+
+    @Test
     fun toAttributesNoZoneId() {
         Assertions.assertEquals(
             attributes.toMutableMap().apply { this.remove("zoneId") },
@@ -39,6 +47,14 @@ internal class TimeZoneTest {
     }
 
     @Test
+    fun toTimeZoneNoUsername() {
+        Assertions.assertEquals(
+            timeZone.copy(username = null),
+            attributes.toMutableMap().apply { this.remove("username") }.toTimeZone(),
+        )
+    }
+
+    @Test
     fun toTimeZoneNoZoneId() {
         Assertions.assertEquals(
             timeZone.copy(zoneId = null),
@@ -57,6 +73,7 @@ internal class TimeZoneTest {
     private val timeZone
         get() = TimeZone(
             user = 1L,
+            username = "test",
             chat = 2L,
             zoneId = "UTC",
             offset = 3600,
@@ -64,6 +81,7 @@ internal class TimeZoneTest {
     private val attributes
         get() = mapOf(
             "user" to AttributeValue.builder().n("1").build(),
+            "username" to AttributeValue.builder().s("test").build(),
             "chat" to AttributeValue.builder().n("2").build(),
             "zoneId" to AttributeValue.builder().s("UTC").build(),
             "offset" to AttributeValue.builder().n("3600").build(),

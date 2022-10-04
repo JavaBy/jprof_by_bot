@@ -6,6 +6,9 @@
                     "user": {
                         "N": "1"
                     },
+                    "username": {
+                        "S": "test"
+                    },
                     "chat": {
                         "N": "1"
                     },
@@ -21,11 +24,32 @@
                     "user": {
                         "N": "1"
                     },
+                    "username": {
+                        "S": "test"
+                    },
                     "chat": {
                         "N": "2"
                     },
                     "offset": {
                         "N": "3600"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "user": {
+                        "N": "1"
+                    },
+                    "username": {
+                        "S": "test"
+                    },
+                    "chat": {
+                        "N": "3"
+                    },
+                    "zoneId": {
+                        "S": "UTC"
                     }
                 }
             }
