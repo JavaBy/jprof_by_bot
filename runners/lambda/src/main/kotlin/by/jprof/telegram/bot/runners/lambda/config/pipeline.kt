@@ -17,6 +17,8 @@ import by.jprof.telegram.bot.quizoji.QuizojiOptionUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiQuestionUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiStartCommandUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiVoteUpdateProcessor
+import by.jprof.telegram.bot.times.TimeCommandUpdateProcessor
+import by.jprof.telegram.bot.times.TimeZoneCommandUpdateProcessor
 import by.jprof.telegram.bot.youtube.YouTubeUpdateProcessor
 import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.koin.core.qualifier.named
@@ -134,6 +136,20 @@ val pipelineModule = module {
 
     single<UpdateProcessor>(named("LeetCodeUpdateProcessor")) {
         LeetCodeUpdateProcessor(
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("TimeZoneCommandUpdateProcessor")) {
+        TimeZoneCommandUpdateProcessor(
+            timeZoneDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("TimeCommandUpdateProcessor")) {
+        TimeCommandUpdateProcessor(
+            timeZoneDAO = get(),
             bot = get(),
         )
     }

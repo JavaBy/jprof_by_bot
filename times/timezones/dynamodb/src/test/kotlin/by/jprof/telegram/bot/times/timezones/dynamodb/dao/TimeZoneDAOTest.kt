@@ -1,13 +1,12 @@
-package by.jprof.telegram.bot.monies.dynamodb.dao
+package by.jprof.telegram.bot.times.timezones.dynamodb.dao
 
-
-import by.jprof.telegram.bot.monies.model.Money
-import by.jprof.telegram.bot.monies.model.Monies
+import by.jprof.telegram.bot.times.timezones.model.TimeZone
 import by.jprof.telegram.bot.utils.aws_junit5.Endpoint
 import kotlinx.coroutines.runBlocking
 import me.madhead.aws_junit5.common.AWSClient
 import me.madhead.aws_junit5.dynamo.v2.DynamoDB
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
@@ -18,37 +17,42 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 @Tag("db")
 @ExtendWith(DynamoDB::class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-internal class MoniesDAOTest {
+internal class TimeZoneDAOTest {
     @AWSClient(endpoint = Endpoint::class)
     private lateinit var dynamoDB: DynamoDbAsyncClient
-    private lateinit var sut: MoniesDAO
+    private lateinit var sut: TimeZoneDAO
 
     @BeforeAll
     internal fun setup() {
-        sut = MoniesDAO(dynamoDB, "monies")
+        sut = TimeZoneDAO(dynamoDB, "timezones")
     }
 
     @Test
     fun save() = runBlocking {
-        sut.save(monies)
+        sut.save(timeZone.copy(user = 2))
     }
 
     @Test
     fun get() = runBlocking {
-        Assertions.assertEquals(monies, sut.get(1, 2))
+        assertEquals(timeZone, sut.get(1, 1))
+    }
+
+    @Test
+    fun getByUsername() = runBlocking {
+        assertEquals(timeZone.copy(chat = 3), sut.getByUsername("test", 3))
     }
 
     @Test
     fun getUnexisting() = runBlocking {
-        Assertions.assertNull(sut.get(-1, -2))
+        assertNull(sut.get(-1, -2))
+        assertNull(sut.getByUsername("unexisting", -2))
     }
 
-    private val monies
-        get() = Monies(
+    private val timeZone
+        get() = TimeZone(
             user = 1L,
-            chat = 2L,
-            monies = mapOf(
-                Money.PINS to 3
-            )
+            username = "test",
+            chat = 1L,
+            zoneId = "UTC",
         )
 }

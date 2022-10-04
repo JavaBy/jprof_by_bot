@@ -55,6 +55,13 @@ export class JProfByBotStack extends cdk.Stack {
             billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
             removalPolicy: cdk.RemovalPolicy.DESTROY,
         });
+        const timezonesTable = new dynamodb.Table(this, 'jprof-by-bot-table-timezones', {
+            tableName: 'jprof-by-bot-table-timezones',
+            partitionKey: {name: 'user', type: dynamodb.AttributeType.NUMBER},
+            sortKey: {name: 'chat', type: dynamodb.AttributeType.NUMBER},
+            billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+            removalPolicy: cdk.RemovalPolicy.DESTROY,
+        });
 
         pinsTable.addGlobalSecondaryIndex({
             indexName: 'chatId',
@@ -64,6 +71,12 @@ export class JProfByBotStack extends cdk.Stack {
         pinsTable.addGlobalSecondaryIndex({
             indexName: 'userId',
             partitionKey: {name: 'userId', type: dynamodb.AttributeType.NUMBER},
+            projectionType: dynamodb.ProjectionType.ALL,
+        });
+        timezonesTable.addGlobalSecondaryIndex({
+            indexName: 'username',
+            partitionKey: {name: 'username', type: dynamodb.AttributeType.STRING},
+            sortKey: {name: 'chat', type: dynamodb.AttributeType.NUMBER},
             projectionType: dynamodb.ProjectionType.ALL,
         });
 
@@ -123,6 +136,7 @@ export class JProfByBotStack extends cdk.Stack {
                 'TABLE_QUIZOJIS': quizojisTable.tableName,
                 'TABLE_MONIES': moniesTable.tableName,
                 'TABLE_PINS': pinsTable.tableName,
+                'TABLE_TIMEZONES': timezonesTable.tableName,
                 'STATE_MACHINE_UNPINS': stateMachineUnpin.stateMachineArn,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
                 'TOKEN_YOUTUBE_API': props.youtubeToken,
@@ -143,6 +157,8 @@ export class JProfByBotStack extends cdk.Stack {
 
         pinsTable.grantReadWriteData(lambdaWebhook);
         pinsTable.grantReadWriteData(lambdaUnpin);
+
+        timezonesTable.grantReadWriteData(lambdaWebhook);
 
         stateMachineUnpin.grantStartExecution(lambdaWebhook)
 

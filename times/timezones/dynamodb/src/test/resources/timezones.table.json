@@ -1,0 +1,53 @@
+{
+    "TableName": "timezones",
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "user",
+            "AttributeType": "N"
+        },
+        {
+            "AttributeName": "username",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "chat",
+            "AttributeType": "N"
+        }
+    ],
+    "KeySchema": [
+        {
+            "AttributeName": "user",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "chat",
+            "KeyType": "RANGE"
+        }
+    ],
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "username",
+            "KeySchema": [
+                {
+                    "AttributeName": "username",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "chat",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 1,
+                "WriteCapacityUnits": 1
+            }
+        }
+    ],
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+    }
+}
