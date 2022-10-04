@@ -49,6 +49,7 @@ class TimeZoneCommandUpdateProcessor(
     private suspend fun setTimeZone(timeZoneRequest: TimeZoneRequest) {
         val timeZone = TimeZone(
             user = timeZoneRequest.user.id.chatId,
+            username = timeZoneRequest.user.username?.username,
             chat = timeZoneRequest.chat.id.chatId,
         ).run {
             when (timeZoneRequest.value) {

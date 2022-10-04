@@ -3,6 +3,7 @@ package by.jprof.telegram.bot.times.utils
 import by.jprof.telegram.bot.times.timezones.model.TimeZone
 import dev.inmo.tgbotapi.utils.extensions.escapeMarkdownV2Common
 import java.text.MessageFormat
+import java.time.LocalDateTime
 
 private val unrecognizedValueMessages = listOf(
     "Не могу разобрать таймзону\\!",
@@ -44,4 +45,29 @@ internal fun timeZoneSet(timeZone: TimeZone?): String {
             arrayOf((timeZone.zoneId ?: timeZone.offset).toString().escapeMarkdownV2Common())
         )
     }
+}
+
+private val messageDateTimeMessages = listOf(
+    "Время у автора на момент написания сообщения: {0}. А сейчас у автора: {1}."
+)
+
+internal fun messageDateTime(messageDate: LocalDateTime, now: LocalDateTime): String {
+    return MessageFormat(messageDateTimeMessages.random()).apply {
+        setFormat(0, LocalDateTimeFormat())
+        setFormat(1, LocalDateTimeFormat())
+    }.format(
+        arrayOf(messageDate, now)
+    ).escapeMarkdownV2Common()
+}
+
+private val mentionDateTimeMessages = listOf(
+    "Время у {0}: {1}."
+)
+
+internal fun mentionDateTime(who: String, date: LocalDateTime): String {
+    return MessageFormat(mentionDateTimeMessages.random()).apply {
+        setFormat(1, LocalDateTimeFormat())
+    }.format(
+        arrayOf(who, date)
+    ).escapeMarkdownV2Common()
 }
