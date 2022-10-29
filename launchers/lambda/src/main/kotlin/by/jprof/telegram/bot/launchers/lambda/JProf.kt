@@ -1,14 +1,14 @@
-package by.jprof.telegram.bot.runners.lambda
+package by.jprof.telegram.bot.launchers.lambda
 
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
-import by.jprof.telegram.bot.runners.lambda.config.currenciesModule
-import by.jprof.telegram.bot.runners.lambda.config.databaseModule
-import by.jprof.telegram.bot.runners.lambda.config.envModule
-import by.jprof.telegram.bot.runners.lambda.config.jsonModule
-import by.jprof.telegram.bot.runners.lambda.config.pipelineModule
-import by.jprof.telegram.bot.runners.lambda.config.sfnModule
-import by.jprof.telegram.bot.runners.lambda.config.telegramModule
-import by.jprof.telegram.bot.runners.lambda.config.youtubeModule
+import by.jprof.telegram.bot.launchers.lambda.config.currenciesModule
+import by.jprof.telegram.bot.launchers.lambda.config.databaseModule
+import by.jprof.telegram.bot.launchers.lambda.config.envModule
+import by.jprof.telegram.bot.launchers.lambda.config.jsonModule
+import by.jprof.telegram.bot.launchers.lambda.config.pipelineModule
+import by.jprof.telegram.bot.launchers.lambda.config.sfnModule
+import by.jprof.telegram.bot.launchers.lambda.config.telegramModule
+import by.jprof.telegram.bot.launchers.lambda.config.youtubeModule
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent

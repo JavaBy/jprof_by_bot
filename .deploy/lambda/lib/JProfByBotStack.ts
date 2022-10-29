@@ -125,8 +125,8 @@ export class JProfByBotStack extends cdk.Stack {
             ],
             timeout: cdk.Duration.seconds(30),
             memorySize: 1024,
-            code: lambda.Code.fromAsset('../../runners/lambda/build/libs/jprof_by_bot-runners-lambda-all.jar'),
-            handler: 'by.jprof.telegram.bot.runners.lambda.JProf',
+            code: lambda.Code.fromAsset('../../launchers/lambda/build/libs/jprof_by_bot-launchers-lambda-all.jar'),
+            handler: 'by.jprof.telegram.bot.launchers.lambda.JProf',
             environment: {
                 'LOG_THRESHOLD': 'DEBUG',
                 'TABLE_VOTES': votesTable.tableName,

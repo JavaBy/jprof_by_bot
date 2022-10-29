@@ -1,4 +1,4 @@
-package by.jprof.telegram.bot.runners.lambda.config
+package by.jprof.telegram.bot.launchers.lambda.config
 
 import org.koin.core.qualifier.named
 import org.koin.dsl.module

@@ -1,4 +1,4 @@
-package by.jprof.telegram.bot.runners.lambda.config
+package by.jprof.telegram.bot.launchers.lambda.config
 
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
