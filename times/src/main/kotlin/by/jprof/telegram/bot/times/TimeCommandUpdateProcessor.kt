@@ -19,12 +19,14 @@ import dev.inmo.tgbotapi.types.message.abstracts.Message
 import dev.inmo.tgbotapi.types.message.abstracts.PossiblyReplyMessage
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
 import org.apache.logging.log4j.LogManager
 
+@OptIn(PreviewFeature::class)
 class TimeCommandUpdateProcessor(
     private val timeZoneDAO: TimeZoneDAO,
     private val bot: RequestsExecutor,
@@ -34,7 +36,7 @@ class TimeCommandUpdateProcessor(
     }
 
     override suspend fun process(update: Update) {
-        val update = update.asBaseMessageUpdate() ?: return
+        @Suppress("NAME_SHADOWING") val update = update.asBaseMessageUpdate() ?: return
         val message = update.data.asContentMessage() ?: return
         val text = message.content.asTextContent() ?: return
 
@@ -52,7 +54,7 @@ class TimeCommandUpdateProcessor(
     }
 
     private suspend fun replyText(message: Message): String {
-        val message = (message as? PossiblyReplyMessage)?.replyTo ?: return ""
+        @Suppress("NAME_SHADOWING") val message = (message as? PossiblyReplyMessage)?.replyTo ?: return ""
         val author = (message as? FromUser)?.user ?: return ""
         val timeZone = timeZoneDAO.get(author.id.chatId, message.chat.id.chatId) ?: return ""
         val messageTime = Instant.ofEpochMilli(message.date.unixMillisLong).toLocalDateTime(timeZone) ?: return ""

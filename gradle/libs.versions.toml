@@ -1,5 +1,5 @@
 [versions]
-coroutines = "1.5.2"
+coroutines = "1.6.4"
 
 aws-lambda-java-events = "3.10.0"
 aws-lambda-java-core = "1.2.1"

@@ -13,8 +13,10 @@ import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import org.apache.logging.log4j.LogManager
 
+@OptIn(PreviewFeature::class)
 class TimeZoneCommandUpdateProcessor(
     private val timeZoneDAO: TimeZoneDAO,
     private val bot: RequestsExecutor,

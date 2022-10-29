@@ -9,6 +9,8 @@ application {
 }
 
 dependencies {
+    implementation(platform(libs.ktor.bom))
+
     implementation(libs.kotlinx.serialization.core)
     implementation(libs.kaml)
     implementation(libs.tgbotapi.extensions.api)

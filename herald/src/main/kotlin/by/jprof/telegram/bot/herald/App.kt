@@ -4,7 +4,7 @@ import by.jprof.telegram.bot.herald.impl.post
 import by.jprof.telegram.bot.herald.impl.postFile
 import by.jprof.telegram.bot.herald.impl.send
 
-suspend fun main(args: Array<String>) {
+suspend fun main() {
     val postFile = postFile() ?: run { println("No post for today"); return }
 
     println("Today's post: $postFile")
