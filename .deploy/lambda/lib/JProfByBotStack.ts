@@ -1,13 +1,14 @@
-import * as cdk from '@aws-cdk/core';
-import {JProfByBotStackProps} from './JProfByBotStackProps';
-import * as dynamodb from '@aws-cdk/aws-dynamodb';
-import * as lambda from '@aws-cdk/aws-lambda';
-import * as apigateway from '@aws-cdk/aws-apigateway';
-import * as sfn from '@aws-cdk/aws-stepfunctions';
-import * as tasks from '@aws-cdk/aws-stepfunctions-tasks';
+import * as cdk from 'aws-cdk-lib';
+import {Construct} from 'constructs';
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
+import * as tasks from 'aws-cdk-lib/aws-stepfunctions-tasks';
+import {JProfByBotStackProps} from "./JProfByBotStackProps";
 
 export class JProfByBotStack extends cdk.Stack {
-    constructor(scope: cdk.Construct, id: string, props: JProfByBotStackProps) {
+    constructor(scope: Construct, id: string, props: JProfByBotStackProps) {
         super(scope, id, props);
 
         const votesTable = new dynamodb.Table(this, 'jprof-by-bot-table-votes', {

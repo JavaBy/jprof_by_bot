@@ -1,22 +1,8 @@
-= https://t.me/jprof_by_bot[@jprof_by_bot]
+= .deploy / AWS Lambda
 
-Official Telegram bot of Java Professionals BY community.
+A https://aws.amazon.com/cdk[CDK] script to deploy the bot into a serverless environment:
 
-== What is this bot for?
-
-* Tracks http://openjdk.java.net/jeps/0[JEPs] popularity 
-* Tracks popularity of YouTube videos from Java-related channels 
-* Warns users when they mention Kotlin
-* Allows users to pin messages
-* Allows users to create polls with reply buttons (just like https://t.me/like[`@like`] bot)
-
-So, it just brings some fun and interactivity in our chat.
-
-== Contributing
-
-Here are the most important rules if you want to make a contribution:
-
-* Split the code into modules based on features
-* Stick to the technologies that can fit into AWS free tier
-
-The rest could be found in link:./.github/CONTRIBUTING.md[the contributing guide].
+* https://aws.amazon.com/api-gateway[API Gateway] is used as an HTTP ingestor
+* The webhook is implemented as an https://aws.amazon.com/lambda[AWS Lambda]
+* https://aws.amazon.com/dynamodb[DynamoDB] is used for data storage
+* https://aws.amazon.com/step-functions[Step Functions] are used for scheduling things in future

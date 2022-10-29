@@ -71,19 +71,58 @@ jobs:
             **/build/test-results
             **/build/reports
 
+  cdk-test:
+    name: CDK test
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v2
+        with:
+          java-version: 11
+          distribution: adopt
+      - uses: burrunan/gradle-cache-action@v1
+        with:
+          job-id: test
+          read-only: ${{ github.ref != 'refs/heads/master' }}
+      - run: ./gradlew clean shadowJar
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm install
+        working-directory: .deploy/lambda
+      - run: npm test
+        working-directory: .deploy/lambda
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: test-results
+          path: |
+            **/junit.xml
+
   test-publish:
     name: Publish test results
     runs-on: ubuntu-20.04
     needs:
       - test
       - db-test
+      - cdk-test
     if: always()
     steps:
       - uses: actions/download-artifact@v2
         with:
           name: test-results
-      - run: ls -laR
       - uses: mikepenz/action-junit-report@v2
         with:
-          report_paths: '**/test-results/**/TEST-*.xml'
+          report_paths: |-
+            **/test-results/test/TEST-*.xml
+            **/test-results/dbTest/TEST-*.xml
+            **/junit.xml
+          check_name: |-
+            Test reports
+            DB test reports
+            CDK test reports
+          include_passed: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
