@@ -1,0 +1,5 @@
+= Shop / Provider
+
+Container for https://core.telegram.org/bots/payments#getting-a-token[provider tokens].
+Different chats/groups could have different tokens.
+It is useful for test purposes: a test group could use test provider (e.g. https://stripe.com/docs/testing[Stripe Test]).
