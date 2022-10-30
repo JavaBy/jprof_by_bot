@@ -13,7 +13,7 @@ jobs:
       debounce: ${{ steps.debounce.outputs.should_skip }}
     steps:
       - id: debounce
-        uses: fkirc/skip-duplicate-actions@master
+        uses: fkirc/skip-duplicate-actions@v5
         with:
           concurrent_skipping: same_content_newer
           skip_after_successful_duplicate: false
@@ -24,7 +24,7 @@ jobs:
     if: ${{ needs.debounce.outputs.debounce != 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: posts
       - uses: docker://ghcr.io/javaby/herald:latest
