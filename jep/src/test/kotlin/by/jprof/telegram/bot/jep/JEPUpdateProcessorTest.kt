@@ -6,17 +6,19 @@ import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.answerCallbackQuery
 import dev.inmo.tgbotapi.requests.send.SendTextMessage
-import dev.inmo.tgbotapi.types.CallbackQuery.MessageDataCallbackQuery
 import dev.inmo.tgbotapi.types.ChatId
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.TextLinkTextSource
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.URLTextSource
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.abstracts.ContentMessage
+import dev.inmo.tgbotapi.types.message.content.MessageContent
+import dev.inmo.tgbotapi.types.message.content.PhotoContent
 import dev.inmo.tgbotapi.types.message.content.TextContent
-import dev.inmo.tgbotapi.types.message.content.media.PhotoContent
+import dev.inmo.tgbotapi.types.message.textsources.TextLinkTextSource
+import dev.inmo.tgbotapi.types.message.textsources.URLTextSource
+import dev.inmo.tgbotapi.types.queries.callback.MessageDataCallbackQuery
 import dev.inmo.tgbotapi.types.update.CallbackQueryUpdate
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.abstracts.UnknownUpdate
+import dev.inmo.tgbotapi.utils.RiskFeature
 import io.mockk.called
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -36,7 +38,9 @@ import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
+@RiskFeature
 @ExtendWith(MockKExtension::class)
+@Disabled
 internal class JEPUpdateProcessorTest {
     @MockK
     private lateinit var jepSummary: JEPSummary
@@ -114,7 +118,7 @@ internal class JEPUpdateProcessorTest {
     @Test
     fun processMessageNullJEPSummary() = runBlocking {
         val message = mockk<ContentMessage<TextContent>> {
-            every { messageId } returns 1L
+            every { messageId } returns 1
             every { content } returns TextContent(
                 "Hello, world!",
                 listOf(
@@ -137,7 +141,7 @@ internal class JEPUpdateProcessorTest {
                 SendTextMessage(
                     chatId = ChatId(1L),
                     text = "Cast your vote for *JEP 1* now ⤵️",
-                    parseMode = MarkdownV2ParseMode,
+                    parseMode = MarkdownV2,
                     replyToMessageId = 1,
                     replyMarkup = Votes("JEP-1", listOf("\uD83D\uDC4D", "\uD83D\uDC4E")).toInlineKeyboardMarkup()
                 )
@@ -146,7 +150,7 @@ internal class JEPUpdateProcessorTest {
                 SendTextMessage(
                     chatId = ChatId(1L),
                     text = "Cast your vote for *JEP 2* now ⤵️",
-                    parseMode = MarkdownV2ParseMode,
+                    parseMode = MarkdownV2,
                     replyToMessageId = 1,
                     replyMarkup = Votes("JEP-2", listOf("\uD83D\uDC4D", "\uD83D\uDC4E")).toInlineKeyboardMarkup()
                 )
@@ -182,7 +186,7 @@ internal class JEPUpdateProcessorTest {
                 SendTextMessage(
                     chatId = ChatId(1L),
                     text = "JEP 1\\!\n\nCast your vote for *JEP 1* now ⤵️",
-                    parseMode = MarkdownV2ParseMode,
+                    parseMode = MarkdownV2,
                     replyToMessageId = 1,
                     replyMarkup = Votes("JEP-1", listOf("\uD83D\uDC4D", "\uD83D\uDC4E")).toInlineKeyboardMarkup()
                 )
@@ -191,7 +195,7 @@ internal class JEPUpdateProcessorTest {
                 SendTextMessage(
                     chatId = ChatId(1L),
                     text = "JEP 2\\!\n\nCast your vote for *JEP 2* now ⤵️",
-                    parseMode = MarkdownV2ParseMode,
+                    parseMode = MarkdownV2,
                     replyToMessageId = 1,
                     replyMarkup = Votes("JEP-2", listOf("\uD83D\uDC4D", "\uD83D\uDC4E")).toInlineKeyboardMarkup()
                 )
@@ -214,7 +218,7 @@ internal class JEPUpdateProcessorTest {
             CallbackQueryUpdate(
                 1L, MessageDataCallbackQuery(
                 id = "",
-                user = mockk(),
+                from = mockk(),
                 chatInstance = "",
                 message = mockk(),
                 data = "YOUTUBE-1:+",
@@ -231,7 +235,7 @@ internal class JEPUpdateProcessorTest {
             CallbackQueryUpdate(
                 1L, MessageDataCallbackQuery(
                 id = "",
-                user = mockk(),
+                from = mockk(),
                 chatInstance = "",
                 message = mockk(),
                 data = "JEP-1+",
@@ -247,11 +251,11 @@ internal class JEPUpdateProcessorTest {
     fun processCallbackQuery() = runBlocking {
         val callbackQuery = MessageDataCallbackQuery(
             id = "",
-            user = mockk {
+            from = mockk {
                 every { id } returns ChatId(1L)
             },
             chatInstance = "",
-            message = mockk<ContentMessage<TextContent>> {
+            message = mockk<ContentMessage<MessageContent>> {
                 every { messageId } returns 100500L
                 every { chat } returns mockk {
                     every { id } returns ChatId(2L)

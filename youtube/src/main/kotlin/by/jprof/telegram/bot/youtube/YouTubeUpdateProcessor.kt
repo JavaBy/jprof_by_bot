@@ -10,12 +10,12 @@ import com.google.api.services.youtube.YouTube
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.utils.formatting.boldMarkdownV2
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.TextLinkTextSource
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.URLTextSource
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.abstracts.ContentMessage
 import dev.inmo.tgbotapi.types.message.abstracts.Message
 import dev.inmo.tgbotapi.types.message.content.TextContent
+import dev.inmo.tgbotapi.types.message.textsources.TextLinkTextSource
+import dev.inmo.tgbotapi.types.message.textsources.URLTextSource
 import dev.inmo.tgbotapi.types.update.CallbackQueryUpdate
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.abstracts.Update
@@ -113,7 +113,7 @@ class YouTubeUpdateProcessor(
             bot.reply(
                 to = message,
                 text = videoText,
-                parseMode = MarkdownV2ParseMode,
+                parseMode = MarkdownV2,
                 replyMarkup = votes.toInlineKeyboardMarkup()
             )
         } ?: run {

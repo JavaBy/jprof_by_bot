@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     api(project.projects.votes)
-    api(libs.tgbotapi.core)
+    api(libs.tgbotapi)
 
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)

@@ -5,7 +5,7 @@ import by.jprof.telegram.bot.times.timezones.dao.TimeZoneDAO
 import by.jprof.telegram.bot.times.timezones.model.TimeZone
 import by.jprof.telegram.bot.times.utils.mentionDateTime
 import by.jprof.telegram.bot.times.utils.messageDateTime
-import dev.inmo.tgbotapi.CommonAbstracts.FromUser
+import dev.inmo.tgbotapi.abstracts.FromUser
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.utils.asBaseMessageUpdate
@@ -14,7 +14,7 @@ import dev.inmo.tgbotapi.extensions.utils.asContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asMentionTextSource
 import dev.inmo.tgbotapi.extensions.utils.asTextContent
 import dev.inmo.tgbotapi.extensions.utils.asTextMentionTextSource
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.abstracts.Message
 import dev.inmo.tgbotapi.types.message.abstracts.PossiblyReplyMessage
 import dev.inmo.tgbotapi.types.message.content.TextContent
@@ -50,7 +50,7 @@ class TimeCommandUpdateProcessor(
             ${mentionsText(text, message)}
         """.trimIndent().trim()
 
-        bot.reply(to = message, text = reply, parseMode = MarkdownV2ParseMode)
+        bot.reply(to = message, text = reply, parseMode = MarkdownV2)
     }
 
     private suspend fun replyText(message: Message): String {

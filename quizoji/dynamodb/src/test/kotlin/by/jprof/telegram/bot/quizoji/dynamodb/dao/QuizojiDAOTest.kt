@@ -2,9 +2,11 @@ package by.jprof.telegram.bot.quizoji.dynamodb.dao
 
 import by.jprof.telegram.bot.quizoji.model.Quizoji
 import by.jprof.telegram.bot.utils.aws_junit5.Endpoint
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.RegularTextSource
 import dev.inmo.tgbotapi.types.message.content.TextContent
+import dev.inmo.tgbotapi.types.message.textsources.RegularTextSource
+import dev.inmo.tgbotapi.utils.RiskFeature
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.ExperimentalSerializationApi
 import me.madhead.aws_junit5.common.AWSClient
 import me.madhead.aws_junit5.dynamo.v2.DynamoDB
 import org.junit.jupiter.api.Assertions
@@ -15,6 +17,8 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.extension.ExtendWith
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 
+@RiskFeature
+@ExperimentalSerializationApi
 @Tag("db")
 @ExtendWith(DynamoDB::class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

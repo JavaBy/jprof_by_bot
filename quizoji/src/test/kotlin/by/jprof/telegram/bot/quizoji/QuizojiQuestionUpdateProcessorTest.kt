@@ -8,18 +8,18 @@ import com.soywiz.klock.DateTime
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.sendMessage
 import dev.inmo.tgbotapi.types.ChatId
-import dev.inmo.tgbotapi.types.CommonUser
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2
+import dev.inmo.tgbotapi.types.chat.CommonUser
 import dev.inmo.tgbotapi.types.chat.PrivateChatImpl
-import dev.inmo.tgbotapi.types.chat.abstracts.ChannelChat
 import dev.inmo.tgbotapi.types.dice.Dice
 import dev.inmo.tgbotapi.types.dice.SlotMachineDiceAnimationType
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.PrivateContentMessageImpl
 import dev.inmo.tgbotapi.types.message.abstracts.ChannelContentMessage
 import dev.inmo.tgbotapi.types.message.content.DiceContent
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.PollUpdate
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import io.mockk.called
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -33,6 +33,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
+@PreviewFeature
 @ExtendWith(MockKExtension::class)
 internal class QuizojiQuestionUpdateProcessorTest {
     @MockK(relaxed = true)
@@ -84,19 +85,7 @@ internal class QuizojiQuestionUpdateProcessorTest {
         sut.process(
             MessageUpdate(
                 updateId = 1,
-                data = PrivateContentMessageImpl(
-                    messageId = 1,
-                    user = mockk(),
-                    chat = mockk<ChannelChat>(),
-                    content = mockk(),
-                    date = DateTime.now(),
-                    editDate = null,
-                    forwardInfo = null,
-                    replyTo = null,
-                    replyMarkup = null,
-                    senderBot = null,
-                    paymentInfo = null,
-                )
+                data = mockk<ChannelContentMessage<*>>()
             )
         )
 
@@ -121,18 +110,19 @@ internal class QuizojiQuestionUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(id = ChatId(2), "Test"),
+                    from = CommonUser(id = ChatId(2), "Test"),
                     chat = chat,
                     content = TextContent(
                         text = "Test"
                     ),
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )
@@ -156,16 +146,17 @@ internal class QuizojiQuestionUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(id = ChatId(2), "Test"),
+                    from = CommonUser(id = ChatId(2), "Test"),
                     chat = chat,
                     content = DiceContent(dice = Dice(value = 3, animationType = SlotMachineDiceAnimationType)),
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )
@@ -197,16 +188,17 @@ internal class QuizojiQuestionUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(id = ChatId(2), "Test"),
+                    from = CommonUser(id = ChatId(2), "Test"),
                     chat = chat,
                     content = content,
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )

@@ -9,13 +9,16 @@ import dev.inmo.tgbotapi.extensions.api.send.media.sendPhoto
 import dev.inmo.tgbotapi.extensions.utils.asCommonMessage
 import dev.inmo.tgbotapi.extensions.utils.asMessageUpdate
 import dev.inmo.tgbotapi.requests.abstracts.MultipartFile
-import dev.inmo.tgbotapi.types.chat.abstracts.Chat
+import dev.inmo.tgbotapi.types.chat.Chat
 import dev.inmo.tgbotapi.types.message.abstracts.CommonMessage
 import dev.inmo.tgbotapi.types.message.abstracts.FromUserMessage
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import dev.inmo.tgbotapi.utils.PreviewFeature
-import dev.inmo.tgbotapi.utils.asStorageFile
+import io.ktor.utils.io.streams.asInput
+import java.io.InputStream
+import java.time.Duration
+import java.time.Instant
 import org.apache.logging.log4j.LogManager
 import org.jetbrains.skija.Data
 import org.jetbrains.skija.EncodedImageFormat
@@ -25,9 +28,6 @@ import org.jetbrains.skija.Paint
 import org.jetbrains.skija.Surface
 import org.jetbrains.skija.TextLine
 import org.jetbrains.skija.Typeface
-import java.io.InputStream
-import java.time.Duration
-import java.time.Instant
 
 @PreviewFeature
 class KotlinMentionsUpdateProcessor(
@@ -122,7 +122,8 @@ class KotlinMentionsUpdateProcessor(
         bot.sendPhoto(
             chat = chat,
             fileId = MultipartFile(
-                file = data.bytes.asStorageFile("darryl.jpeg")
+                filename = "darryl.jpeg",
+                inputSource = { data.bytes.inputStream().asInput() }
             ),
             replyToMessageId = message.messageId,
         )

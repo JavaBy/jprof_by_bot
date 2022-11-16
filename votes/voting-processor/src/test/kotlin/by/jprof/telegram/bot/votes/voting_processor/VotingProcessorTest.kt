@@ -6,16 +6,17 @@ import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
 import com.soywiz.klock.DateTime
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.answerCallbackQuery
-import dev.inmo.tgbotapi.extensions.api.edit.ReplyMarkup.editMessageReplyMarkup
-import dev.inmo.tgbotapi.types.CallbackQuery.InlineMessageIdDataCallbackQuery
-import dev.inmo.tgbotapi.types.CallbackQuery.MessageDataCallbackQuery
-import dev.inmo.tgbotapi.types.CallbackQuery.MessageGameShortNameCallbackQuery
+import dev.inmo.tgbotapi.extensions.api.edit.reply_markup.editMessageReplyMarkup
 import dev.inmo.tgbotapi.types.ChatId
-import dev.inmo.tgbotapi.types.CommonUser
 import dev.inmo.tgbotapi.types.UserId
+import dev.inmo.tgbotapi.types.chat.CommonUser
 import dev.inmo.tgbotapi.types.chat.GroupChatImpl
 import dev.inmo.tgbotapi.types.message.CommonGroupContentMessageImpl
+import dev.inmo.tgbotapi.types.message.content.MessageContent
 import dev.inmo.tgbotapi.types.message.content.TextContent
+import dev.inmo.tgbotapi.types.queries.callback.InlineMessageIdDataCallbackQuery
+import dev.inmo.tgbotapi.types.queries.callback.MessageDataCallbackQuery
+import dev.inmo.tgbotapi.types.queries.callback.MessageGameShortNameCallbackQuery
 import io.mockk.called
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -57,24 +58,26 @@ internal class VotingProcessorTest {
 
     @Test
     fun processMessageDataCallbackQuery() = runBlocking {
-        val message = CommonGroupContentMessageImpl(
+        val message = CommonGroupContentMessageImpl<MessageContent>(
             chat = GroupChatImpl(
                 id = ChatId(1L),
                 title = "Test"
             ),
             messageId = 1L,
-            user = CommonUser(UserId(2L), "Test 2"),
+            from = CommonUser(UserId(2L), "Test 2"),
             date = DateTime.now(),
             forwardInfo = null,
             editDate = null,
+            hasProtectedContent = false,
             replyTo = null,
             replyMarkup = null,
             content = TextContent(""),
             senderBot = null,
+            mediaGroupId = null,
         )
         val callbackQuery = MessageDataCallbackQuery(
             id = "",
-            user = CommonUser(UserId(1L), "Test 1"),
+            from = CommonUser(UserId(1L), "Test 1"),
             chatInstance = "",
             message = message,
             data = "TEST-42:+"
@@ -100,24 +103,26 @@ internal class VotingProcessorTest {
 
     @Test
     fun processCallbackQueryForNewVotes() = runBlocking {
-        val message = CommonGroupContentMessageImpl(
+        val message = CommonGroupContentMessageImpl<MessageContent>(
             chat = GroupChatImpl(
                 id = ChatId(1L),
                 title = "Test"
             ),
             messageId = 1L,
-            user = CommonUser(UserId(2L), "Test 2"),
+            from = CommonUser(UserId(2L), "Test 2"),
             date = DateTime.now(),
             forwardInfo = null,
             editDate = null,
+            hasProtectedContent = false,
             replyTo = null,
             replyMarkup = null,
             content = TextContent(""),
             senderBot = null,
+            mediaGroupId = null,
         )
         val callbackQuery = MessageDataCallbackQuery(
             id = "",
-            user = CommonUser(UserId(1L), "Test 1"),
+            from = CommonUser(UserId(1L), "Test 1"),
             chatInstance = "",
             message = message,
             data = "TEST-42:+"
@@ -146,7 +151,7 @@ internal class VotingProcessorTest {
     fun processInlineMessageIdDataCallbackQuery() = runBlocking {
         val callbackQuery = InlineMessageIdDataCallbackQuery(
             id = "",
-            user = CommonUser(UserId(1L), "Test 1"),
+            from = CommonUser(UserId(1L), "Test 1"),
             chatInstance = "",
             inlineMessageId = "300",
             data = "TEST-42:+"
@@ -176,7 +181,7 @@ internal class VotingProcessorTest {
         sut.processCallbackQuery(
             MessageGameShortNameCallbackQuery(
                 id = "test",
-                user = mockk(),
+                from = mockk(),
                 chatInstance = "TEST",
                 message = mockk(),
                 gameShortName = "TEST"
@@ -193,7 +198,7 @@ internal class VotingProcessorTest {
         sut.processCallbackQuery(
             MessageDataCallbackQuery(
                 id = "test",
-                user = mockk(),
+                from = mockk(),
                 chatInstance = "TEST",
                 message = mockk(),
                 data = "CHECK-42:+"
@@ -208,7 +213,7 @@ internal class VotingProcessorTest {
         sut.processCallbackQuery(
             MessageDataCallbackQuery(
                 id = "test",
-                user = mockk(),
+                from = mockk(),
                 chatInstance = "TEST",
                 message = mockk(),
                 data = "CHECK-42"

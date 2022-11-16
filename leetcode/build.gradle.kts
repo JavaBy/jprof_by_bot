@@ -5,8 +5,7 @@ plugins {
 
 dependencies {
     api(project.projects.core)
-    api(libs.tgbotapi.core)
-    implementation(libs.tgbotapi.extensions.api)
+    api(libs.tgbotapi)
     implementation(libs.log4j.api)
     implementation(libs.graphql.kotlin.ktor.client)
     implementation(libs.kotlinx.serialization.core)

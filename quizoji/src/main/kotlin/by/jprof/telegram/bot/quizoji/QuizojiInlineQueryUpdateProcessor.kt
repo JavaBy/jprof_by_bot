@@ -70,6 +70,8 @@ class QuizojiInlineQueryUpdateProcessor(
                         )
                     )
                 }
+
+                else -> {}
             }
         }
     }

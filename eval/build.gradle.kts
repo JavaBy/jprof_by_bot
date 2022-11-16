@@ -4,10 +4,8 @@ plugins {
 
 dependencies {
     api(project.projects.core)
-    api(libs.tgbotapi.core)
+    api(libs.tgbotapi)
     implementation(project.projects.votes.tgbotapiExtensions)
-    implementation(libs.tgbotapi.extensions.api)
-    implementation(libs.tgbotapi.extensions.utils)
     implementation(libs.log4j.api)
 
     testImplementation(libs.junit.jupiter.api)

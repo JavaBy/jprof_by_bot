@@ -1,7 +1,7 @@
 package by.jprof.telegram.bot.dialogs.model.quizoji
 
 import by.jprof.telegram.bot.dialogs.model.DialogState
-import dev.inmo.tgbotapi.types.message.content.abstracts.MessageContent
+import dev.inmo.tgbotapi.types.message.content.MessageContent
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

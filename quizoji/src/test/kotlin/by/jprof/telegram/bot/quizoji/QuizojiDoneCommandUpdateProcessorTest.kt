@@ -11,19 +11,20 @@ import com.soywiz.klock.DateTime
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.sendMessage
 import dev.inmo.tgbotapi.types.ChatId
-import dev.inmo.tgbotapi.types.CommonUser
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.RegularTextSource
 import dev.inmo.tgbotapi.types.buttons.InlineKeyboardButtons.CallbackDataInlineKeyboardButton
 import dev.inmo.tgbotapi.types.buttons.InlineKeyboardButtons.SwitchInlineQueryInlineKeyboardButton
 import dev.inmo.tgbotapi.types.buttons.InlineKeyboardMarkup
+import dev.inmo.tgbotapi.types.chat.CommonUser
 import dev.inmo.tgbotapi.types.chat.PrivateChatImpl
-import dev.inmo.tgbotapi.types.chat.abstracts.ChannelChat
 import dev.inmo.tgbotapi.types.message.PrivateContentMessageImpl
 import dev.inmo.tgbotapi.types.message.abstracts.ChannelContentMessage
+import dev.inmo.tgbotapi.types.message.content.AudioContent
 import dev.inmo.tgbotapi.types.message.content.TextContent
-import dev.inmo.tgbotapi.types.message.content.media.AudioContent
+import dev.inmo.tgbotapi.types.message.textsources.RegularTextSource
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.PollUpdate
+import dev.inmo.tgbotapi.utils.PreviewFeature
+import dev.inmo.tgbotapi.utils.RiskFeature
 import io.mockk.CapturingSlot
 import io.mockk.called
 import io.mockk.clearAllMocks
@@ -41,6 +42,8 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
+@RiskFeature
+@PreviewFeature
 @ExtendWith(MockKExtension::class)
 internal class QuizojiDoneCommandUpdateProcessorTest {
     @MockK(relaxed = true)
@@ -100,19 +103,7 @@ internal class QuizojiDoneCommandUpdateProcessorTest {
         sut.process(
             MessageUpdate(
                 updateId = 1,
-                data = PrivateContentMessageImpl(
-                    messageId = 1,
-                    user = mockk(),
-                    chat = mockk<ChannelChat>(),
-                    content = mockk(),
-                    date = DateTime.now(),
-                    editDate = null,
-                    forwardInfo = null,
-                    replyTo = null,
-                    replyMarkup = null,
-                    senderBot = null,
-                    paymentInfo = null,
-                )
+                data = mockk<ChannelContentMessage<*>>()
             )
         )
 
@@ -133,16 +124,17 @@ internal class QuizojiDoneCommandUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(ChatId(2), "Test"),
+                    from = CommonUser(ChatId(2), "Test"),
                     chat = PrivateChatImpl(ChatId(1)),
                     content = TextContent("/done"),
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )
@@ -162,16 +154,17 @@ internal class QuizojiDoneCommandUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(ChatId(2), "Test"),
+                    from = CommonUser(ChatId(2), "Test"),
                     chat = PrivateChatImpl(ChatId(1)),
                     content = mockk<AudioContent>(),
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )
@@ -191,16 +184,17 @@ internal class QuizojiDoneCommandUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(ChatId(2), "Test"),
+                    from = CommonUser(ChatId(2), "Test"),
                     chat = PrivateChatImpl(ChatId(1)),
                     content = TextContent("/start doing your morning exercise"),
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )
@@ -227,16 +221,17 @@ internal class QuizojiDoneCommandUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(ChatId(2), "Test"),
+                    from = CommonUser(ChatId(2), "Test"),
                     chat = chat,
                     content = TextContent("/done"),
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )
@@ -269,16 +264,17 @@ internal class QuizojiDoneCommandUpdateProcessorTest {
                 updateId = 1,
                 data = PrivateContentMessageImpl(
                     messageId = 1,
-                    user = CommonUser(ChatId(2), "Test"),
+                    from = CommonUser(ChatId(2), "Test"),
                     chat = chat,
                     content = TextContent("/done"),
                     date = DateTime.now(),
                     editDate = null,
+                    hasProtectedContent = false,
                     forwardInfo = null,
                     replyTo = null,
                     replyMarkup = null,
                     senderBot = null,
-                    paymentInfo = null,
+                    mediaGroupId = null,
                 )
             )
         )
