@@ -2,12 +2,13 @@ package by.jprof.telegram.bot.leetcode
 
 import dev.inmo.tgbotapi.utils.extensions.escapeMarkdownV2Common
 import kotlinx.serialization.Serializable
+import org.jsoup.Jsoup
 
 @Serializable
 data class Question(
     val title: String,
     val titleSlug: String,
-    val content: String,
+    val content: String?,
     val isPaidOnly: Boolean,
     val difficulty: String,
     val likes: Int,
@@ -27,40 +28,17 @@ data class Question(
         ""
     }
 
-    fun markdownContent(): String = this.content
-        .replace("&nbsp;", " ")
-        .replace("&lt;", "<")
-        .replace("&gt;", ">")
-        .replace("&quot;", "\"")
-        .replace("&#39;", "'")
-        .replace(Regex("<sup>(?<sup>.+?)</sup>")) {
-            "^${it.groups["sup"]!!.value}"
+    fun markdownContent(): String? {
+        return try {
+            val content = Jsoup.parse(this.content ?: return null)
+                .select("p")
+                .firstOrNull()
+                ?.text()
+                ?.takeUnless { it.isBlank() } ?: return null
+
+            ((content.takeIf { it.length < 3000 } ?: (content.take(3000) + "…"))).escapeMarkdownV2Common()
+        } catch (_: Exception) {
+            null
         }
-
-        .escapeMarkdownV2Common()
-
-        .replace("<code\\>", "`")
-        .replace("</code\\>", "`")
-
-        .replace("<pre\\>", "```")
-        .replace("</pre\\>", "```")
-
-        .replace("<strong\\>", "*")
-        .replace("</strong\\>", "*")
-
-        .replace("<em\\>", "_")
-        .replace("</em\\>", "_")
-
-        .replace("<li\\>", "• ")
-        .replace("</li\\>", "")
-
-        .replace("<p\\>", "")
-        .replace("</p\\>", "")
-        .replace("<ul\\>", "")
-        .replace("</ul\\>", "")
-        .replace("<ol\\>", "")
-        .replace("</ol\\>", "")
-
-        .replace("\\n", "\n")
-        .replace("\\t", "\t")
+    }
 }

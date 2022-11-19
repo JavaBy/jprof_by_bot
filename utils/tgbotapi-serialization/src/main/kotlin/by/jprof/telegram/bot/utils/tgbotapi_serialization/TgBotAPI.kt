@@ -1,8 +1,8 @@
 package by.jprof.telegram.bot.utils.tgbotapi_serialization
 
 import by.jprof.telegram.bot.utils.tgbotapi_serialization.serializers.TextContentSerializer
+import dev.inmo.tgbotapi.types.message.content.MessageContent
 import dev.inmo.tgbotapi.types.message.content.TextContent
-import dev.inmo.tgbotapi.types.message.content.abstracts.MessageContent
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 

@@ -5,7 +5,7 @@ import by.jprof.telegram.bot.times.timezones.dao.TimeZoneDAO
 import by.jprof.telegram.bot.times.timezones.model.TimeZone
 import by.jprof.telegram.bot.times.utils.mentionDateTime
 import by.jprof.telegram.bot.times.utils.messageDateTime
-import dev.inmo.tgbotapi.CommonAbstracts.FromUser
+import dev.inmo.tgbotapi.abstracts.FromUser
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.utils.asBaseMessageUpdate
@@ -14,17 +14,19 @@ import dev.inmo.tgbotapi.extensions.utils.asContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asMentionTextSource
 import dev.inmo.tgbotapi.extensions.utils.asTextContent
 import dev.inmo.tgbotapi.extensions.utils.asTextMentionTextSource
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.abstracts.Message
 import dev.inmo.tgbotapi.types.message.abstracts.PossiblyReplyMessage
 import dev.inmo.tgbotapi.types.message.content.TextContent
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
 import org.apache.logging.log4j.LogManager
 
+@OptIn(PreviewFeature::class)
 class TimeCommandUpdateProcessor(
     private val timeZoneDAO: TimeZoneDAO,
     private val bot: RequestsExecutor,
@@ -34,7 +36,7 @@ class TimeCommandUpdateProcessor(
     }
 
     override suspend fun process(update: Update) {
-        val update = update.asBaseMessageUpdate() ?: return
+        @Suppress("NAME_SHADOWING") val update = update.asBaseMessageUpdate() ?: return
         val message = update.data.asContentMessage() ?: return
         val text = message.content.asTextContent() ?: return
 
@@ -48,11 +50,11 @@ class TimeCommandUpdateProcessor(
             ${mentionsText(text, message)}
         """.trimIndent().trim()
 
-        bot.reply(to = message, text = reply, parseMode = MarkdownV2ParseMode)
+        bot.reply(to = message, text = reply, parseMode = MarkdownV2)
     }
 
     private suspend fun replyText(message: Message): String {
-        val message = (message as? PossiblyReplyMessage)?.replyTo ?: return ""
+        @Suppress("NAME_SHADOWING") val message = (message as? PossiblyReplyMessage)?.replyTo ?: return ""
         val author = (message as? FromUser)?.user ?: return ""
         val timeZone = timeZoneDAO.get(author.id.chatId, message.chat.id.chatId) ?: return ""
         val messageTime = Instant.ofEpochMilli(message.date.unixMillisLong).toLocalDateTime(timeZone) ?: return ""

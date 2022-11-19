@@ -1,4 +1,4 @@
-package by.jprof.telegram.bot.runners.lambda.config
+package by.jprof.telegram.bot.launchers.lambda.config
 
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module

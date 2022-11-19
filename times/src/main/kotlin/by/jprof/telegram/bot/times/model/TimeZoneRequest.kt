@@ -1,7 +1,7 @@
 package by.jprof.telegram.bot.times.model
 
-import dev.inmo.tgbotapi.types.User
-import dev.inmo.tgbotapi.types.chat.abstracts.Chat
+import dev.inmo.tgbotapi.types.chat.Chat
+import dev.inmo.tgbotapi.types.chat.User
 import dev.inmo.tgbotapi.types.message.abstracts.Message
 
 sealed interface TimeZoneValue {

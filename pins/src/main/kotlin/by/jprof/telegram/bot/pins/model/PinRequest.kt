@@ -1,7 +1,7 @@
 package by.jprof.telegram.bot.pins.model
 
-import dev.inmo.tgbotapi.types.User
-import dev.inmo.tgbotapi.types.chat.abstracts.Chat
+import dev.inmo.tgbotapi.types.chat.Chat
+import dev.inmo.tgbotapi.types.chat.User
 import dev.inmo.tgbotapi.types.message.abstracts.Message
 import java.time.Duration
 import kotlin.math.ceil

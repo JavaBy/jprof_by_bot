@@ -1,4 +1,4 @@
-= Runners
+= Launchers
 
-A runner is an executable application with the bot logic.
+A launcher is an executable application with the bot logic.
 Currently, only https://aws.amazon.com/lambda[AWS Lambda] link:./lambda[runner] is supported.

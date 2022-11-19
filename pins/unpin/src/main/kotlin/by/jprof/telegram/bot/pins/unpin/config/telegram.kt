@@ -1,6 +1,6 @@
 package by.jprof.telegram.bot.pins.unpin.config
 
-import dev.inmo.tgbotapi.bot.Ktor.telegramBot
+import dev.inmo.tgbotapi.extensions.api.telegramBot
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 

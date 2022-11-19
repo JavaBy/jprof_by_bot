@@ -7,13 +7,13 @@ import dev.inmo.tgbotapi.extensions.utils.asBotCommandTextSource
 import dev.inmo.tgbotapi.extensions.utils.asContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asFromUser
 import dev.inmo.tgbotapi.extensions.utils.asTextContent
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.TextSource
 import dev.inmo.tgbotapi.types.message.abstracts.PossiblyReplyMessage
+import dev.inmo.tgbotapi.types.message.textsources.TextSource
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import dev.inmo.tgbotapi.utils.PreviewFeature
-import org.apache.logging.log4j.LogManager
 import java.time.Duration
 import java.time.temporal.ChronoUnit
+import org.apache.logging.log4j.LogManager
 
 interface PinRequestFinder : (Update) -> PinRequest? {
     @PreviewFeature

@@ -5,10 +5,9 @@ import by.jprof.telegram.bot.currencies.parser.MonetaryAmountParsingPipeline
 import by.jprof.telegram.bot.currencies.rates.ExchangeRateClient
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.abstracts.ContentMessage
 import dev.inmo.tgbotapi.types.message.content.TextContent
-import dev.inmo.tgbotapi.types.update.CallbackQueryUpdate
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import dev.inmo.tgbotapi.utils.extensions.escapeMarkdownV2Common
@@ -25,7 +24,7 @@ class CurrenciesUpdateProcessor(
     }
 
     override suspend fun process(update: Update) {
-        val update = update as? MessageUpdate ?: return
+        @Suppress("NAME_SHADOWING") val update = update as? MessageUpdate ?: return
         val message = update.data as? ContentMessage<*> ?: return
         val content = message.content as? TextContent ?: return
 
@@ -51,7 +50,7 @@ class CurrenciesUpdateProcessor(
             .joinToString("\n")
 
         if (reply.isNotEmpty()) {
-            bot.reply(to = message, text = reply, parseMode = MarkdownV2ParseMode)
+            bot.reply(to = message, text = reply, parseMode = MarkdownV2)
         }
     }
 }

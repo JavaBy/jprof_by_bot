@@ -19,11 +19,11 @@ import by.jprof.telegram.bot.pins.utils.unrecognizedDuration
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.chat.modify.pinChatMessage
 import dev.inmo.tgbotapi.extensions.api.send.reply
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import dev.inmo.tgbotapi.utils.PreviewFeature
-import org.apache.logging.log4j.LogManager
 import java.time.Duration
+import org.apache.logging.log4j.LogManager
 
 @PreviewFeature
 class PinCommandUpdateProcessor(

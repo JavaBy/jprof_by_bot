@@ -1,4 +1,4 @@
-import * as cdk from '@aws-cdk/core';
+import * as cdk from 'aws-cdk-lib';
 
 export interface JProfByBotStackProps extends cdk.StackProps {
     readonly telegramToken: string;

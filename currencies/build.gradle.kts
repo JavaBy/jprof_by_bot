@@ -7,11 +7,11 @@ dependencies {
     implementation(platform(libs.ktor.bom))
 
     api(project.projects.core)
-    api(libs.tgbotapi.core)
-    implementation(libs.tgbotapi.extensions.api)
+    api(libs.tgbotapi)
     implementation(libs.log4j.api)
     implementation(libs.ktor.client.apache)
-    implementation(libs.ktor.client.serialization)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
 
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)

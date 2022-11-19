@@ -3,12 +3,12 @@ package by.jprof.telegram.bot.leetcode
 import by.jprof.telegram.bot.core.UpdateProcessor
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.TextLinkTextSource
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.URLTextSource
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.abstracts.ContentMessage
 import dev.inmo.tgbotapi.types.message.abstracts.Message
 import dev.inmo.tgbotapi.types.message.content.TextContent
+import dev.inmo.tgbotapi.types.message.textsources.TextLinkTextSource
+import dev.inmo.tgbotapi.types.message.textsources.URLTextSource
 import dev.inmo.tgbotapi.types.update.MessageUpdate
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import dev.inmo.tgbotapi.utils.extensions.escapeMarkdownV2Common
@@ -43,7 +43,7 @@ class LeetCodeUpdateProcessor(
             bot.reply(
                 to = update.data,
                 text = questionInfo(question),
-                parseMode = MarkdownV2ParseMode,
+                parseMode = MarkdownV2,
             )
         }
     }
@@ -63,12 +63,16 @@ class LeetCodeUpdateProcessor(
         }
 
     private fun questionInfo(question: Question): String {
-        return """
-        |${question.level()} *${question.title.escapeMarkdownV2Common()}* \(${question.categoryTitle}\) ${question.paidIndicator()}
-        |
-        |${question.markdownContent()}
-        |
-        |_Likes: ${question.likes} / Dislikes: ${question.dislikes}_
-    """.trimMargin()
+        return question.markdownContent()?.let {
+            """|${question.level()} *${question.title.escapeMarkdownV2Common()}* \(${question.categoryTitle}\) ${question.paidIndicator()}
+               |
+               |${it}
+               |
+               |_Likes: ${question.likes} / Dislikes: ${question.dislikes}_
+            """.trimMargin()
+        } ?: """|${question.level()} *${question.title.escapeMarkdownV2Common()}* \(${question.categoryTitle}\) ${question.paidIndicator()}
+                |
+                |_Likes: ${question.likes} / Dislikes: ${question.dislikes}_
+            """.trimMargin()
     }
 }

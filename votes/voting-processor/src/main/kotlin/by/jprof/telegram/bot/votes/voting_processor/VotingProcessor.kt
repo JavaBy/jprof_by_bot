@@ -5,11 +5,11 @@ import by.jprof.telegram.bot.votes.model.Votes
 import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.answerCallbackQuery
-import dev.inmo.tgbotapi.extensions.api.edit.ReplyMarkup.editMessageReplyMarkup
-import dev.inmo.tgbotapi.types.CallbackQuery.CallbackQuery
-import dev.inmo.tgbotapi.types.CallbackQuery.DataCallbackQuery
-import dev.inmo.tgbotapi.types.CallbackQuery.InlineMessageIdDataCallbackQuery
-import dev.inmo.tgbotapi.types.CallbackQuery.MessageDataCallbackQuery
+import dev.inmo.tgbotapi.extensions.api.edit.reply_markup.editMessageReplyMarkup
+import dev.inmo.tgbotapi.types.queries.callback.CallbackQuery
+import dev.inmo.tgbotapi.types.queries.callback.DataCallbackQuery
+import dev.inmo.tgbotapi.types.queries.callback.InlineMessageIdDataCallbackQuery
+import dev.inmo.tgbotapi.types.queries.callback.MessageDataCallbackQuery
 import org.apache.logging.log4j.LogManager
 
 abstract class VotingProcessor(
@@ -44,12 +44,14 @@ abstract class VotingProcessor(
                         replyMarkup = votesToInlineKeyboardMarkup(updatedVotes)
                     )
                 }
+
                 is InlineMessageIdDataCallbackQuery -> {
                     bot.editMessageReplyMarkup(
                         inlineMessageId = callbackQuery.inlineMessageId,
                         replyMarkup = votesToInlineKeyboardMarkup(updatedVotes)
                     )
                 }
+
                 else -> {
                     logger.error("Unknown callback query type: {}", callbackQuery::class.simpleName)
                 }

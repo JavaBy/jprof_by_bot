@@ -7,10 +7,12 @@ import by.jprof.telegram.bot.votes.model.Votes
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.answerInlineQuery
 import dev.inmo.tgbotapi.types.InlineQueries.query.BaseInlineQuery
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.RegularTextSource
 import dev.inmo.tgbotapi.types.message.content.TextContent
+import dev.inmo.tgbotapi.types.message.textsources.RegularTextSource
 import dev.inmo.tgbotapi.types.update.InlineQueryUpdate
 import dev.inmo.tgbotapi.types.update.MessageUpdate
+import dev.inmo.tgbotapi.utils.PreviewFeature
+import dev.inmo.tgbotapi.utils.RiskFeature
 import io.mockk.called
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -24,6 +26,8 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
+@RiskFeature
+@PreviewFeature
 @ExtendWith(MockKExtension::class)
 internal class QuizojiInlineQueryUpdateProcessorTest {
     @MockK

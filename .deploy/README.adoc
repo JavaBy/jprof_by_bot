@@ -1,8 +1,0 @@
-= .deploy / AWS Lambda
-
-A https://aws.amazon.com/cdk[CDK] script to deploy the bot into a serverless environment:
-
-* https://aws.amazon.com/api-gateway[API Gateway] is used as an HTTP ingestor
-* The webhook is implemented as an https://aws.amazon.com/lambda[AWS Lambda]
-* https://aws.amazon.com/dynamodb[DynamoDB] is used for data storage
-* https://aws.amazon.com/step-functions[Step Functions] are used for scheduling things in future

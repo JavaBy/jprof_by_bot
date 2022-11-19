@@ -1,12 +1,16 @@
 package by.jprof.telegram.bot.quizoji.dynamodb.dao
 
 import by.jprof.telegram.bot.quizoji.model.Quizoji
-import dev.inmo.tgbotapi.types.MessageEntity.textsources.RegularTextSource
 import dev.inmo.tgbotapi.types.message.content.TextContent
+import dev.inmo.tgbotapi.types.message.textsources.RegularTextSource
+import dev.inmo.tgbotapi.utils.RiskFeature
+import kotlinx.serialization.ExperimentalSerializationApi
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 
+@RiskFeature
+@ExperimentalSerializationApi
 internal class QuizojiTest {
     @Test
     fun toAttributes() {

@@ -4,24 +4,26 @@ import by.jprof.telegram.bot.herald.model.Post
 import by.jprof.telegram.bot.votes.dynamodb.dao.VotesDAO
 import by.jprof.telegram.bot.votes.model.Votes
 import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
-import dev.inmo.tgbotapi.bot.Ktor.telegramBot
 import dev.inmo.tgbotapi.extensions.api.chat.get.getChat
 import dev.inmo.tgbotapi.extensions.api.send.media.sendPhoto
 import dev.inmo.tgbotapi.extensions.api.send.sendMessage
+import dev.inmo.tgbotapi.extensions.api.telegramBot
 import dev.inmo.tgbotapi.requests.abstracts.InputFile
 import dev.inmo.tgbotapi.requests.abstracts.MultipartFile
-import dev.inmo.tgbotapi.types.ParseMode.MarkdownV2ParseMode
-import dev.inmo.tgbotapi.types.chat.abstracts.UsernameChat
+import dev.inmo.tgbotapi.types.chat.UsernameChat
+import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.toChatId
-import dev.inmo.tgbotapi.utils.StorageFile
 import dev.inmo.tgbotapi.utils.extensions.escapeMarkdownV2Common
+import io.ktor.utils.io.streams.asInput
+import kotlin.io.path.Path
+import kotlin.io.path.absolute
+import kotlin.io.path.inputStream
+import kotlin.io.path.isRegularFile
+import kotlin.io.path.name
+import kotlin.system.exitProcess
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider
 import software.amazon.awssdk.regions.Region
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
-import kotlin.io.path.Path
-import kotlin.io.path.absolute
-import kotlin.io.path.isRegularFile
-import kotlin.system.exitProcess
 
 suspend fun send(post: Post) {
     val image = post.image()
@@ -36,17 +38,18 @@ suspend fun send(post: Post) {
                     chatId = chat.toChatId(),
                     fileId = image,
                     text = post.content.forChat(chat),
-                    parseMode = MarkdownV2ParseMode,
+                    parseMode = MarkdownV2,
                     replyMarkup = votes?.toInlineKeyboardMarkup(),
                 )
             }
+
             else -> {
                 println("Sending text to $chat")
 
                 bot.sendMessage(
                     chatId = chat.toChatId(),
                     text = post.content.forChat(chat),
-                    parseMode = MarkdownV2ParseMode,
+                    parseMode = MarkdownV2,
                     replyMarkup = votes?.toInlineKeyboardMarkup(),
                     disableWebPagePreview = post.frontmatter.disableWebPagePreview,
                 )
@@ -77,7 +80,10 @@ private fun Post.image(): InputFile? {
     val imagePath = this.frontmatter.image?.let { cwd.resolve(it) }
 
     return if (imagePath != null && imagePath.isRegularFile()) {
-        MultipartFile(StorageFile(imagePath.toFile()))
+        MultipartFile(
+            filename = imagePath.name,
+            inputSource = { imagePath.inputStream().asInput() }
+        )
     } else {
         null
     }
