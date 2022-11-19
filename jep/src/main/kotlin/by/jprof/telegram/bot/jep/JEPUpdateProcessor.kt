@@ -36,7 +36,7 @@ class JEPUpdateProcessor(
 ), UpdateProcessor {
     companion object {
         private val logger = LogManager.getLogger(JEPUpdateProcessor::class.java)!!
-        private val linkRegex = "https?://openjdk\\.java\\.net/jeps/(\\d+)/?".toRegex()
+        private val linkRegex = "https?://((openjdk\\.java\\.net)|(openjdk\\.org))/jeps/(?<jep>\\d+)/?".toRegex()
     }
 
     override suspend fun process(update: Update) {
@@ -69,9 +69,8 @@ class JEPUpdateProcessor(
                         (it as? URLTextSource)?.source ?: (it as? TextLinkTextSource)?.url
                     }
                     .mapNotNull {
-                        linkRegex.matchEntire(it)?.destructured
+                        linkRegex.matchEntire(it)?.groups?.get("jep")?.value
                     }
-                    .map { (jep) -> jep }
             }
         }
 

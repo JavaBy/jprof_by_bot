@@ -5,8 +5,13 @@ import by.jprof.telegram.bot.votes.model.Votes
 import by.jprof.telegram.bot.votes.tgbotapi_extensions.toInlineKeyboardMarkup
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.answerCallbackQuery
+import dev.inmo.tgbotapi.requests.edit.reply_markup.EditChatMessageReplyMarkup
 import dev.inmo.tgbotapi.requests.send.SendTextMessage
 import dev.inmo.tgbotapi.types.ChatId
+import dev.inmo.tgbotapi.types.buttons.InlineKeyboardButtons.CallbackDataInlineKeyboardButton
+import dev.inmo.tgbotapi.types.buttons.InlineKeyboardMarkup
+import dev.inmo.tgbotapi.types.chat.CommonUser
+import dev.inmo.tgbotapi.types.chat.GroupChatImpl
 import dev.inmo.tgbotapi.types.message.MarkdownV2
 import dev.inmo.tgbotapi.types.message.abstracts.ContentMessage
 import dev.inmo.tgbotapi.types.message.content.MessageContent
@@ -34,13 +39,11 @@ import io.mockk.verify
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.JsonNull
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @RiskFeature
 @ExtendWith(MockKExtension::class)
-@Disabled
 internal class JEPUpdateProcessorTest {
     @MockK
     private lateinit var jepSummary: JEPSummary
@@ -123,12 +126,10 @@ internal class JEPUpdateProcessorTest {
                 "Hello, world!",
                 listOf(
                     URLTextSource("https://openjdk.java.net/jeps/1"),
-                    TextLinkTextSource("JEP 2", "https://openjdk.java.net/jeps/2"),
+                    TextLinkTextSource("JEP 2", "https://openjdk.org/jeps/2"),
                 )
             )
-            every { chat } returns mockk {
-                every { id } returns ChatId(1L)
-            }
+            every { chat } returns GroupChatImpl(ChatId(1L), "Test Chat")
         }
 
         coEvery { jepSummary.of(any()) } returns null
@@ -169,11 +170,11 @@ internal class JEPUpdateProcessorTest {
                 listOf(
                     URLTextSource("https://openjdk.java.net/jeps/1"),
                     TextLinkTextSource("JEP 2", "https://openjdk.java.net/jeps/2"),
+                    URLTextSource("https://openjdk.org/jeps/3"),
+                    TextLinkTextSource("JEP 4", "https://openjdk.org/jeps/4"),
                 )
             )
-            every { chat } returns mockk {
-                every { id } returns ChatId(1L)
-            }
+            every { chat } returns GroupChatImpl(ChatId(1L), "Test Chat")
         }
 
         coEvery { jepSummary.of(any()) } answers { "JEP ${it.invocation.args[0]}!" }
@@ -200,6 +201,24 @@ internal class JEPUpdateProcessorTest {
                     replyMarkup = Votes("JEP-2", listOf("\uD83D\uDC4D", "\uD83D\uDC4E")).toInlineKeyboardMarkup()
                 )
             )
+            bot.execute(
+                SendTextMessage(
+                    chatId = ChatId(1L),
+                    text = "JEP 3\\!\n\nCast your vote for *JEP 3* now ⤵️",
+                    parseMode = MarkdownV2,
+                    replyToMessageId = 1,
+                    replyMarkup = Votes("JEP-3", listOf("\uD83D\uDC4D", "\uD83D\uDC4E")).toInlineKeyboardMarkup()
+                )
+            )
+            bot.execute(
+                SendTextMessage(
+                    chatId = ChatId(1L),
+                    text = "JEP 4\\!\n\nCast your vote for *JEP 4* now ⤵️",
+                    parseMode = MarkdownV2,
+                    replyToMessageId = 1,
+                    replyMarkup = Votes("JEP-4", listOf("\uD83D\uDC4D", "\uD83D\uDC4E")).toInlineKeyboardMarkup()
+                )
+            )
         }
         confirmVerified(bot)
         clearAllMocks()
@@ -216,13 +235,14 @@ internal class JEPUpdateProcessorTest {
     fun processNonJEPCallbackQuery() = runBlocking {
         sut.process(
             CallbackQueryUpdate(
-                1L, MessageDataCallbackQuery(
-                id = "",
-                from = mockk(),
-                chatInstance = "",
-                message = mockk(),
-                data = "YOUTUBE-1:+",
-            )
+                1L,
+                MessageDataCallbackQuery(
+                    id = "",
+                    from = mockk(),
+                    chatInstance = "",
+                    message = mockk(),
+                    data = "YOUTUBE-1:+",
+                )
             )
         )
 
@@ -233,13 +253,14 @@ internal class JEPUpdateProcessorTest {
     fun processBadCallbackQuery() = runBlocking {
         sut.process(
             CallbackQueryUpdate(
-                1L, MessageDataCallbackQuery(
-                id = "",
-                from = mockk(),
-                chatInstance = "",
-                message = mockk(),
-                data = "JEP-1+",
-            )
+                1L,
+                MessageDataCallbackQuery(
+                    id = "",
+                    from = mockk(),
+                    chatInstance = "",
+                    message = mockk(),
+                    data = "JEP-1+",
+                )
             )
         )
 
@@ -247,22 +268,21 @@ internal class JEPUpdateProcessorTest {
     }
 
     @Test
-    @Disabled
     fun processCallbackQuery() = runBlocking {
+        val message = mockk<ContentMessage<MessageContent>> {
+            every { messageId } returns 100500L
+            every { chat } returns GroupChatImpl(ChatId(2L), "Test Chat")
+            every { content } returns TextContent("")
+        }
         val callbackQuery = MessageDataCallbackQuery(
             id = "",
-            from = mockk {
-                every { id } returns ChatId(1L)
-            },
+            from = CommonUser(
+                id = ChatId(1L),
+                firstName = "",
+            ),
             chatInstance = "",
-            message = mockk<ContentMessage<MessageContent>> {
-                every { messageId } returns 100500L
-                every { chat } returns mockk {
-                    every { id } returns ChatId(2L)
-                }
-                every { content } returns TextContent("")
-            },
             data = "JEP-1:+",
+            message = message,
         )
 
         coEvery { votesDAO.get("JEP-1") } returns Votes("JEP-1", listOf("+", "-"), mapOf("2" to "-"))
@@ -273,6 +293,20 @@ internal class JEPUpdateProcessorTest {
 
         coVerify(exactly = 1) { votesDAO.save(Votes("JEP-1", listOf("+", "-"), mapOf("1" to "+", "2" to "-"))) }
         coVerify(exactly = 1) { bot.answerCallbackQuery(callbackQuery) }
+        coVerify(exactly = 1) {
+            bot.execute(
+                EditChatMessageReplyMarkup(
+                    ChatId(2L),
+                    100500,
+                    InlineKeyboardMarkup(keyboard = listOf(
+                        listOf(
+                            CallbackDataInlineKeyboardButton("1 +", "JEP-1:+"),
+                            CallbackDataInlineKeyboardButton("1 -", "JEP-1:-")
+                        )
+                    ))
+                )
+            )
+        }
 
         confirmVerified(bot)
         clearAllMocks()
