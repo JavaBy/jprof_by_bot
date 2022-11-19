@@ -9,6 +9,7 @@ dependencies {
     implementation(libs.log4j.api)
     implementation(libs.graphql.kotlin.ktor.client)
     implementation(libs.kotlinx.serialization.core)
+    implementation(libs.jsoup)
 
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)

@@ -63,12 +63,16 @@ class LeetCodeUpdateProcessor(
         }
 
     private fun questionInfo(question: Question): String {
-        return """
-        |${question.level()} *${question.title.escapeMarkdownV2Common()}* \(${question.categoryTitle}\) ${question.paidIndicator()}
-        |
-        |${question.markdownContent()}
-        |
-        |_Likes: ${question.likes} / Dislikes: ${question.dislikes}_
-    """.trimMargin()
+        return question.markdownContent()?.let {
+            """|${question.level()} *${question.title.escapeMarkdownV2Common()}* \(${question.categoryTitle}\) ${question.paidIndicator()}
+               |
+               |${it}
+               |
+               |_Likes: ${question.likes} / Dislikes: ${question.dislikes}_
+            """.trimMargin()
+        } ?: """|${question.level()} *${question.title.escapeMarkdownV2Common()}* \(${question.categoryTitle}\) ${question.paidIndicator()}
+                |
+                |_Likes: ${question.likes} / Dislikes: ${question.dislikes}_
+            """.trimMargin()
     }
 }
