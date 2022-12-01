@@ -3,7 +3,12 @@ package by.jprof.telegram.bot.pins.utils
 import by.jprof.telegram.bot.pins.model.PinDuration
 import by.jprof.telegram.bot.pins.model.PinRequest
 import dev.inmo.tgbotapi.types.chat.CommonUser
+import dev.inmo.tgbotapi.types.chat.ForumChat
 import dev.inmo.tgbotapi.types.chat.GroupChat
+import dev.inmo.tgbotapi.types.message.ChatEvents.forum.ForumTopicCreated
+import dev.inmo.tgbotapi.types.message.CommonForumContentMessageImpl
+import dev.inmo.tgbotapi.types.message.CommonSupergroupEventMessage
+import dev.inmo.tgbotapi.types.message.abstracts.ChatEventMessage
 import dev.inmo.tgbotapi.types.message.abstracts.CommonGroupContentMessage
 import dev.inmo.tgbotapi.types.message.abstracts.ContentMessage
 import dev.inmo.tgbotapi.types.message.abstracts.Message
@@ -39,7 +44,9 @@ internal class PinRequestFinderTest {
             Assertions.assertNull(PinRequestFinder.DEFAULT(update))
         } else {
             Assertions.assertEquals(
-                expected.copy(request = update.data as Message, message = (update.data as PossiblyReplyMessage).replyTo),
+                expected.copy(
+                    request = update.data as Message,
+                    message = (update.data as PossiblyReplyMessage).replyTo?.takeUnless { it is ChatEventMessage<*> }),
                 PinRequestFinder.DEFAULT(update)
             )
         }
@@ -48,8 +55,10 @@ internal class PinRequestFinderTest {
     fun default(): Stream<Arguments>? {
         val user = mockk<CommonUser>()
         val chat = mockk<GroupChat>()
+        val forum = mockk<ForumChat>()
         val request = mockk<Message>()
         val replyTo = mockk<Message>()
+        val forumTopicCreated = mockk<CommonSupergroupEventMessage<ForumTopicCreated>>()
 
         return Stream.of(
             Arguments.of(
@@ -281,6 +290,26 @@ internal class PinRequestFinderTest {
                     chat = chat,
                     request = request,
                     duration = PinDuration.Unrecognized,
+                )
+            ),
+            Arguments.of(
+                mockk<MessageUpdate> {
+                    every { data } returns mockk<CommonForumContentMessageImpl<TextContent>> message@{
+                        every { this@message.chat } returns forum
+                        every { this@message.replyTo } returns forumTopicCreated
+                        every { content } returns TextContent(
+                            text = "/pin",
+                            textSources = listOf(BotCommandTextSource("/pin"))
+                        )
+                        every { this@message.user } returns user
+                    }
+                },
+                PinRequest(
+                    message = null,
+                    user = user,
+                    chat = forum,
+                    request = request,
+                    duration = PinDuration.Recognized(Duration.ofHours(1)),
                 )
             ),
         )

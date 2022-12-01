@@ -7,6 +7,7 @@ import dev.inmo.tgbotapi.extensions.utils.asBotCommandTextSource
 import dev.inmo.tgbotapi.extensions.utils.asContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asFromUser
 import dev.inmo.tgbotapi.extensions.utils.asTextContent
+import dev.inmo.tgbotapi.types.message.abstracts.ChatEventMessage
 import dev.inmo.tgbotapi.types.message.abstracts.PossiblyReplyMessage
 import dev.inmo.tgbotapi.types.message.textsources.TextSource
 import dev.inmo.tgbotapi.types.update.abstracts.Update
@@ -64,7 +65,7 @@ interface PinRequestFinder : (Update) -> PinRequest? {
             val commandArgument = text.textSources.getOrNull(commandIndex + 1)
 
             return PinRequest(
-                message = replyTo?.replyTo,
+                message = replyTo?.replyTo?.takeUnless { it is ChatEventMessage<*> },
                 user = fromUser.user,
                 chat = content.chat,
                 request = content,
