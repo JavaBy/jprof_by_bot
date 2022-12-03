@@ -57,6 +57,7 @@ jobs:
       - run: monies/dynamodb/src/test/resources/seed.sh
       - run: pins/dynamodb/src/test/resources/seed.sh
       - run: times/timezones/dynamodb/src/test/resources/seed.sh
+      - run: english/language-rooms/dynamodb/src/test/resources/seed.sh
       - uses: gradle/gradle-build-action@v2
         with:
           arguments: clean dbTest

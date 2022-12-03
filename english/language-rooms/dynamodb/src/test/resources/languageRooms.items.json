@@ -1,0 +1,49 @@
+{
+    "languageRooms": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "1:101"
+                    },
+                    "chatId": {
+                        "N": "1"
+                    },
+                    "threadId": {
+                        "N": "101"
+                    },
+                    "language": {
+                        "S": "ENGLISH"
+                    },
+                    "violence": {
+                        "S": "POLITE"
+                    },
+                    "urbanWordOfTheDay": {
+                        "BOOL": true
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "2"
+                    },
+                    "chatId": {
+                        "N": "2"
+                    },
+                    "language": {
+                        "S": "ENGLISH"
+                    },
+                    "violence": {
+                        "S": "POLITE"
+                    },
+                    "urbanWordOfTheDay": {
+                        "BOOL": true
+                    }
+                }
+            }
+        }
+    ]
+}

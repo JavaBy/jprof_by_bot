@@ -63,6 +63,12 @@ export class JProfByBotStack extends cdk.Stack {
             billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
             removalPolicy: cdk.RemovalPolicy.DESTROY,
         });
+        const languageRoomsTable = new dynamodb.Table(this, 'jprof-by-bot-table-language-rooms', {
+            tableName: 'jprof-by-bot-table-language-rooms',
+            partitionKey: {name: 'id', type: dynamodb.AttributeType.STRING},
+            billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+            removalPolicy: cdk.RemovalPolicy.DESTROY,
+        });
 
         pinsTable.addGlobalSecondaryIndex({
             indexName: 'chatId',
@@ -138,6 +144,7 @@ export class JProfByBotStack extends cdk.Stack {
                 'TABLE_MONIES': moniesTable.tableName,
                 'TABLE_PINS': pinsTable.tableName,
                 'TABLE_TIMEZONES': timezonesTable.tableName,
+                'TABLE_LANGUAGE_ROOMS': languageRoomsTable.tableName,
                 'STATE_MACHINE_UNPINS': stateMachineUnpin.stateMachineArn,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
                 'TOKEN_YOUTUBE_API': props.youtubeToken,
@@ -160,6 +167,8 @@ export class JProfByBotStack extends cdk.Stack {
         pinsTable.grantReadWriteData(lambdaUnpin);
 
         timezonesTable.grantReadWriteData(lambdaWebhook);
+
+        languageRoomsTable.grantReadWriteData(lambdaWebhook);
 
         stateMachineUnpin.grantStartExecution(lambdaWebhook)
 
