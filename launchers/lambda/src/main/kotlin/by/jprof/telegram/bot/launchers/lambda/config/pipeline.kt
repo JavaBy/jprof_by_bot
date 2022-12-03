@@ -3,6 +3,7 @@ package by.jprof.telegram.bot.launchers.lambda.config
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.currencies.CurrenciesUpdateProcessor
+import by.jprof.telegram.bot.english.EnglishCommandUpdateProcessor
 import by.jprof.telegram.bot.eval.EvalUpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
@@ -142,6 +143,13 @@ val pipelineModule = module {
     single<UpdateProcessor>(named("TimeCommandUpdateProcessor")) {
         TimeCommandUpdateProcessor(
             timeZoneDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("EnglishCommandUpdateProcessor")) {
+        EnglishCommandUpdateProcessor(
+            languageRoomDAO = get(),
             bot = get(),
         )
     }

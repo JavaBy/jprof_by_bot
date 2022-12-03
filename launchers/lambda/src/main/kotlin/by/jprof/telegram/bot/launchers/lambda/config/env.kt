@@ -13,6 +13,7 @@ const val TABLE_QUIZOJIS = "TABLE_QUIZOJIS"
 const val TABLE_MONIES = "TABLE_MONIES"
 const val TABLE_PINS = "TABLE_PINS"
 const val TABLE_TIMEZONES = "TABLE_TIMEZONES"
+const val TABLE_LANGUAGE_ROOMS = "TABLE_LANGUAGE_ROOMS"
 const val STATE_MACHINE_UNPINS = "STATE_MACHINE_UNPINS"
 
 val envModule = module {
@@ -27,6 +28,7 @@ val envModule = module {
         TABLE_MONIES,
         TABLE_PINS,
         TABLE_TIMEZONES,
+        TABLE_LANGUAGE_ROOMS,
         STATE_MACHINE_UNPINS,
     ).forEach { variable ->
         single(named(variable)) {
