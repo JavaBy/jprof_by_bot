@@ -32,7 +32,7 @@ subprojects {
         }
         withType<Test> {
             useJUnitPlatform {
-                excludeTags("db")
+                excludeTags("db", "it")
             }
             testLogging {
                 showStandardStreams = true
