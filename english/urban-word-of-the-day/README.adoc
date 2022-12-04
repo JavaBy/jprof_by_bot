@@ -1,0 +1,3 @@
+= English / Urban Word of the Day
+
+Urban Word of the Day model.

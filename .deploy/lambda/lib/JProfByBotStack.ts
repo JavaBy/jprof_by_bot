@@ -69,6 +69,12 @@ export class JProfByBotStack extends cdk.Stack {
             billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
             removalPolicy: cdk.RemovalPolicy.DESTROY,
         });
+        const urbanWordsOfTheDayTable = new dynamodb.Table(this, 'jprof-by-bot-table-urban-words-of-the-day', {
+            tableName: 'jprof-by-bot-table-urban-words-of-the-day',
+            partitionKey: {name: 'date', type: dynamodb.AttributeType.STRING},
+            billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+            removalPolicy: cdk.RemovalPolicy.DESTROY,
+        });
 
         pinsTable.addGlobalSecondaryIndex({
             indexName: 'chatId',
@@ -170,7 +176,7 @@ export class JProfByBotStack extends cdk.Stack {
 
         languageRoomsTable.grantReadWriteData(lambdaWebhook);
 
-        stateMachineUnpin.grantStartExecution(lambdaWebhook)
+        stateMachineUnpin.grantStartExecution(lambdaWebhook);
 
         const api = new apigateway.RestApi(this, 'jprof-by-bot-api', {
             restApiName: 'jprof-by-bot-api',

@@ -1,0 +1,25 @@
+{
+    "urbanWordsOfTheDay": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "date": {
+                        "S": "2022-12-05"
+                    },
+                    "word": {
+                        "S": "word"
+                    },
+                    "definition": {
+                        "S": "definition"
+                    },
+                    "example": {
+                        "S": "example"
+                    },
+                    "permalink": {
+                        "S": "https://word.urbanup.com"
+                    }
+                }
+            }
+        }
+    ]
+}

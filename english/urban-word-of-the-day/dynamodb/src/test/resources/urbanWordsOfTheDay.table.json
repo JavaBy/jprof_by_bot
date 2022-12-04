@@ -1,0 +1,19 @@
+{
+    "TableName": "urbanWordsOfTheDay",
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "date",
+            "AttributeType": "S"
+        }
+    ],
+    "KeySchema": [
+        {
+            "AttributeName": "date",
+            "KeyType": "HASH"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+    }
+}
