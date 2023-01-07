@@ -1,3 +1,0 @@
-= Herald / Processor
-
-link:../../votes/voting-processor/src/main/kotlin/by/jprof/telegram/bot/votes/voting_processor/VotingProcessor.kt[`VotingProcessor`] implementation for this scheduled messages poster.

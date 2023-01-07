@@ -20,7 +20,6 @@ dependencies {
     implementation(project.projects.pins.dynamodb)
     implementation(project.projects.pins.sfn)
     implementation(project.projects.currencies)
-    implementation(project.projects.herald.processor)
     implementation(project.projects.leetcode)
     implementation(project.projects.times.timezones.dynamodb)
     implementation(project.projects.times)
