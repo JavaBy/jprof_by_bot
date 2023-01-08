@@ -1,0 +1,3 @@
+= English / dictionaryapi.dev
+
+https://dictionaryapi.dev[dictionaryapi.dev] client.
