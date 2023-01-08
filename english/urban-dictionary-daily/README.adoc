@@ -1,0 +1,3 @@
+= English / Urban Dictionary Daily
+
+Handler for https://urbandictionary.com[Urban Dictionary's] "Word of the Day" mails.
