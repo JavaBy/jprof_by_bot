@@ -25,4 +25,5 @@ dependencies {
     implementation(project.projects.times)
     implementation(project.projects.english)
     implementation(project.projects.english.languageRooms.dynamodb)
+    implementation(project.projects.english.urbanWordOfTheDay.dynamodb)
 }

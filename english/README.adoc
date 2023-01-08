@@ -1,1 +1,5 @@
 = English
+
+This is an umbrella feature for several smaller sub-features:
+
+* The bot sends https://www.urbandictionary.com[Urban Word of the Day] into English rooms.

@@ -2,6 +2,7 @@ package by.jprof.telegram.bot.launchers.lambda.config
 
 import by.jprof.telegram.bot.dialogs.dao.DialogStateDAO
 import by.jprof.telegram.bot.english.language_rooms.dao.LanguageRoomDAO
+import by.jprof.telegram.bot.english.urban_word_of_the_day.dao.UrbanWordOfTheDayDAO
 import by.jprof.telegram.bot.kotlin.dao.KotlinMentionsDAO
 import by.jprof.telegram.bot.monies.dao.MoniesDAO
 import by.jprof.telegram.bot.pins.dao.PinDAO
@@ -15,6 +16,7 @@ import org.koin.dsl.module
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 import by.jprof.telegram.bot.dialogs.dynamodb.dao.DialogStateDAO as DynamoDBDialogStateDAO
 import by.jprof.telegram.bot.english.language_rooms.dynamodb.dao.LanguageRoomDAO as DynamoDBLanguageRoomDAO
+import by.jprof.telegram.bot.english.urban_word_of_the_day.dynamodb.dao.UrbanWordOfTheDayDAO as DynamoDBUrbanWordOfTheDayDAO
 import by.jprof.telegram.bot.kotlin.dynamodb.dao.KotlinMentionsDAO as DynamoDBKotlinMentionsDAO
 import by.jprof.telegram.bot.monies.dynamodb.dao.MoniesDAO as DynamoDBMoniesDAO
 import by.jprof.telegram.bot.pins.dynamodb.dao.PinDAO as DynamoDBPinDAO
@@ -89,6 +91,13 @@ val databaseModule = module {
         DynamoDBLanguageRoomDAO(
             get(),
             get(named(TABLE_LANGUAGE_ROOMS))
+        )
+    }
+
+    single<UrbanWordOfTheDayDAO> {
+        DynamoDBUrbanWordOfTheDayDAO(
+            get(),
+            get(named(TABLE_URBAN_WORDS_OF_THE_DAY))
         )
     }
 }

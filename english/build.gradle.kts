@@ -5,6 +5,8 @@ plugins {
 dependencies {
     api(project.projects.core)
     implementation(projects.english.languageRooms)
+    implementation(projects.english.urbanWordOfTheDay)
+    implementation(projects.english.urbanWordOfTheDayFormatter)
     implementation(libs.log4j.api)
 
     testImplementation(libs.junit.jupiter.api)

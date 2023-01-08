@@ -153,6 +153,7 @@ export class JProfByBotStack extends cdk.Stack {
                 'TABLE_PINS': pinsTable.tableName,
                 'TABLE_TIMEZONES': timezonesTable.tableName,
                 'TABLE_LANGUAGE_ROOMS': languageRoomsTable.tableName,
+                'TABLE_URBAN_WORDS_OF_THE_DAY': urbanWordsOfTheDayTable.tableName,
                 'STATE_MACHINE_UNPINS': stateMachineUnpin.stateMachineArn,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
                 'TOKEN_YOUTUBE_API': props.youtubeToken,
@@ -209,6 +210,7 @@ export class JProfByBotStack extends cdk.Stack {
         languageRoomsTable.grantReadData(lambdaDailyUrbanDictionary);
 
         urbanWordsOfTheDayTable.grantWriteData(lambdaDailyUrbanDictionary);
+        urbanWordsOfTheDayTable.grantReadData(lambdaWebhook);
 
         stateMachineUnpin.grantStartExecution(lambdaWebhook);
         stateMachineUnpin.grantStartExecution(lambdaDailyUrbanDictionary);
