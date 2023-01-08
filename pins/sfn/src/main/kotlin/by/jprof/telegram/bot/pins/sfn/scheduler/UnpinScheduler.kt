@@ -16,7 +16,6 @@ class UnpinScheduler(
             it.input("""{
                 |  "messageId": ${unpin.messageId},
                 |  "chatId": ${unpin.chatId},
-                |  "userId": ${unpin.userId},
                 |  "ttl": ${unpin.ttl}
                 |}""".trimMargin())
         }.await()
