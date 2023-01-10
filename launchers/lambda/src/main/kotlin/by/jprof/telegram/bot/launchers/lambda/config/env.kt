@@ -16,6 +16,7 @@ const val TABLE_TIMEZONES = "TABLE_TIMEZONES"
 const val TABLE_LANGUAGE_ROOMS = "TABLE_LANGUAGE_ROOMS"
 const val TABLE_URBAN_WORDS_OF_THE_DAY = "TABLE_URBAN_WORDS_OF_THE_DAY"
 const val STATE_MACHINE_UNPINS = "STATE_MACHINE_UNPINS"
+const val TIMEOUT = "TIMEOUT"
 
 val envModule = module {
     listOf(
@@ -36,5 +37,9 @@ val envModule = module {
         single(named(variable)) {
             System.getenv(variable)!!
         }
+    }
+
+    single(named(TIMEOUT)) {
+        System.getenv(TIMEOUT)!!.toLong()
     }
 }

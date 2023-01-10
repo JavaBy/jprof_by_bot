@@ -131,6 +131,7 @@ export class JProfByBotStack extends cdk.Stack {
             compatibleRuntimes: [lambda.Runtime.JAVA_11],
         });
 
+        const lambdaWebhookTimeout = cdk.Duration.seconds(30);
         const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
             functionName: 'jprof-by-bot-lambda-webhook',
             runtime: lambda.Runtime.JAVA_11,
@@ -138,7 +139,8 @@ export class JProfByBotStack extends cdk.Stack {
                 layerLibGL,
                 layerLibfontconfig,
             ],
-            timeout: cdk.Duration.seconds(30),
+            timeout: lambdaWebhookTimeout,
+            retryAttempts: 0,
             memorySize: 512,
             code: lambda.Code.fromAsset('../../launchers/lambda/build/libs/jprof_by_bot-launchers-lambda-all.jar'),
             handler: 'by.jprof.telegram.bot.launchers.lambda.JProf',
@@ -157,6 +159,7 @@ export class JProfByBotStack extends cdk.Stack {
                 'STATE_MACHINE_UNPINS': stateMachineUnpin.stateMachineArn,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
                 'TOKEN_YOUTUBE_API': props.youtubeToken,
+                'TIMEOUT': lambdaWebhookTimeout.toMilliseconds().toString(),
             },
         });
 
@@ -164,6 +167,7 @@ export class JProfByBotStack extends cdk.Stack {
             functionName: 'jprof-by-bot-lambda-daily-urban-dictionary',
             runtime: lambda.Runtime.JAVA_11,
             timeout: cdk.Duration.seconds(30),
+            retryAttempts: 0,
             memorySize: 512,
             code: lambda.Code.fromAsset('../../english/urban-dictionary-daily/build/libs/jprof_by_bot-english-urban-dictionary-daily-all.jar'),
             handler: 'by.jprof.telegram.bot.english.urban_dictionary_daily.Handler',

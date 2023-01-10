@@ -28,7 +28,10 @@ import org.koin.dsl.module
 @PreviewFeature
 val pipelineModule = module {
     single {
-        UpdateProcessingPipeline(getAll())
+        UpdateProcessingPipeline(
+            processors = getAll(),
+            timeout = get<Long>(named(TIMEOUT)) - 1000
+        )
     }
 
     single<UpdateProcessor>(named("JEPUpdateProcessor")) {
