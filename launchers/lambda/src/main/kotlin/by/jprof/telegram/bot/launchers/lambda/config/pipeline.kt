@@ -4,6 +4,7 @@ import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.currencies.CurrenciesUpdateProcessor
 import by.jprof.telegram.bot.english.EnglishCommandUpdateProcessor
+import by.jprof.telegram.bot.english.ExplainerUpdateProcessor
 import by.jprof.telegram.bot.english.UrbanWordOfTheDayUpdateProcessor
 import by.jprof.telegram.bot.eval.EvalUpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
@@ -162,6 +163,15 @@ val pipelineModule = module {
         UrbanWordOfTheDayUpdateProcessor(
             languageRoomDAO = get(),
             urbanWordOfTheDayDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("ExplainerUpdateProcessor")) {
+        ExplainerUpdateProcessor(
+            languageRoomDAO = get(),
+            urbanDictionaryClient = get(),
+            dictionaryapiDevClient = get(),
             bot = get(),
         )
     }

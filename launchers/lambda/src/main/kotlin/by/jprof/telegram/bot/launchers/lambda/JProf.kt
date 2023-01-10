@@ -3,11 +3,13 @@ package by.jprof.telegram.bot.launchers.lambda
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.launchers.lambda.config.currenciesModule
 import by.jprof.telegram.bot.launchers.lambda.config.databaseModule
+import by.jprof.telegram.bot.launchers.lambda.config.dictionaryApiDevModule
 import by.jprof.telegram.bot.launchers.lambda.config.envModule
 import by.jprof.telegram.bot.launchers.lambda.config.jsonModule
 import by.jprof.telegram.bot.launchers.lambda.config.pipelineModule
 import by.jprof.telegram.bot.launchers.lambda.config.sfnModule
 import by.jprof.telegram.bot.launchers.lambda.config.telegramModule
+import by.jprof.telegram.bot.launchers.lambda.config.urbanDictionaryModule
 import by.jprof.telegram.bot.launchers.lambda.config.youtubeModule
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
@@ -51,6 +53,8 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
                 pipelineModule,
                 sfnModule,
                 currenciesModule,
+                urbanDictionaryModule,
+                dictionaryApiDevModule,
             )
         }
     }
