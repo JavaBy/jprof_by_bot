@@ -1,0 +1,3 @@
+= English / Urban Word of the Day / DynamoDB
+
+DynamoDB DAO for the Urban Word of the Day.

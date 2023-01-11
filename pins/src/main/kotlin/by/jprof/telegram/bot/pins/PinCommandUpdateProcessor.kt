@@ -88,7 +88,6 @@ class PinCommandUpdateProcessor(
                 unpinScheduler.scheduleUnpin(Unpin().apply {
                     messageId = pin.message.messageId
                     chatId = pin.chat.id.chatId
-                    userId = pin.user.id.chatId
                     ttl = duration.duration.seconds
                 })
             } catch (e: Exception) {

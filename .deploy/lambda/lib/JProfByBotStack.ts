@@ -5,6 +5,8 @@ import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
 import * as tasks from 'aws-cdk-lib/aws-stepfunctions-tasks';
+import * as ses from 'aws-cdk-lib/aws-ses';
+import * as sesActions from 'aws-cdk-lib/aws-ses-actions';
 import {JProfByBotStackProps} from "./JProfByBotStackProps";
 
 export class JProfByBotStack extends cdk.Stack {
@@ -63,6 +65,18 @@ export class JProfByBotStack extends cdk.Stack {
             billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
             removalPolicy: cdk.RemovalPolicy.DESTROY,
         });
+        const languageRoomsTable = new dynamodb.Table(this, 'jprof-by-bot-table-language-rooms', {
+            tableName: 'jprof-by-bot-table-language-rooms',
+            partitionKey: {name: 'id', type: dynamodb.AttributeType.STRING},
+            billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+            removalPolicy: cdk.RemovalPolicy.DESTROY,
+        });
+        const urbanWordsOfTheDayTable = new dynamodb.Table(this, 'jprof-by-bot-table-urban-words-of-the-day', {
+            tableName: 'jprof-by-bot-table-urban-words-of-the-day',
+            partitionKey: {name: 'date', type: dynamodb.AttributeType.STRING},
+            billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+            removalPolicy: cdk.RemovalPolicy.DESTROY,
+        });
 
         pinsTable.addGlobalSecondaryIndex({
             indexName: 'chatId',
@@ -117,6 +131,7 @@ export class JProfByBotStack extends cdk.Stack {
             compatibleRuntimes: [lambda.Runtime.JAVA_11],
         });
 
+        const lambdaWebhookTimeout = cdk.Duration.seconds(29);
         const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
             functionName: 'jprof-by-bot-lambda-webhook',
             runtime: lambda.Runtime.JAVA_11,
@@ -124,8 +139,10 @@ export class JProfByBotStack extends cdk.Stack {
                 layerLibGL,
                 layerLibfontconfig,
             ],
-            timeout: cdk.Duration.seconds(30),
-            memorySize: 1024,
+            timeout: lambdaWebhookTimeout,
+            maxEventAge: cdk.Duration.minutes(5),
+            retryAttempts: 0,
+            memorySize: 512,
             code: lambda.Code.fromAsset('../../launchers/lambda/build/libs/jprof_by_bot-launchers-lambda-all.jar'),
             handler: 'by.jprof.telegram.bot.launchers.lambda.JProf',
             environment: {
@@ -138,10 +155,47 @@ export class JProfByBotStack extends cdk.Stack {
                 'TABLE_MONIES': moniesTable.tableName,
                 'TABLE_PINS': pinsTable.tableName,
                 'TABLE_TIMEZONES': timezonesTable.tableName,
+                'TABLE_LANGUAGE_ROOMS': languageRoomsTable.tableName,
+                'TABLE_URBAN_WORDS_OF_THE_DAY': urbanWordsOfTheDayTable.tableName,
                 'STATE_MACHINE_UNPINS': stateMachineUnpin.stateMachineArn,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
                 'TOKEN_YOUTUBE_API': props.youtubeToken,
+                'TIMEOUT': lambdaWebhookTimeout.toMilliseconds().toString(),
             },
+        });
+
+        (lambdaWebhook.node.defaultChild as lambda.CfnFunction).snapStart = {
+            applyOn: 'PublishedVersions'
+        };
+
+        const lambdaDailyUrbanDictionary = new lambda.Function(this, 'jprof-by-bot-lambda-daily-urban-dictionary', {
+            functionName: 'jprof-by-bot-lambda-daily-urban-dictionary',
+            runtime: lambda.Runtime.JAVA_11,
+            timeout: cdk.Duration.seconds(30),
+            retryAttempts: 0,
+            memorySize: 512,
+            code: lambda.Code.fromAsset('../../english/urban-dictionary-daily/build/libs/jprof_by_bot-english-urban-dictionary-daily-all.jar'),
+            handler: 'by.jprof.telegram.bot.english.urban_dictionary_daily.Handler',
+            environment: {
+                'LOG_THRESHOLD': 'DEBUG',
+                'TABLE_URBAN_WORDS_OF_THE_DAY': urbanWordsOfTheDayTable.tableName,
+                'TABLE_LANGUAGE_ROOMS': languageRoomsTable.tableName,
+                'TOKEN_TELEGRAM_BOT': props.telegramToken,
+                'STATE_MACHINE_UNPINS': stateMachineUnpin.stateMachineArn,
+            }
+        });
+
+        new ses.ReceiptRuleSet(this, 'jprof-by-bot-receipt-rule-set-daily-urbandictionary', {
+            receiptRuleSetName: 'jprof-by-bot-receipt-rule-set-daily-urbandictionary',
+            rules: [
+                {
+                    receiptRuleName: 'jprof-by-bot-receipt-rule-daily-urbandictionary',
+                    recipients: [props.dailyUrbanDictionaryEmail],
+                    actions: [
+                        new sesActions.Lambda({function: lambdaDailyUrbanDictionary})
+                    ]
+                }
+            ],
         });
 
         votesTable.grantReadWriteData(lambdaWebhook);
@@ -161,7 +215,14 @@ export class JProfByBotStack extends cdk.Stack {
 
         timezonesTable.grantReadWriteData(lambdaWebhook);
 
-        stateMachineUnpin.grantStartExecution(lambdaWebhook)
+        languageRoomsTable.grantReadWriteData(lambdaWebhook);
+        languageRoomsTable.grantReadData(lambdaDailyUrbanDictionary);
+
+        urbanWordsOfTheDayTable.grantWriteData(lambdaDailyUrbanDictionary);
+        urbanWordsOfTheDayTable.grantReadData(lambdaWebhook);
+
+        stateMachineUnpin.grantStartExecution(lambdaWebhook);
+        stateMachineUnpin.grantStartExecution(lambdaDailyUrbanDictionary);
 
         const api = new apigateway.RestApi(this, 'jprof-by-bot-api', {
             restApiName: 'jprof-by-bot-api',
@@ -177,7 +238,7 @@ export class JProfByBotStack extends cdk.Stack {
 
         api.root
             .addResource(props.telegramToken.replace(':', '_'))
-            .addMethod('POST', new apigateway.LambdaIntegration(lambdaWebhook));
+            .addMethod('POST', new apigateway.LambdaIntegration(lambdaWebhook.currentVersion));
 
         new cdk.CfnOutput(this, 'URL', {
             value: api.deploymentStage.urlForPath()

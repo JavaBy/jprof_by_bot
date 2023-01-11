@@ -1,0 +1,3 @@
+= English / Urban Dictionary WotD Formatter
+
+Markdown formatter for Urban Dictionary's WotD.

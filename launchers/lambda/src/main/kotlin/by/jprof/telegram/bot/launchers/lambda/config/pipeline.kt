@@ -3,6 +3,11 @@ package by.jprof.telegram.bot.launchers.lambda.config
 import by.jprof.telegram.bot.core.UpdateProcessingPipeline
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.currencies.CurrenciesUpdateProcessor
+import by.jprof.telegram.bot.english.EnglishCommandUpdateProcessor
+import by.jprof.telegram.bot.english.ExplainerUpdateProcessor
+import by.jprof.telegram.bot.english.MotherfuckingUpdateProcessor
+import by.jprof.telegram.bot.english.UrbanWordOfTheDayUpdateProcessor
+import by.jprof.telegram.bot.english.WhatWordUpdateProcessor
 import by.jprof.telegram.bot.eval.EvalUpdateProcessor
 import by.jprof.telegram.bot.jep.JEPUpdateProcessor
 import by.jprof.telegram.bot.jep.JsoupJEPSummary
@@ -26,7 +31,10 @@ import org.koin.dsl.module
 @PreviewFeature
 val pipelineModule = module {
     single {
-        UpdateProcessingPipeline(getAll())
+        UpdateProcessingPipeline(
+            processors = getAll(),
+            timeout = get<Long>(named(TIMEOUT)) - 1000
+        )
     }
 
     single<UpdateProcessor>(named("JEPUpdateProcessor")) {
@@ -142,6 +150,44 @@ val pipelineModule = module {
     single<UpdateProcessor>(named("TimeCommandUpdateProcessor")) {
         TimeCommandUpdateProcessor(
             timeZoneDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("EnglishCommandUpdateProcessor")) {
+        EnglishCommandUpdateProcessor(
+            languageRoomDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("UrbanWordOfTheDayUpdateProcessor")) {
+        UrbanWordOfTheDayUpdateProcessor(
+            languageRoomDAO = get(),
+            urbanWordOfTheDayDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("ExplainerUpdateProcessor")) {
+        ExplainerUpdateProcessor(
+            languageRoomDAO = get(),
+            urbanDictionaryClient = get(),
+            dictionaryapiDevClient = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("WhatWordUpdateProcessor")) {
+        WhatWordUpdateProcessor(
+            languageRoomDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("MotherfuckingUpdateProcessor")) {
+        MotherfuckingUpdateProcessor(
+            languageRoomDAO = get(),
             bot = get(),
         )
     }

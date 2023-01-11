@@ -7,6 +7,7 @@ describe('JProfByBotStack', () => {
     const stack = new JProfByBotStack(app, 'JProfByBotStack', {
         telegramToken: 'TOKEN_TELEGRAM_BOT',
         youtubeToken: 'TOKEN_YOUTUBE_API',
+        dailyUrbanDictionaryEmail: 'EMAIL_DAILY_URBAN_DICTIONARY',
         env: {region: 'us-east-1'}
     });
     const template = Template.fromStack(stack);

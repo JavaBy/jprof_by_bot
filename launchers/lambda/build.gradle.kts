@@ -23,4 +23,9 @@ dependencies {
     implementation(project.projects.leetcode)
     implementation(project.projects.times.timezones.dynamodb)
     implementation(project.projects.times)
+    implementation(project.projects.english)
+    implementation(project.projects.english.languageRooms.dynamodb)
+    implementation(project.projects.english.urbanWordOfTheDay.dynamodb)
+    implementation(project.projects.english.urbanDictionary)
+    implementation(project.projects.english.dictionaryapiDev)
 }

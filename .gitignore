@@ -4,3 +4,5 @@ build
 .idea
 
 *.private.env.json
+
+.env

@@ -57,9 +57,32 @@ jobs:
       - run: monies/dynamodb/src/test/resources/seed.sh
       - run: pins/dynamodb/src/test/resources/seed.sh
       - run: times/timezones/dynamodb/src/test/resources/seed.sh
+      - run: english/language-rooms/dynamodb/src/test/resources/seed.sh
+      - run: english/urban-word-of-the-day/dynamodb/src/test/resources/seed.sh
       - uses: gradle/gradle-build-action@v2
         with:
           arguments: clean dbTest
+          cache-read-only: ${{ github.ref != 'refs/heads/master' }}
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results
+          path: |
+            **/build/test-results
+            **/build/reports
+
+  integration-test:
+    name: Integration test
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: adopt
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: clean integrationTest
           cache-read-only: ${{ github.ref != 'refs/heads/master' }}
       - uses: actions/upload-artifact@v3
         if: always()
@@ -105,6 +128,7 @@ jobs:
     needs:
       - test
       - db-test
+      - integration-test
       - cdk-test
     if: always()
     steps:
@@ -116,10 +140,12 @@ jobs:
           report_paths: |-
             **/test-results/test/TEST-*.xml
             **/test-results/dbTest/TEST-*.xml
+            **/test-results/integrationTest/TEST-*.xml
             **/junit.xml
           check_name: |-
             Test reports
             DB test reports
+            Integration test reports
             CDK test reports
           include_passed: true
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -7,6 +7,7 @@ dependencies {
     api(libs.tgbotapi)
     api(project.projects.monies)
     implementation(project.projects.pins.dto)
+    implementation(project.projects.pins.scheduler)
     implementation(libs.log4j.api)
 
     testImplementation(libs.junit.jupiter.api)

@@ -5,6 +5,7 @@ plugins {
 dependencies {
     api(project.projects.pins)
     api(project.projects.pins.dto)
+    api(project.projects.pins.scheduler)
     api(libs.sfn)
     implementation(libs.kotlinx.coroutines.jdk8)
 
