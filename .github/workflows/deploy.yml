@@ -40,6 +40,7 @@ jobs:
         env:
           TOKEN_TELEGRAM_BOT: ${{ secrets.TOKEN_TELEGRAM_BOT }}
           TOKEN_YOUTUBE_API: ${{ secrets.TOKEN_YOUTUBE_API }}
+          EMAIL_DAILY_URBAN_DICTIONARY: ${{ secrets.EMAIL_DAILY_URBAN_DICTIONARY }}
       - id: URL
         run: echo "::set-output name=URL::$(jq -r '.JProfByBotStack.URL' cdk.out/outputs.json)"
         working-directory: .deploy/lambda
