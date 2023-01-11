@@ -5,6 +5,7 @@ import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.currencies.CurrenciesUpdateProcessor
 import by.jprof.telegram.bot.english.EnglishCommandUpdateProcessor
 import by.jprof.telegram.bot.english.ExplainerUpdateProcessor
+import by.jprof.telegram.bot.english.MotherfuckingUpdateProcessor
 import by.jprof.telegram.bot.english.UrbanWordOfTheDayUpdateProcessor
 import by.jprof.telegram.bot.english.WhatWordUpdateProcessor
 import by.jprof.telegram.bot.eval.EvalUpdateProcessor
@@ -179,6 +180,13 @@ val pipelineModule = module {
 
     single<UpdateProcessor>(named("WhatWordUpdateProcessor")) {
         WhatWordUpdateProcessor(
+            languageRoomDAO = get(),
+            bot = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("MotherfuckingUpdateProcessor")) {
+        MotherfuckingUpdateProcessor(
             languageRoomDAO = get(),
             bot = get(),
         )

@@ -5,3 +5,4 @@ This is an umbrella feature for several smaller sub-features:
 * The bot sends https://www.urbandictionary.com[Urban Word of the Day] into English rooms.
 * The bot explains emphasised text parts in English rooms.
 * The bot tolerates no stupid questions.
+* The bot tolerates no other languages, but English in English rooms. Remember: every motherfucker must speak English from his heart in an English room!
