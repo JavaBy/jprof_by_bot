@@ -21,7 +21,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import org.apache.logging.log4j.LogManager
 import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import org.koin.core.component.get
 import org.koin.core.context.startKoin
 
 @PreviewFeature
@@ -59,8 +59,8 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
         }
     }
 
-    private val json: Json by inject()
-    private val pipeline: UpdateProcessingPipeline by inject()
+    private val json: Json = get()
+    private val pipeline: UpdateProcessingPipeline = get()
 
     override fun handleRequest(input: APIGatewayV2HTTPEvent, context: Context): APIGatewayV2HTTPResponse {
         logger.debug("Incoming request: {}", input)

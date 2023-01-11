@@ -131,7 +131,7 @@ export class JProfByBotStack extends cdk.Stack {
             compatibleRuntimes: [lambda.Runtime.JAVA_11],
         });
 
-        const lambdaWebhookTimeout = cdk.Duration.seconds(30);
+        const lambdaWebhookTimeout = cdk.Duration.seconds(29);
         const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
             functionName: 'jprof-by-bot-lambda-webhook',
             runtime: lambda.Runtime.JAVA_11,
@@ -140,6 +140,7 @@ export class JProfByBotStack extends cdk.Stack {
                 layerLibfontconfig,
             ],
             timeout: lambdaWebhookTimeout,
+            maxEventAge: cdk.Duration.minutes(5),
             retryAttempts: 0,
             memorySize: 512,
             code: lambda.Code.fromAsset('../../launchers/lambda/build/libs/jprof_by_bot-launchers-lambda-all.jar'),
@@ -162,6 +163,10 @@ export class JProfByBotStack extends cdk.Stack {
                 'TIMEOUT': lambdaWebhookTimeout.toMilliseconds().toString(),
             },
         });
+
+        (lambdaWebhook.node.defaultChild as lambda.CfnFunction).snapStart = {
+            applyOn: 'PublishedVersions'
+        };
 
         const lambdaDailyUrbanDictionary = new lambda.Function(this, 'jprof-by-bot-lambda-daily-urban-dictionary', {
             functionName: 'jprof-by-bot-lambda-daily-urban-dictionary',
@@ -233,7 +238,7 @@ export class JProfByBotStack extends cdk.Stack {
 
         api.root
             .addResource(props.telegramToken.replace(':', '_'))
-            .addMethod('POST', new apigateway.LambdaIntegration(lambdaWebhook));
+            .addMethod('POST', new apigateway.LambdaIntegration(lambdaWebhook.currentVersion));
 
         new cdk.CfnOutput(this, 'URL', {
             value: api.deploymentStage.urlForPath()
