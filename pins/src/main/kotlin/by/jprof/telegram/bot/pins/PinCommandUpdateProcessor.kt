@@ -8,6 +8,7 @@ import by.jprof.telegram.bot.pins.dao.PinDAO
 import by.jprof.telegram.bot.pins.dto.Unpin
 import by.jprof.telegram.bot.pins.model.Pin
 import by.jprof.telegram.bot.pins.model.PinDuration
+import by.jprof.telegram.bot.pins.model.PinRequest
 import by.jprof.telegram.bot.pins.scheduler.UnpinScheduler
 import by.jprof.telegram.bot.pins.utils.PinRequestFinder
 import by.jprof.telegram.bot.pins.utils.beggar
@@ -16,13 +17,20 @@ import by.jprof.telegram.bot.pins.utils.negativeDuration
 import by.jprof.telegram.bot.pins.utils.tooManyPinnedMessages
 import by.jprof.telegram.bot.pins.utils.tooPositiveDuration
 import by.jprof.telegram.bot.pins.utils.unrecognizedDuration
+import by.jprof.telegram.bot.shop.payload.PinsPayload
+import by.jprof.telegram.bot.shop.provider.ChatProviderTokens
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.chat.modify.pinChatMessage
+import dev.inmo.tgbotapi.extensions.api.send.payments.sendInvoice
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.types.message.MarkdownV2
+import dev.inmo.tgbotapi.types.payments.LabeledPrice
 import dev.inmo.tgbotapi.types.update.abstracts.Update
 import dev.inmo.tgbotapi.utils.PreviewFeature
 import java.time.Duration
+import kotlin.random.Random
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.apache.logging.log4j.LogManager
 
 @PreviewFeature
@@ -31,6 +39,8 @@ class PinCommandUpdateProcessor(
     private val pinDAO: PinDAO,
     private val unpinScheduler: UnpinScheduler,
     private val bot: RequestsExecutor,
+    private val providerTokens: ChatProviderTokens,
+    private val json: Json,
     private val pinRequestFinder: PinRequestFinder = PinRequestFinder.DEFAULT
 ) : UpdateProcessor {
     companion object {
@@ -47,6 +57,7 @@ class PinCommandUpdateProcessor(
 
             if (pin.message == null) {
                 bot.reply(to = pin.request, text = help(pins), parseMode = MarkdownV2)
+                pinsShop(pin)
 
                 return
             }
@@ -71,6 +82,7 @@ class PinCommandUpdateProcessor(
 
             if (pins < pin.price) {
                 bot.reply(to = pin.request, text = beggar(pins, pin.price), parseMode = MarkdownV2)
+                pinsShop(pin)
 
                 return
             }
@@ -90,9 +102,36 @@ class PinCommandUpdateProcessor(
                     chatId = pin.chat.id.chatId
                     ttl = duration.duration.seconds
                 })
+                if (Random.nextInt(4) == 0) {
+                    pinsShop(pin)
+                }
             } catch (e: Exception) {
                 logger.error("Failed to pin a message", e)
             }
+        }
+    }
+
+    private suspend fun pinsShop(pin: PinRequest) {
+        val chatProviderToken = providerTokens[pin.request.chat.id.chatId]
+
+        if (chatProviderToken != null) {
+            bot.sendInvoice(
+                chatId = pin.request.chat.id,
+                title = "168 пинов",
+                description = "Неделя закрепа",
+                payload = json.encodeToString(PinsPayload(
+                    pins = 168,
+                    chat = pin.request.chat.id.chatId,
+                )),
+                providerToken = chatProviderToken,
+                currency = "USD",
+                prices = listOf(
+                    LabeledPrice("Пины × 168", 200)
+                ),
+                startParameter = "forwarded_payment",
+                replyToMessageId = pin.request.messageId,
+                allowSendingWithoutReply = true,
+            )
         }
     }
 }

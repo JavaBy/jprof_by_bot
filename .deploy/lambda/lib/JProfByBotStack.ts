@@ -3,6 +3,8 @@ import {Construct} from 'constructs';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import {Architecture} from 'aws-cdk-lib/aws-lambda';
+import * as secrets from 'aws-cdk-lib/aws-secretsmanager';
 import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
 import * as tasks from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import * as ses from 'aws-cdk-lib/aws-ses';
@@ -12,6 +14,8 @@ import {JProfByBotStackProps} from "./JProfByBotStackProps";
 export class JProfByBotStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props: JProfByBotStackProps) {
         super(scope, id, props);
+
+        const secretPaymentProviderTokens = new secrets.Secret(this, 'jprof-by-bot-secret-payment-provider-tokens');
 
         const votesTable = new dynamodb.Table(this, 'jprof-by-bot-table-votes', {
             tableName: 'jprof-by-bot-table-votes',
@@ -123,13 +127,20 @@ export class JProfByBotStack extends cdk.Stack {
         });
 
         const layerLibGL = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libGL', {
+            layerVersionName: 'libGL',
             code: lambda.Code.fromAsset('layers/libGL.zip'),
-            compatibleRuntimes: [lambda.Runtime.JAVA_11],
+            compatibleArchitectures: [Architecture.ARM_64],
         });
         const layerLibfontconfig = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libfontconfig', {
+            layerVersionName: 'libfontconfig',
             code: lambda.Code.fromAsset('layers/libfontconfig.zip'),
-            compatibleRuntimes: [lambda.Runtime.JAVA_11],
+            compatibleArchitectures: [Architecture.ARM_64],
         });
+        const layerParametersAndSecretsLambdaExtension = lambda.LayerVersion.fromLayerVersionArn(
+            this,
+            'jprof-by-bot-lambda-layer-parametersAndSecretsLambdaExtension',
+            'arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2'
+        )
 
         const lambdaWebhookTimeout = cdk.Duration.seconds(29);
         const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
@@ -138,6 +149,7 @@ export class JProfByBotStack extends cdk.Stack {
             layers: [
                 layerLibGL,
                 layerLibfontconfig,
+                layerParametersAndSecretsLambdaExtension,
             ],
             timeout: lambdaWebhookTimeout,
             maxEventAge: cdk.Duration.minutes(5),
@@ -197,6 +209,8 @@ export class JProfByBotStack extends cdk.Stack {
                 }
             ],
         });
+
+        secretPaymentProviderTokens.grantRead(lambdaWebhook);
 
         votesTable.grantReadWriteData(lambdaWebhook);
 

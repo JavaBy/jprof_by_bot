@@ -1,0 +1,3 @@
+= Shop
+
+This feature allows users to buy link:../pins[pins] and custom titles.

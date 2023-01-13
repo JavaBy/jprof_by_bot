@@ -37,6 +37,7 @@ aws-lambda-java-events = { group = "com.amazonaws", name = "aws-lambda-java-even
 aws-lambda-java-core = { group = "com.amazonaws", name = "aws-lambda-java-core", version.ref = "aws-lambda-java-core" }
 aws-lambda-java-log4j2 = { group = "com.amazonaws", name = "aws-lambda-java-log4j2", version.ref = "aws-lambda-java-log4j2" }
 dynamodb = { group = "software.amazon.awssdk", name = "dynamodb", version.ref = "awssdk" }
+secretsmanager = { group = "software.amazon.awssdk", name = "secretsmanager", version.ref = "awssdk" }
 sfn = { group = "software.amazon.awssdk", name = "sfn", version.ref = "awssdk" }
 
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }

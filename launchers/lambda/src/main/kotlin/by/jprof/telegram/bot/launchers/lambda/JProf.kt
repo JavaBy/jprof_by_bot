@@ -7,6 +7,7 @@ import by.jprof.telegram.bot.launchers.lambda.config.dictionaryApiDevModule
 import by.jprof.telegram.bot.launchers.lambda.config.envModule
 import by.jprof.telegram.bot.launchers.lambda.config.jsonModule
 import by.jprof.telegram.bot.launchers.lambda.config.pipelineModule
+import by.jprof.telegram.bot.launchers.lambda.config.secretsModule
 import by.jprof.telegram.bot.launchers.lambda.config.sfnModule
 import by.jprof.telegram.bot.launchers.lambda.config.telegramModule
 import by.jprof.telegram.bot.launchers.lambda.config.urbanDictionaryModule
@@ -45,6 +46,7 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
     init {
         startKoin {
             modules(
+                secretsModule,
                 envModule,
                 databaseModule,
                 jsonModule,

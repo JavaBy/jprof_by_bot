@@ -12,7 +12,9 @@ Official Telegram bot of Java Professionals BY community.
 * Converts some currencies to EUR and USD
 * Posts scheduled messages from this repo's `posts` branch
 * Expands LeetCode links
+* Tells users' local times
 * Regulates our English Rooms & teaches us new English words
+* Sells pins and custom statuses 🤑
 
 So, it just brings some fun and interactivity in our chat.
 
