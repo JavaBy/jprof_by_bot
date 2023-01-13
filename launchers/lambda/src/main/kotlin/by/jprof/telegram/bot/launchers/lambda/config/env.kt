@@ -49,13 +49,13 @@ val envModule = module {
         System.getenv(TIMEOUT)!!.toLong()
     }
 
-    single {
+    single<ChatProviderTokens> {
         val json: Json = get()
         val secrets: SecretsManagerClient = get()
         val secret = secrets.getSecretValue {
             it.secretId(SECRET_PAYMENT_PROVIDER_TOKENS)
         }
 
-        json.decodeFromString<ChatProviderTokens>(secret.secretString())
+        json.decodeFromString(secret.secretString())
     }
 }

@@ -1,6 +1,7 @@
 package by.jprof.telegram.bot.shop
 
 import by.jprof.telegram.bot.core.UpdateProcessor
+import by.jprof.telegram.bot.shop.payload.Payload
 import by.jprof.telegram.bot.shop.payload.RichPayload
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.answers.payments.answerPreCheckoutQueryOk
@@ -22,16 +23,13 @@ class RichPreCheckoutQueryUpdateProcessor(
 
     override suspend fun process(update: Update) {
         val preCheckoutQuery = update.asPreCheckoutQueryUpdate()?.data ?: return
-
-        logger.debug(preCheckoutQuery)
-
         val payload = try {
-            json.decodeFromString<RichPayload>(preCheckoutQuery.invoicePayload)
+            json.decodeFromString<Payload>(preCheckoutQuery.invoicePayload) as RichPayload
         } catch (_: Exception) {
             return
         }
 
-        logger.debug(payload)
+        logger.info("{}", payload)
 
         bot.answerPreCheckoutQueryOk(preCheckoutQuery)
     }

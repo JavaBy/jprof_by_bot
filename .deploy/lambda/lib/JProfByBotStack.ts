@@ -15,7 +15,13 @@ export class JProfByBotStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props: JProfByBotStackProps) {
         super(scope, id, props);
 
-        const secretPaymentProviderTokens = new secrets.Secret(this, 'jprof-by-bot-secret-payment-provider-tokens');
+        const secretPaymentProviderTokens = new secrets.Secret(this, 'jprof-by-bot-secret-payment-provider-tokens', {
+            secretName: 'jprof-by-bot-secret-payment-provider-tokens',
+            secretObjectValue: {
+                test: cdk.SecretValue.unsafePlainText('test'),
+                production: cdk.SecretValue.unsafePlainText('production'),
+            }
+        });
 
         const votesTable = new dynamodb.Table(this, 'jprof-by-bot-table-votes', {
             tableName: 'jprof-by-bot-table-votes',
@@ -107,7 +113,7 @@ export class JProfByBotStack extends cdk.Stack {
             code: lambda.Code.fromAsset('../../pins/unpin/build/libs/jprof_by_bot-pins-unpin-all.jar'),
             handler: 'by.jprof.telegram.bot.pins.unpin.Handler',
             environment: {
-                'LOG_THRESHOLD': 'DEBUG',
+                'LOG_THRESHOLD': 'INFO',
                 'TABLE_PINS': pinsTable.tableName,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
             },
@@ -129,12 +135,12 @@ export class JProfByBotStack extends cdk.Stack {
         const layerLibGL = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libGL', {
             layerVersionName: 'libGL',
             code: lambda.Code.fromAsset('layers/libGL.zip'),
-            compatibleArchitectures: [Architecture.ARM_64],
+            compatibleArchitectures: [Architecture.X86_64],
         });
         const layerLibfontconfig = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libfontconfig', {
             layerVersionName: 'libfontconfig',
             code: lambda.Code.fromAsset('layers/libfontconfig.zip'),
-            compatibleArchitectures: [Architecture.ARM_64],
+            compatibleArchitectures: [Architecture.X86_64],
         });
         const layerParametersAndSecretsLambdaExtension = lambda.LayerVersion.fromLayerVersionArn(
             this,
@@ -158,7 +164,7 @@ export class JProfByBotStack extends cdk.Stack {
             code: lambda.Code.fromAsset('../../launchers/lambda/build/libs/jprof_by_bot-launchers-lambda-all.jar'),
             handler: 'by.jprof.telegram.bot.launchers.lambda.JProf',
             environment: {
-                'LOG_THRESHOLD': 'DEBUG',
+                'LOG_THRESHOLD': 'INFO',
                 'TABLE_VOTES': votesTable.tableName,
                 'TABLE_YOUTUBE_CHANNELS_WHITELIST': youtubeChannelsWhitelistTable.tableName,
                 'TABLE_KOTLIN_MENTIONS': kotlinMentionsTable.tableName,
@@ -189,7 +195,7 @@ export class JProfByBotStack extends cdk.Stack {
             code: lambda.Code.fromAsset('../../english/urban-dictionary-daily/build/libs/jprof_by_bot-english-urban-dictionary-daily-all.jar'),
             handler: 'by.jprof.telegram.bot.english.urban_dictionary_daily.Handler',
             environment: {
-                'LOG_THRESHOLD': 'DEBUG',
+                'LOG_THRESHOLD': 'INFO',
                 'TABLE_URBAN_WORDS_OF_THE_DAY': urbanWordsOfTheDayTable.tableName,
                 'TABLE_LANGUAGE_ROOMS': languageRoomsTable.tableName,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,

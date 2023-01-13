@@ -7,4 +7,4 @@ import kotlinx.serialization.Serializable
 @SerialName("support")
 data class SupportPayload(
     val chat: Long,
-) : Payload()
+) : Payload

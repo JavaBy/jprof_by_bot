@@ -3,6 +3,7 @@ package by.jprof.telegram.bot.shop
 import by.jprof.telegram.bot.core.UpdateProcessor
 import by.jprof.telegram.bot.monies.dao.MoniesDAO
 import by.jprof.telegram.bot.monies.model.Monies
+import by.jprof.telegram.bot.shop.payload.Payload
 import by.jprof.telegram.bot.shop.payload.PinsPayload
 import by.jprof.telegram.bot.shop.utils.tooManyPins
 import dev.inmo.tgbotapi.bot.RequestsExecutor
@@ -27,23 +28,24 @@ class PinsPreCheckoutQueryUpdateProcessor(
 
     override suspend fun process(update: Update) {
         val preCheckoutQuery = update.asPreCheckoutQueryUpdate()?.data ?: return
-
-        logger.debug(preCheckoutQuery)
-
         val payload = try {
-            json.decodeFromString<PinsPayload>(preCheckoutQuery.invoicePayload)
+            json.decodeFromString<Payload>(preCheckoutQuery.invoicePayload) as PinsPayload
         } catch (_: Exception) {
             return
         }
 
-        logger.debug(payload)
+        logger.info("{}", payload)
 
         val monies = moniesDAO.get(preCheckoutQuery.user.id.chatId, payload.chat) ?: Monies(preCheckoutQuery.user.id.chatId, payload.chat)
         val pins = monies.pins ?: 0
 
         if (pins > 9999) {
+            logger.info("{} already has enough ({}) pins!", preCheckoutQuery.user, pins)
+
             bot.answerPreCheckoutQueryError(preCheckoutQuery, tooManyPins())
         } else {
+            logger.info("Selling pins to {}", preCheckoutQuery.user)
+
             bot.answerPreCheckoutQueryOk(preCheckoutQuery)
         }
     }

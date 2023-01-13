@@ -28,7 +28,7 @@ class TimeZoneCommandUpdateProcessor(
 
     override suspend fun process(update: Update) {
         timeZoneParser(update)?.let { timeZone ->
-            logger.info("TimeZone requested: {}", timeZone)
+            logger.debug("TimeZone requested: {}", timeZone)
 
             when (timeZone.value) {
                 TimeZoneValue.Unrecognized -> replyToUnrecognizedTimeZoneRequest(timeZone)

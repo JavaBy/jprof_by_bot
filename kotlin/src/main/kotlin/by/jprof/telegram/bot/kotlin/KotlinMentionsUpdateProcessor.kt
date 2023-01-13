@@ -50,7 +50,7 @@ class KotlinMentionsUpdateProcessor(
             else -> return
         }
 
-        logger.info("Kotlin mentioned!")
+        logger.debug("Kotlin mentioned!")
 
         val now = Instant.now()
         val user = (message as? FromUserMessage)?.user ?: return
@@ -128,6 +128,6 @@ class KotlinMentionsUpdateProcessor(
             replyToMessageId = message.messageId,
         )
 
-        logger.info("Kotlin mention reported!")
+        logger.debug("Kotlin mention reported!")
     }
 }

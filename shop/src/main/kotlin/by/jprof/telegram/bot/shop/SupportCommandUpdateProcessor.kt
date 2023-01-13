@@ -1,6 +1,7 @@
 package by.jprof.telegram.bot.shop
 
 import by.jprof.telegram.bot.core.UpdateProcessor
+import by.jprof.telegram.bot.shop.payload.Payload
 import by.jprof.telegram.bot.shop.payload.SupportPayload
 import by.jprof.telegram.bot.shop.provider.ChatProviderTokens
 import by.jprof.telegram.bot.shop.utils.notAShop
@@ -50,7 +51,7 @@ class SupportCommandUpdateProcessor(
                 chatId = message.chat.id,
                 title = supportInvoiceTitle(),
                 description = supportInvoiceDescription(),
-                payload = json.encodeToString(SupportPayload(chat = message.chat.id.chatId)),
+                payload = json.encodeToString<Payload>(SupportPayload(chat = message.chat.id.chatId)),
                 providerToken = chatProviderToken,
                 currency = currency,
                 prices = listOf(item),

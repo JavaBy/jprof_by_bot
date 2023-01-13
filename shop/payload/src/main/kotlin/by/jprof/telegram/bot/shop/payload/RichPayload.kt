@@ -8,4 +8,4 @@ import kotlinx.serialization.Serializable
 data class RichPayload(
     val status: String,
     val chat: Long,
-) : Payload()
+) : Payload

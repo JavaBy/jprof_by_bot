@@ -23,10 +23,13 @@ import by.jprof.telegram.bot.quizoji.QuizojiStartCommandUpdateProcessor
 import by.jprof.telegram.bot.quizoji.QuizojiVoteUpdateProcessor
 import by.jprof.telegram.bot.shop.ForwardedPaymentStartCommandUpdateProcessor
 import by.jprof.telegram.bot.shop.PinsPreCheckoutQueryUpdateProcessor
+import by.jprof.telegram.bot.shop.PinsSuccessfulPaymentUpdateProcessor
 import by.jprof.telegram.bot.shop.RichCommandUpdateProcessor
 import by.jprof.telegram.bot.shop.RichPreCheckoutQueryUpdateProcessor
+import by.jprof.telegram.bot.shop.RichSuccessfulPaymentUpdateProcessor
 import by.jprof.telegram.bot.shop.SupportCommandUpdateProcessor
 import by.jprof.telegram.bot.shop.SupportPreCheckoutQueryUpdateProcessor
+import by.jprof.telegram.bot.shop.SupportSuccessfulPaymentUpdateProcessor
 import by.jprof.telegram.bot.times.TimeCommandUpdateProcessor
 import by.jprof.telegram.bot.times.TimeZoneCommandUpdateProcessor
 import by.jprof.telegram.bot.youtube.YouTubeUpdateProcessor
@@ -215,6 +218,13 @@ val pipelineModule = module {
         )
     }
 
+    single<UpdateProcessor>(named("RichSuccessfulPaymentUpdateProcessor")) {
+        RichSuccessfulPaymentUpdateProcessor(
+            bot = get(),
+            json = get(),
+        )
+    }
+
     single<UpdateProcessor>(named("SupportCommandUpdateProcessor")) {
         SupportCommandUpdateProcessor(
             bot = get(),
@@ -230,9 +240,10 @@ val pipelineModule = module {
         )
     }
 
-    single<UpdateProcessor>(named("ForwardedPaymentStartCommandUpdateProcessor")) {
-        ForwardedPaymentStartCommandUpdateProcessor(
+    single<UpdateProcessor>(named("SupportSuccessfulPaymentUpdateProcessor")) {
+        SupportSuccessfulPaymentUpdateProcessor(
             bot = get(),
+            json = get(),
         )
     }
 
@@ -241,6 +252,20 @@ val pipelineModule = module {
             bot = get(),
             json = get(),
             moniesDAO = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("PinsSuccessfulPaymentUpdateProcessor")) {
+        PinsSuccessfulPaymentUpdateProcessor(
+            bot = get(),
+            json = get(),
+            moniesDAO = get(),
+        )
+    }
+
+    single<UpdateProcessor>(named("ForwardedPaymentStartCommandUpdateProcessor")) {
+        ForwardedPaymentStartCommandUpdateProcessor(
+            bot = get(),
         )
     }
 }

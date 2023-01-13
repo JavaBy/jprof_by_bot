@@ -28,7 +28,7 @@ class PinReplyUpdateProcessor(
             return
         }
 
-        logger.info("{} replied to {}", replier, pin)
+        logger.debug("{} replied to {}", replier, pin)
 
         val monies = moniesDAO.get(pin.userId, replyTo.chat.id.chatId) ?: Monies(pin.userId, replyTo.chat.id.chatId)
 

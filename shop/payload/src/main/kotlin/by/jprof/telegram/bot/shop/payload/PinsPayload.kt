@@ -8,4 +8,4 @@ import kotlinx.serialization.Serializable
 data class PinsPayload(
     val pins: Long,
     val chat: Long,
-) : Payload()
+) : Payload

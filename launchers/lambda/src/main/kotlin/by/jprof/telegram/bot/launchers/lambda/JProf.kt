@@ -66,10 +66,11 @@ class JProf : RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse>, K
 
     override fun handleRequest(input: APIGatewayV2HTTPEvent, context: Context): APIGatewayV2HTTPResponse {
         logger.debug("Incoming request: {}", input)
+        logger.info(input.body)
 
         val update = json.decodeFromString(UpdateDeserializationStrategy, input.body ?: return OK)
 
-        logger.debug("Parsed update: {}", update)
+        logger.info("{}", update)
 
         pipeline.process(update)
 

@@ -17,6 +17,7 @@ import by.jprof.telegram.bot.pins.utils.negativeDuration
 import by.jprof.telegram.bot.pins.utils.tooManyPinnedMessages
 import by.jprof.telegram.bot.pins.utils.tooPositiveDuration
 import by.jprof.telegram.bot.pins.utils.unrecognizedDuration
+import by.jprof.telegram.bot.shop.payload.Payload
 import by.jprof.telegram.bot.shop.payload.PinsPayload
 import by.jprof.telegram.bot.shop.provider.ChatProviderTokens
 import dev.inmo.tgbotapi.bot.RequestsExecutor
@@ -49,7 +50,7 @@ class PinCommandUpdateProcessor(
 
     override suspend fun process(update: Update) {
         pinRequestFinder(update)?.let { pin ->
-            logger.info("Pin requested: {}", pin)
+            logger.debug("Pin requested: {}", pin)
 
             val monies = moniesDAO.get(pin.user.id.chatId, pin.chat.id.chatId) ?: Monies(pin.user.id.chatId, pin.chat.id.chatId)
             val pins = monies.pins ?: 0
@@ -119,7 +120,7 @@ class PinCommandUpdateProcessor(
                 chatId = pin.request.chat.id,
                 title = "168 пинов",
                 description = "Неделя закрепа",
-                payload = json.encodeToString(PinsPayload(
+                payload = json.encodeToString<Payload>(PinsPayload(
                     pins = 168,
                     chat = pin.request.chat.id.chatId,
                 )),

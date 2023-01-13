@@ -16,7 +16,7 @@ private val richInvoiceTitleMessages = listOf(
 
 fun richInvoiceTitle(status: String): String =
     MessageFormat(richInvoiceTitleMessages.random())
-        .format(status)
+        .format(arrayOf(status))
 
 private val richInvoiceDescriptionMessages = listOf(
     "Отображается в чате возле ваших сообщений"
