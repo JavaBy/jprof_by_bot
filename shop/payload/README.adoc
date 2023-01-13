@@ -1,0 +1,3 @@
+= Shop / Payload
+
+Payloads to use in `payload` field of https://core.telegram.org/bots/api#sendinvoice[TG Bot API invoices].
