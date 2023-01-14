@@ -25,22 +25,15 @@ class SupportSuccessfulPaymentUpdateProcessor(
     }
 
     override suspend fun process(update: Update) {
-        logger.info("1")
         val message = update.asMessageUpdate()?.data?.asPossiblyPaymentMessage() ?: return
-        logger.info("2")
         val user = (message as? FromUser)?.user ?: return
-        logger.info("3")
         val payment = (message.paymentInfo as? SuccessfulPaymentEvent)?.payment ?: return
-        logger.info("4")
         val payload = try {
-            logger.info("5")
             json.decodeFromString<Payload>(payment.invoicePayload) as SupportPayload
         } catch (_: Exception) {
-            logger.info("6")
             return
         }
 
-        logger.info("7")
         bot.reply(message, "Thank you for the donation!")
     }
 }

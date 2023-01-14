@@ -11,9 +11,11 @@ import dev.inmo.tgbotapi.extensions.utils.asContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asTextContent
 import dev.inmo.tgbotapi.requests.abstracts.MultipartFile
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import io.ktor.utils.io.streams.asInput
 import org.apache.logging.log4j.LogManager
 
+@OptIn(PreviewFeature::class)
 class WhatWordUpdateProcessor(
     private val languageRoomDAO: LanguageRoomDAO,
     private val bot: RequestsExecutor,
@@ -23,7 +25,7 @@ class WhatWordUpdateProcessor(
     }
 
     override suspend fun process(update: Update) {
-        val update = update.asBaseMessageUpdate() ?: return
+        @Suppress("NAME_SHADOWING") val update = update.asBaseMessageUpdate() ?: return
         val roomId = update.data.chat.id
         val message = update.data.asContentMessage() ?: return
         val content = message.content.asTextContent() ?: return

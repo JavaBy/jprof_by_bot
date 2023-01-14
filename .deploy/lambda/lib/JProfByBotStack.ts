@@ -113,6 +113,7 @@ export class JProfByBotStack extends cdk.Stack {
             code: lambda.Code.fromAsset('../../pins/unpin/build/libs/jprof_by_bot-pins-unpin-all.jar'),
             handler: 'by.jprof.telegram.bot.pins.unpin.Handler',
             environment: {
+                'JAVA_TOOL_OPTIONS': '-Dsoftware.amazon.awssdk.http.async.service.impl=software.amazon.awssdk.http.nio.netty.NettySdkAsyncHttpService',
                 'LOG_THRESHOLD': 'INFO',
                 'TABLE_PINS': pinsTable.tableName,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
@@ -160,10 +161,11 @@ export class JProfByBotStack extends cdk.Stack {
             timeout: lambdaWebhookTimeout,
             maxEventAge: cdk.Duration.minutes(5),
             retryAttempts: 0,
-            memorySize: 512,
+            memorySize: 768,
             code: lambda.Code.fromAsset('../../launchers/lambda/build/libs/jprof_by_bot-launchers-lambda-all.jar'),
             handler: 'by.jprof.telegram.bot.launchers.lambda.JProf',
             environment: {
+                'JAVA_TOOL_OPTIONS': '-Dsoftware.amazon.awssdk.http.async.service.impl=software.amazon.awssdk.http.nio.netty.NettySdkAsyncHttpService',
                 'LOG_THRESHOLD': 'INFO',
                 'TABLE_VOTES': votesTable.tableName,
                 'TABLE_YOUTUBE_CHANNELS_WHITELIST': youtubeChannelsWhitelistTable.tableName,
@@ -195,6 +197,7 @@ export class JProfByBotStack extends cdk.Stack {
             code: lambda.Code.fromAsset('../../english/urban-dictionary-daily/build/libs/jprof_by_bot-english-urban-dictionary-daily-all.jar'),
             handler: 'by.jprof.telegram.bot.english.urban_dictionary_daily.Handler',
             environment: {
+                'JAVA_TOOL_OPTIONS': '-Dsoftware.amazon.awssdk.http.async.service.impl=software.amazon.awssdk.http.nio.netty.NettySdkAsyncHttpService',
                 'LOG_THRESHOLD': 'INFO',
                 'TABLE_URBAN_WORDS_OF_THE_DAY': urbanWordsOfTheDayTable.tableName,
                 'TABLE_LANGUAGE_ROOMS': languageRoomsTable.tableName,
