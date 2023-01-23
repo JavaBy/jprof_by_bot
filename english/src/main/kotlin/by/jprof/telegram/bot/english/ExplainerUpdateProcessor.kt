@@ -65,18 +65,23 @@ class ExplainerUpdateProcessor(
         logger.debug("Explanations: $explanations")
 
         explanations.keys.sorted().forEach { word ->
-            bot.reply(
-                to = message,
-                text = buildString {
-                    appendLine(regular(iVeExplainedSomeWordsForYou()).markdownV2)
-                    appendLine()
+            val dictionaryDotDevExplanations = explanations.dictionaryDotDev[word]
+            val urbanDictionaryExplanations = explanations.dictionaryDotDev[word]
 
-                    dictionaryDotDevExplanations(explanations.dictionaryDotDev[word])
-                    urbanDictionaryExplanations(explanations.urbanDictionary[word])
-                },
-                parseMode = MarkdownV2,
-                disableWebPagePreview = true,
-            )
+            if ((!dictionaryDotDevExplanations.isNullOrEmpty()) || (!urbanDictionaryExplanations.isNullOrEmpty())) {
+                bot.reply(
+                    to = message,
+                    text = buildString {
+                        appendLine(regular(iVeExplainedSomeWordsForYou()).markdownV2)
+                        appendLine()
+
+                        dictionaryDotDevExplanations(explanations.dictionaryDotDev[word])
+                        urbanDictionaryExplanations(explanations.urbanDictionary[word])
+                    },
+                    parseMode = MarkdownV2,
+                    disableWebPagePreview = true,
+                )
+            }
         }
     }
 
