@@ -66,7 +66,7 @@ class ExplainerUpdateProcessor(
 
         explanations.keys.sorted().forEach { word ->
             val dictionaryDotDevExplanations = explanations.dictionaryDotDev[word]
-            val urbanDictionaryExplanations = explanations.dictionaryDotDev[word]
+            val urbanDictionaryExplanations = explanations.urbanDictionary[word]
 
             if ((!dictionaryDotDevExplanations.isNullOrEmpty()) || (!urbanDictionaryExplanations.isNullOrEmpty())) {
                 bot.reply(
@@ -75,8 +75,8 @@ class ExplainerUpdateProcessor(
                         appendLine(regular(iVeExplainedSomeWordsForYou()).markdownV2)
                         appendLine()
 
-                        dictionaryDotDevExplanations(explanations.dictionaryDotDev[word])
-                        urbanDictionaryExplanations(explanations.urbanDictionary[word])
+                        dictionaryDotDevExplanations(dictionaryDotDevExplanations)
+                        urbanDictionaryExplanations(urbanDictionaryExplanations)
                     },
                     parseMode = MarkdownV2,
                     disableWebPagePreview = true,
