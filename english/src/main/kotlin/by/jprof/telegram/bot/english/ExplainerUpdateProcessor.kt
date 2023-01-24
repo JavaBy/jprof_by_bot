@@ -10,6 +10,7 @@ import by.jprof.telegram.bot.english.language_rooms.model.Language
 import by.jprof.telegram.bot.english.urban_dictionary.Definition
 import by.jprof.telegram.bot.english.urban_dictionary.UrbanDictionaryClient
 import by.jprof.telegram.bot.english.utils.iVeExplainedSomeWordsForYou
+import by.jprof.telegram.bot.english.utils.noExplanations
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.utils.asBaseMessageUpdate
@@ -22,6 +23,7 @@ import dev.inmo.tgbotapi.types.message.textsources.CodeTextSource
 import dev.inmo.tgbotapi.types.message.textsources.ItalicTextSource
 import dev.inmo.tgbotapi.types.message.textsources.UnderlineTextSource
 import dev.inmo.tgbotapi.types.message.textsources.bold
+import dev.inmo.tgbotapi.types.message.textsources.italic
 import dev.inmo.tgbotapi.types.message.textsources.link
 import dev.inmo.tgbotapi.types.message.textsources.regular
 import dev.inmo.tgbotapi.types.message.textsources.underline
@@ -77,6 +79,16 @@ class ExplainerUpdateProcessor(
 
                         dictionaryDotDevExplanations(dictionaryDotDevExplanations)
                         urbanDictionaryExplanations(urbanDictionaryExplanations)
+                    },
+                    parseMode = MarkdownV2,
+                    disableWebPagePreview = true,
+                )
+            } else {
+                bot.reply(
+                    to = message,
+                    text = buildString {
+                        append(regular(noExplanations()))
+                        append(italic(word))
                     },
                     parseMode = MarkdownV2,
                     disableWebPagePreview = true,

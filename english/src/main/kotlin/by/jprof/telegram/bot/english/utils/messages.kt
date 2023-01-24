@@ -9,3 +9,12 @@ private val iVeExplainedSomeWordsForYouMessages = listOf(
 internal fun iVeExplainedSomeWordsForYou(): String {
     return iVeExplainedSomeWordsForYouMessages.random()
 }
+
+private val noExplanationsMessages = listOf(
+    "I didn't find anything for ",
+    "I'm sorry, but I was not able to find any explanations for ",
+)
+
+internal fun noExplanations(): String {
+    return iVeExplainedSomeWordsForYouMessages.random()
+}
