@@ -16,5 +16,5 @@ private val noExplanationsMessages = listOf(
 )
 
 internal fun noExplanations(): String {
-    return iVeExplainedSomeWordsForYouMessages.random()
+    return noExplanationsMessages.random()
 }
