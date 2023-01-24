@@ -87,8 +87,8 @@ class ExplainerUpdateProcessor(
                 bot.reply(
                     to = message,
                     text = buildString {
-                        append(regular(noExplanations()))
-                        append(italic(word))
+                        append(regular(noExplanations()).markdownV2)
+                        append(italic(word).markdownV2)
                     },
                     parseMode = MarkdownV2,
                     disableWebPagePreview = true,
