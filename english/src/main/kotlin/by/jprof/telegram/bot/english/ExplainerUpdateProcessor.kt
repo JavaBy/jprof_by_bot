@@ -221,7 +221,7 @@ class ExplainerUpdateProcessor(
                 appendLine()
             }
 
-            val topDefinitions = it.sortedBy(Definition::thumbsUp).take(3)
+            val topDefinitions = it.sortedByDescending(Definition::thumbsUp).take(3)
 
             topDefinitions.forEachIndexed { index, definition ->
                 append(bold(link(definition.word, definition.permalink)).markdownV2)
