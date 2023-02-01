@@ -60,7 +60,7 @@ class TimeCommandUpdateProcessor(
         val messageTime = Instant.ofEpochMilli(message.date.unixMillisLong).toLocalDateTime(timeZone) ?: return ""
         val now = Instant.now().toLocalDateTime(timeZone) ?: return ""
 
-        logger.info(
+        logger.debug(
             "Replying to {}. Author: {}. TimeZone: {}. Message time: {}, current time: {}", message, author, timeZone, messageTime, now
         )
 
@@ -91,7 +91,7 @@ class TimeCommandUpdateProcessor(
         val allMentions = mentionsWithTimeZones + textMentionsWithTimeZones
         val now = Instant.now()
 
-        logger.info(
+        logger.debug(
             "Mentions: {}. Text mentions: {}. Combined mentions with TimeZones: {}", mentions, textMentions, allMentions
         )
 

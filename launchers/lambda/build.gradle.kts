@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation(libs.bundles.aws.lambda)
+    implementation(libs.secretsmanager)
     implementation(libs.koin.core)
     implementation(libs.tgbotapi)
     implementation(libs.bundles.log4j)
@@ -28,4 +29,6 @@ dependencies {
     implementation(project.projects.english.urbanWordOfTheDay.dynamodb)
     implementation(project.projects.english.urbanDictionary)
     implementation(project.projects.english.dictionaryapiDev)
+    implementation(project.projects.shop.provider)
+    implementation(project.projects.shop)
 }

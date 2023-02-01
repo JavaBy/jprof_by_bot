@@ -23,7 +23,7 @@ class UpdateProcessingPipeline(
                 processors
                     .map {
                         launch(exceptionHandler(it)) {
-                            logger.debug("Processing update with ${it::class.simpleName}")
+                            logger.trace("Processing update with ${it::class.simpleName}")
                             it.process(update)
                         }
                     }

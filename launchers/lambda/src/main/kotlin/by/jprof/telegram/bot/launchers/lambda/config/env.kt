@@ -1,7 +1,13 @@
 package by.jprof.telegram.bot.launchers.lambda.config
 
+import by.jprof.telegram.bot.shop.provider.ChatProviderTokens
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient
+
+private const val SECRET_PAYMENT_PROVIDER_TOKENS = "jprof-by-bot-secret-payment-provider-tokens"
 
 const val TOKEN_TELEGRAM_BOT = "TOKEN_TELEGRAM_BOT"
 const val TOKEN_YOUTUBE_API = "TOKEN_YOUTUBE_API"
@@ -41,5 +47,15 @@ val envModule = module {
 
     single(named(TIMEOUT)) {
         System.getenv(TIMEOUT)!!.toLong()
+    }
+
+    single<ChatProviderTokens> {
+        val json: Json = get()
+        val secrets: SecretsManagerClient = get()
+        val secret = secrets.getSecretValue {
+            it.secretId(SECRET_PAYMENT_PROVIDER_TOKENS)
+        }
+
+        json.decodeFromString(secret.secretString())
     }
 }

@@ -28,6 +28,7 @@ import dev.inmo.tgbotapi.types.message.textsources.link
 import dev.inmo.tgbotapi.types.message.textsources.regular
 import dev.inmo.tgbotapi.types.message.textsources.underline
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
 import java.time.Duration
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -36,6 +37,7 @@ import kotlinx.coroutines.supervisorScope
 import kotlinx.coroutines.time.withTimeoutOrNull
 import org.apache.logging.log4j.LogManager
 
+@OptIn(PreviewFeature::class)
 class ExplainerUpdateProcessor(
     private val languageRoomDAO: LanguageRoomDAO,
     private val urbanDictionaryClient: UrbanDictionaryClient,
@@ -47,7 +49,7 @@ class ExplainerUpdateProcessor(
     }
 
     override suspend fun process(update: Update) {
-        val update = update.asBaseMessageUpdate() ?: return
+        @Suppress("NAME_SHADOWING") val update = update.asBaseMessageUpdate() ?: return
         val roomId = update.data.chat.id
         val message = update.data.asContentMessage() ?: return
         val content = message.content.asTextContent() ?: return
@@ -60,7 +62,7 @@ class ExplainerUpdateProcessor(
 
         val emphasizedWords = extractEmphasizedWords(content)
 
-        logger.debug("Emphasized words: $emphasizedWords")
+        logger.info("Emphasized words: $emphasizedWords")
 
         val explanations = fetchExplanations(emphasizedWords)
 
@@ -151,7 +153,7 @@ class ExplainerUpdateProcessor(
 
     private fun StringBuilder.dictionaryDotDevExplanations(dictionaryDotDevExplanations: Collection<Word>?) {
         dictionaryDotDevExplanations?.let { definitions ->
-            definitions.take(3).forEachIndexed { index, definition ->
+            definitions.take(3).forEachIndexed { _, definition ->
                 val link = definition.sourceUrls?.firstOrNull()
 
                 if (link != null) {

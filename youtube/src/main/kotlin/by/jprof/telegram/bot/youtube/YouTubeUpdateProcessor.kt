@@ -43,7 +43,7 @@ class YouTubeUpdateProcessor(
     companion object {
         private val logger = LogManager.getLogger(YouTubeUpdateProcessor::class.java)!!
         private val linkRegex =
-            "^.*((youtu.be/)|(v/)|(/u/\\w/)|(embed/)|(watch\\?))\\??v?=?([^#&?]*).*".toRegex()
+            "https?://(?:m.)?(?:www\\.)?youtu(?:\\.be/|(?:be-nocookie|be)\\.com/(?:watch|\\w+\\?(?:feature=\\w+.\\w+&)?v=|v/|e/|embed/|user/(?:[\\w#]+/)+))(?<id>[^&#?\\n]+)".toRegex()
         private const val ACCEPTED_DISPLAY_LEN = 500
     }
 
@@ -55,11 +55,9 @@ class YouTubeUpdateProcessor(
     }
 
     private suspend fun processMessage(message: Message) {
-        logger.debug("Processing message: {}", message)
-
         val youTubeVideos = extractYoutubeVideos(message) ?: return
 
-        logger.debug("YouTube videos: {}", youTubeVideos)
+        logger.info("Detected {} YouTube videos: {}", youTubeVideos.size, youTubeVideos)
 
         supervisorScope {
             youTubeVideos
@@ -76,20 +74,17 @@ class YouTubeUpdateProcessor(
                     .mapNotNull {
                         (it as? URLTextSource)?.source ?: (it as? TextLinkTextSource)?.url
                     }
-                    .mapNotNull {
-                        linkRegex.matchEntire(it)?.destructured
+                    .mapNotNull { url ->
+                        linkRegex.matchEntire(url)?.groups?.get("id")?.value?.takeUnless { it.isBlank() }
                     }
-                    .map { (_, _, _, _, _, _, id) -> id }
             }
         }
 
     private suspend fun replyToYouTubeVideo(video: String, message: Message) {
-        logger.debug("YouTube video ID: {}", video)
-
         val response = withContext(Dispatchers.IO) {
             youTube.videos().list(listOf("snippet", "statistics")).setId(listOf(video)).execute()
         }
-        val videoDetails = response.items.first()
+        val videoDetails = response.items.firstOrNull() ?: return
         val snippet = videoDetails.snippet
         val channelId = snippet.channelId
 

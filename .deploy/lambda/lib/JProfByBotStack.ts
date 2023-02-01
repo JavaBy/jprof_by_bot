@@ -3,6 +3,8 @@ import {Construct} from 'constructs';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import {Architecture} from 'aws-cdk-lib/aws-lambda';
+import * as secrets from 'aws-cdk-lib/aws-secretsmanager';
 import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
 import * as tasks from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import * as ses from 'aws-cdk-lib/aws-ses';
@@ -12,6 +14,14 @@ import {JProfByBotStackProps} from "./JProfByBotStackProps";
 export class JProfByBotStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props: JProfByBotStackProps) {
         super(scope, id, props);
+
+        const secretPaymentProviderTokens = new secrets.Secret(this, 'jprof-by-bot-secret-payment-provider-tokens', {
+            secretName: 'jprof-by-bot-secret-payment-provider-tokens',
+            secretObjectValue: {
+                1: cdk.SecretValue.unsafePlainText('test'),
+                2: cdk.SecretValue.unsafePlainText('production'),
+            }
+        });
 
         const votesTable = new dynamodb.Table(this, 'jprof-by-bot-table-votes', {
             tableName: 'jprof-by-bot-table-votes',
@@ -103,7 +113,8 @@ export class JProfByBotStack extends cdk.Stack {
             code: lambda.Code.fromAsset('../../pins/unpin/build/libs/jprof_by_bot-pins-unpin-all.jar'),
             handler: 'by.jprof.telegram.bot.pins.unpin.Handler',
             environment: {
-                'LOG_THRESHOLD': 'DEBUG',
+                'JAVA_TOOL_OPTIONS': '-Dsoftware.amazon.awssdk.http.async.service.impl=software.amazon.awssdk.http.nio.netty.NettySdkAsyncHttpService',
+                'LOG_THRESHOLD': 'INFO',
                 'TABLE_PINS': pinsTable.tableName,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
             },
@@ -123,13 +134,20 @@ export class JProfByBotStack extends cdk.Stack {
         });
 
         const layerLibGL = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libGL', {
+            layerVersionName: 'libGL',
             code: lambda.Code.fromAsset('layers/libGL.zip'),
-            compatibleRuntimes: [lambda.Runtime.JAVA_11],
+            compatibleArchitectures: [Architecture.X86_64],
         });
         const layerLibfontconfig = new lambda.LayerVersion(this, 'jprof-by-bot-lambda-layer-libfontconfig', {
+            layerVersionName: 'libfontconfig',
             code: lambda.Code.fromAsset('layers/libfontconfig.zip'),
-            compatibleRuntimes: [lambda.Runtime.JAVA_11],
+            compatibleArchitectures: [Architecture.X86_64],
         });
+        const layerParametersAndSecretsLambdaExtension = lambda.LayerVersion.fromLayerVersionArn(
+            this,
+            'jprof-by-bot-lambda-layer-parametersAndSecretsLambdaExtension',
+            'arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2'
+        )
 
         const lambdaWebhookTimeout = cdk.Duration.seconds(29);
         const lambdaWebhook = new lambda.Function(this, 'jprof-by-bot-lambda-webhook', {
@@ -138,15 +156,17 @@ export class JProfByBotStack extends cdk.Stack {
             layers: [
                 layerLibGL,
                 layerLibfontconfig,
+                layerParametersAndSecretsLambdaExtension,
             ],
             timeout: lambdaWebhookTimeout,
             maxEventAge: cdk.Duration.minutes(5),
             retryAttempts: 0,
-            memorySize: 512,
+            memorySize: 768,
             code: lambda.Code.fromAsset('../../launchers/lambda/build/libs/jprof_by_bot-launchers-lambda-all.jar'),
             handler: 'by.jprof.telegram.bot.launchers.lambda.JProf',
             environment: {
-                'LOG_THRESHOLD': 'DEBUG',
+                'JAVA_TOOL_OPTIONS': '-Dsoftware.amazon.awssdk.http.async.service.impl=software.amazon.awssdk.http.nio.netty.NettySdkAsyncHttpService',
+                'LOG_THRESHOLD': 'INFO',
                 'TABLE_VOTES': votesTable.tableName,
                 'TABLE_YOUTUBE_CHANNELS_WHITELIST': youtubeChannelsWhitelistTable.tableName,
                 'TABLE_KOTLIN_MENTIONS': kotlinMentionsTable.tableName,
@@ -177,7 +197,8 @@ export class JProfByBotStack extends cdk.Stack {
             code: lambda.Code.fromAsset('../../english/urban-dictionary-daily/build/libs/jprof_by_bot-english-urban-dictionary-daily-all.jar'),
             handler: 'by.jprof.telegram.bot.english.urban_dictionary_daily.Handler',
             environment: {
-                'LOG_THRESHOLD': 'DEBUG',
+                'JAVA_TOOL_OPTIONS': '-Dsoftware.amazon.awssdk.http.async.service.impl=software.amazon.awssdk.http.nio.netty.NettySdkAsyncHttpService',
+                'LOG_THRESHOLD': 'INFO',
                 'TABLE_URBAN_WORDS_OF_THE_DAY': urbanWordsOfTheDayTable.tableName,
                 'TABLE_LANGUAGE_ROOMS': languageRoomsTable.tableName,
                 'TOKEN_TELEGRAM_BOT': props.telegramToken,
@@ -197,6 +218,8 @@ export class JProfByBotStack extends cdk.Stack {
                 }
             ],
         });
+
+        secretPaymentProviderTokens.grantRead(lambdaWebhook);
 
         votesTable.grantReadWriteData(lambdaWebhook);
 

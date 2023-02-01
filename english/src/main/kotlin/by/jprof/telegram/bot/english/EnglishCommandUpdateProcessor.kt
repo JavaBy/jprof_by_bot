@@ -18,9 +18,12 @@ import dev.inmo.tgbotapi.requests.abstracts.MultipartFile
 import dev.inmo.tgbotapi.types.chat.member.AdministratorChatMember
 import dev.inmo.tgbotapi.types.message.MarkdownV2ParseMode
 import dev.inmo.tgbotapi.types.update.abstracts.Update
+import dev.inmo.tgbotapi.utils.PreviewFeature
+import dev.inmo.tgbotapi.utils.RiskFeature
 import io.ktor.utils.io.streams.asInput
 import org.apache.logging.log4j.LogManager
 
+@OptIn(PreviewFeature::class, RiskFeature::class)
 class EnglishCommandUpdateProcessor(
     private val languageRoomDAO: LanguageRoomDAO,
     private val bot: RequestsExecutor,
@@ -30,7 +33,7 @@ class EnglishCommandUpdateProcessor(
     }
 
     override suspend fun process(update: Update) {
-        val update = update.asBaseMessageUpdate() ?: return
+        @Suppress("NAME_SHADOWING") val update = update.asBaseMessageUpdate() ?: return
         val message = update.data.asContentMessage() ?: return
         val content = message.content.asTextContent() ?: return
         val (_, argument) = (content.textSources + null)

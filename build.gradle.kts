@@ -29,6 +29,9 @@ subprojects {
         withType<Jar> {
             // Workaround for https://stackoverflow.com/q/42174572/750510
             archiveBaseName.set(rootProject.name + "-" + this.project.path.removePrefix(":").replace(":", "-"))
+            manifest {
+                attributes["Multi-Release"] = true
+            }
         }
         withType<Test> {
             useJUnitPlatform {
@@ -40,6 +43,9 @@ subprojects {
         }
         withType<ShadowJar> {
             transform(Log4j2PluginsCacheFileTransformer::class.java)
+            manifest {
+                attributes["Multi-Release"] = true
+            }
         }
     }
 }
