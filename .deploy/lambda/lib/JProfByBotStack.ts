@@ -18,8 +18,8 @@ export class JProfByBotStack extends cdk.Stack {
         const secretPaymentProviderTokens = new secrets.Secret(this, 'jprof-by-bot-secret-payment-provider-tokens', {
             secretName: 'jprof-by-bot-secret-payment-provider-tokens',
             secretObjectValue: {
-                test: cdk.SecretValue.unsafePlainText('test'),
-                production: cdk.SecretValue.unsafePlainText('production'),
+                1: cdk.SecretValue.unsafePlainText('test'),
+                2: cdk.SecretValue.unsafePlainText('production'),
             }
         });
 
